@@ -1,12 +1,10 @@
 PVector drag;
 PFont hneue;
-ArrayList<traildot> trail = new ArrayList<traildot>();
-void settings(){
-  size(window.innerWidth, window.innerWidth*2);
-}
+ArrayList<traildot> trail = new ArrayList<traildot>();=
 void setup(){
   noCursor();
   frameRate(60);
+  size(screen.width, screen.width*2);
   
   drag = new PVector(0, 0);
   hneue = createFont("Helvetica Neue Light", 64);
