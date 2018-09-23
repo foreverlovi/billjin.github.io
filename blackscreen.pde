@@ -21,7 +21,7 @@ void draw(){
   
   fill(255, 255, 255);
   textFont(hneue);
-  text("Bill's Portfolio"+window.innerWidth, 30, 70);
+  text("Bill's Portfolio"+" 9 "+window.innerWidth, 30, 70);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
