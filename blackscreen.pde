@@ -15,6 +15,7 @@ void draw(){
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/4.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/4.5);
+  traildot newdot = new traildot();
   
   textFont(hneue);
   text("Bill's Portfolio", 30, 70);
