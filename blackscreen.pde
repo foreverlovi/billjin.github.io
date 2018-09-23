@@ -4,7 +4,7 @@ ArrayList<traildot> trail = new ArrayList<traildot>();
 void setup(){
   noCursor();
   frameRate(60);
-  size(1280, 1280*2);
+  size(window.innerWidth, window.innerWidth*2);
   
   drag = new PVector(0, 0);
   hneue = createFont("Helvetica Neue Light", 64);
@@ -21,7 +21,7 @@ void draw(){
   
   fill(255, 255, 255);
   textFont(hneue);
-  text("Bill's Portfolio"+" 9 "+window.innerWidth, 30, 70);
+  text("Bill's Portfolio", 30, 70);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
