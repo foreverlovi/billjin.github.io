@@ -1,7 +1,7 @@
 PVector drag;
 void setup(){
   frameRate(60);
-  size(500, 500);
+  fullScreen();
   
   drag = new PVector(0, 0);
 }
