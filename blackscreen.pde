@@ -20,5 +20,15 @@ void draw(){
   text("Bill's Portfolio", 30, 70);
 }
 class traildot{
-  
+  int x, y, trans, rx, ry;
+  traildot(){
+    x = mouseX;
+    y = mouseY;
+    trans = 255;
+    rx = random(-1, 1);
+    ry = random(-1, 1);
+  }
+  x += rx;
+  y += ry;
+  trans -= 5;
 }
