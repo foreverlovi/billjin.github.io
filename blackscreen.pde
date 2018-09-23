@@ -33,7 +33,7 @@ class traildot {
     trans = 155;
     rx = random(-1, 1);
     ry = random(-1, 1);
-    sz = random(5, 15);
+    sz = random(5, 20)-dist(mouseX, mouseY, drag.x, drag.y)/4.5;
   }
   void update(){
     x += rx;
