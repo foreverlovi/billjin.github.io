@@ -15,7 +15,7 @@ void draw(){
   fill(255, 255, 255);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
-  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3, 20-dist(mouseX, mouseY, drag.x, drag.y)/3);
+  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/6, 20-dist(mouseX, mouseY, drag.x, drag.y)/6);
   
   textFont(hneue);
   text("Bill's Portfolio", 30, 70);
