@@ -4,7 +4,7 @@ ArrayList<traildot> trail = new ArrayList<traildot>();
 void setup(){
   noCursor();
   frameRate(60);
-  size(window.innerWidth, window.innerWidth*2);
+  size(window.innerWidth-20, (window.innerWidth-20)*2);
   
   drag = new PVector(0, 0);
   hneue = createFont("Helvetica Neue Light", 64);
