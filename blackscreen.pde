@@ -9,7 +9,7 @@ void setup(){
   hneue = createFont("Helvetica Neue Thin", 64);
 }
 void draw(){
-  fill(0, 0, 0, 200);
+  fill(0, 0, 0, 50);
   rect(0, 0, width, height);
   noStroke();
   fill(255, 255, 255);
