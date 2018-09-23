@@ -11,5 +11,5 @@ void draw(){
   fill(255, 255, 255);
   drag.x += (mouseX - drag.x)/20;
   drag.y += (mousey - drag.y)/20;
-  ellipse(mouseX, mouseY, 50-dist(mouseX, mouseY, drag.x, drag.y), 50-dist(mouseX, mouseY, drag.x, drag.y));
+  ellipse(drag.x, drag.y, 50-dist(mouseX, mouseY, drag.x, drag.y), 50-dist(mouseX, mouseY, drag.x, drag.y));
 }
