@@ -1,18 +1,26 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>Portfolio</title>
-  <meta name="description" content="Bill's Stuff">
-  <meta name="author" content="Bill Jin">
-  
-  <script src="processing-1.0.0.min.js"></script>
-
-</head>
-
-<body>
-  <canvas data-processing-sources="hello-web.pde"></canvas>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HERE IS TITLE</title>
+    <script type="text/javascript" src="processing.js"></script>
+    <script type="text/javascript">
+      window.onload = function(){
+        //var canvas = document.getElementById('canvas1');
+        //var codeElm = document.getElementById('processing-code');
+        //var code = codeElm.textContent || codeElm.innerText;
+        //new Processing(canvas,code);
+      };
+    </script>
+    <script id="processing-code" type="application/processing">
+      void setup(){
+        background(0);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Processing Template</h1>
+    <div>
+      <canvas id="canvas1" width="400" height="400"></canvas>
+    </div>
+  </body>
 </html>
