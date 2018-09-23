@@ -7,7 +7,7 @@ void setup(){
   drag = new PVector(0, 0);
 }
 void draw(){
-  background(0, 0, 0);
+  background(0, 0, 0, 225);
   noStroke();
   fill(255, 255, 255);
   drag.x += (mouseX - drag.x)/4;
