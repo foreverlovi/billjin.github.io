@@ -7,7 +7,6 @@ void settings(){
 void setup(){
   noCursor();
   frameRate(60);
-  size(1280, 1280*2);
   
   drag = new PVector(0, 0);
   hneue = createFont("Helvetica Neue Light", 64);
