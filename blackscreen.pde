@@ -2,7 +2,7 @@ PVector drag;
 PFont hneue;
 ArrayList<traildot> trail = new ArrayList<traildot>();
 void settings(){
-  fullScreen();
+  size(window.innerWidth, window.innerWidth*2);
 }
 void setup(){
   noCursor();
