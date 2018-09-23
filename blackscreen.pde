@@ -1,9 +1,10 @@
 PVector drag;
 PFont hneue;
+ArrayList<traildot> trail = new ArrayList<traildot>();
 void setup(){
   noCursor();
   frameRate(60);
-  size(1280, 1280*2);
+  size(400, 400);
   
   drag = new PVector(0, 0);
   hneue = createFont("Helvetica Neue Light", 64);
@@ -15,25 +16,40 @@ void draw(){
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/4.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/4.5);
-  traildot newdot = new traildot();
+  trail.add(new traildot());
+  drawtrail();
   
   textFont(hneue);
   text("Bill's Portfolio", 30, 70);
 }
-class traildot{
-  int x, y, trans, rx, ry, sz;
+class traildot {
+  float x, y, trans, rx, ry, sz;
   traildot(){
-    x = mouseX;
-    y = mouseY;
-    trans = 255;
+    x = drag.x;
+    y = drag.y;
+    trans = 155;
     rx = random(-1, 1);
     ry = random(-1, 1);
-    sz = random(10, 20);
+    sz = random(5, 15);
   }
-  x += rx;
-  y += ry;
-  trans -= 5;
-  noStroke();
-  fill(255, trans);
-  ellipse(x, y, sz, sz);
+  void update(){
+    x += rx;
+    y += ry;
+    trans -= 10;
+    noStroke();
+    fill(255, trans);
+    ellipse(x, y, sz, sz);
+  }
+}
+void drawtrail(){
+  for(int i = 0; i < trail.size(); i++){
+    traildot t = trail.get(i);
+    t.update();
+  }
+  for(int i = trail.size() - 1; i>=0; i--){
+    traildot t = trail.get(i);
+    if(t.trans<=0){
+      trail.remove(i);
+    }
+  }
 }
