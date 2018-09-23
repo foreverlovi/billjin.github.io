@@ -1,6 +1,6 @@
 PVector drag;
 PFont hneue;
-ArrayList<traildot> trail = new ArrayList<traildot>();=
+ArrayList<traildot> trail = new ArrayList<traildot>();
 void setup(){
   noCursor();
   frameRate(60);
