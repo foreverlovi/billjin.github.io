@@ -21,15 +21,19 @@ void draw(){
   text("Bill's Portfolio", 30, 70);
 }
 class traildot{
-  int x, y, trans, rx, ry;
+  int x, y, trans, rx, ry, sz;
   traildot(){
     x = mouseX;
     y = mouseY;
     trans = 255;
     rx = random(-1, 1);
     ry = random(-1, 1);
+    sz = random(10, 20);
   }
   x += rx;
   y += ry;
   trans -= 5;
+  noStroke();
+  fill(255, trans);
+  ellipse(x, y, sz, sz);
 }
