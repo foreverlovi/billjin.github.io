@@ -1,5 +1,6 @@
 PVector drag;
 void setup(){
+  noCursor();
   frameRate(60);
   size(1280, 1280*2);
   
