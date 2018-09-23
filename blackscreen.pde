@@ -2,14 +2,14 @@ PVector drag;
 PFont hneue;
 void setup(){
   noCursor();
-  frameRate(60);
+  frameRate(120);
   size(1280, 1280*2);
   
   drag = new PVector(0, 0);
   hneue = createFont("Helvetica Neue Thin", 64);
 }
 void draw(){
-  fill(0, 0, 0, 50);
+  fill(0, 0, 0, 130);
   rect(0, 0, width, height);
   noStroke();
   fill(255, 255, 255);
