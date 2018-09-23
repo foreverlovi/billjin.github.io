@@ -1,6 +1,9 @@
 PVector drag;
 PFont hneue;
 ArrayList<traildot> trail = new ArrayList<traildot>();
+void settings(){
+  fullScreen();
+}
 void setup(){
   noCursor();
   frameRate(60);
@@ -19,6 +22,7 @@ void draw(){
   trail.add(new traildot());
   drawtrail();
   
+  fill(255, 255, 255);
   textFont(hneue);
   text("Bill's Portfolio", 30, 70);
 }
