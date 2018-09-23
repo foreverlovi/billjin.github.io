@@ -6,7 +6,7 @@ void setup(){
   size(1280, 1280*2);
   
   drag = new PVector(0, 0);
-  hneue = createFont("Helvetica Neue Light", 64);
+  hneue = createFont("Helvetica Neue Thin", 64);
 }
 void draw(){
   fill(0, 0, 0, 200);
