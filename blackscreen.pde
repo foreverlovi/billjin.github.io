@@ -1,4 +1,4 @@
-@pjs font="data/hneueLi64.ttf";
+@pjs font="/data/hneueLi64.ttf";
 
 PVector drag;
 PFont hneue;
