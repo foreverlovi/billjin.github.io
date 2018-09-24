@@ -1,3 +1,5 @@
+/* @pjs font="data/hneueLi64.ttf"; */
+
 PVector drag;
 PFont hneue;
 ArrayList<traildot> trail = new ArrayList<traildot>();
@@ -7,7 +9,7 @@ void setup(){
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
-  hneue = loadFont("/data/hneueLi64.vlw");
+  hneue = createFont("hneueLi64");
 }
 void draw(){
   background(0);
@@ -20,7 +22,7 @@ void draw(){
   drawtrail();
   
   fill(255, 255, 255);
-  textFont(hneue, 64);
+  textFont(hneue);
   text("Bill's Portfolio", 30, 70);
 }
 class traildot {
