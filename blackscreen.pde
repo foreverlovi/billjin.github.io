@@ -22,7 +22,7 @@ void draw(){
   fill(255, 255, 255);
   textSize(64);
   textFont(hneue);
-  text("Bill's Portfolio", 30, 70);
+  text("Bill's Portfolion", 30, 70);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
