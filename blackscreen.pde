@@ -7,7 +7,7 @@ void setup(){
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
-  hneue = loadFont("/hneueLi64.vlw");
+  hneue = loadFont("hneueLi64.vlw");
 }
 void draw(){
   background(0);
@@ -20,6 +20,7 @@ void draw(){
   drawtrail();
   
   fill(255, 255, 255);
+  textSize(64);
   textFont(hneue);
   text("Bill's Portfolio", 30, 70);
 }
