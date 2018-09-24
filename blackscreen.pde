@@ -20,8 +20,7 @@ void draw(){
   drawtrail();
   
   fill(255, 255, 255);
-  textSize(64);
-  textFont(hneue);
+  textFont(hneue, 64);
   text("Bill's Portfolio", 30, 70);
 }
 class traildot {
