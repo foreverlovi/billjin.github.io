@@ -1,5 +1,3 @@
-@pjs font="/data/hneueLi64.ttf";
-
 PVector drag;
 PFont hneue;
 ArrayList<traildot> trail = new ArrayList<traildot>();
@@ -9,7 +7,7 @@ void setup(){
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
-  hneue = createFont("hneueLi64");
+  hneue = createFont("https://github.com/Nimbility/bucky/blob/master/app/assets/fonts/helveticaneue/HelveticaNeue-Thin.ttf");
 }
 void draw(){
   background(0);
