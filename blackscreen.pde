@@ -15,7 +15,7 @@ void draw(){
   fill(255, 255, 255);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
-  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/4.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/4.5);
+  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5);
   trail.add(new traildot());
   drawtrail();
   
@@ -31,7 +31,7 @@ class traildot {
     trans = 155;
     rx = random(-1, 1);
     ry = random(-1, 1);
-    sz = random(5, 20)-dist(mouseX, mouseY, drag.x, drag.y)/4.5;
+    sz = random(5, 20)-dist(mouseX, mouseY, drag.x, drag.y)/3.5;
   }
   void update(){
     x += rx;
