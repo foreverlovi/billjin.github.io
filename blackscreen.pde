@@ -68,7 +68,7 @@ void drawtrail(){
 }
 void keyReleased(){
   if(key=='c'){
-    if(backcol<5){
+    if(backcol==0){
       backcol = 255;
       mousecol = 0;
     }
