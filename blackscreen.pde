@@ -4,7 +4,7 @@ int mousecol, backcol;
 PVector drag;
 PFont hneue;
 float portfolio;
-boolean switch;
+boolean switchc;
 ArrayList<traildot> trail = new ArrayList<traildot>();
 void setup(){
   noCursor();
@@ -18,7 +18,7 @@ void setup(){
   backcol = 0;
   
   portfolio = -100;
-  switch = false;
+  switchc = false;
 }
 void draw(){
   background(backcol);
@@ -36,16 +36,16 @@ void draw(){
   while(portfolio<=69.7){
     portfolio += (70-portfolio)/50;
   }
-  if(switch){
+  if(switchc){
     if(backcol<5){
       backcol = 255;
       mousecol = 0;
-      switch = false;
+      switchc = false;
     }
     if(backcol>250){
       backcol = 0;
       mousecol = 255;
-      switch = false;
+      switchc = false;
     }
   }
 }
@@ -82,6 +82,6 @@ void drawtrail(){
 }
 void keyReleased(){
   if(key=='c'){
-    switch = true;
+    switchc = true;
   }
 }
