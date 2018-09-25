@@ -13,8 +13,8 @@ void setup(){
   drag = new PVector(0, 0);
   hneue = createFont("/data/hneueLi64.ttf");
   
-  mousecol = 255;
-  backcol = 0;
+  mousecol = 0;
+  backcol = 255;
   
   portfolio = -100;
 }
