@@ -31,9 +31,9 @@ void draw(){
   fill(mousecol);
   textFont(hneue, 64);
   text("Bill's Portfolio", 30, portfolio);
-  while(portfolio<=69.7){
-    portfolio += (70-portfolio)/50;
-  }
+  portfolio += (70-portfolio)/50;
+  
+  document.body.style.background = backcol;
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -70,6 +70,5 @@ void keyReleased(){
   if(key=='c'){
     backcol = (backcol + 255)%510;
     mousecol = (mousecol + 255)%510;
-    document.body.style.background = backcol;
   }
 }
