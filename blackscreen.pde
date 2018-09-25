@@ -68,13 +68,7 @@ void drawtrail(){
 }
 void keyReleased(){
   if(key=='c'){
-    if(backcol==0){
-      backcol = 255;
-      mousecol = 0;
-    }
-    if(backcol>250){
-      backcol = 0;
-      mousecol = 255;
-    }
+    backcol = (backcol + 255)%510;
+    mousecol = (mousecol + 255)%510;
   }
 }
