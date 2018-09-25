@@ -9,7 +9,7 @@ void setup(){
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
-  hneue = createFont("hneueLi64", 64);
+  hneue = createFont("/data/hneueLi64.ttf", 64);
 }
 void draw(){
   background(0);
