@@ -1,7 +1,9 @@
 /* @pjs font=/data/hneueLi64.ttf */ 
 
+color mousecol, backcol;
 PVector drag;
 PFont hneue;
+float portfolio;
 ArrayList<traildot> trail = new ArrayList<traildot>();
 void setup(){
   noCursor();
@@ -10,11 +12,16 @@ void setup(){
   
   drag = new PVector(0, 0);
   hneue = createFont("/data/hneueLi64.ttf");
+  
+  mousecol = 255;
+  backcol = 0;
+  
+  portfolio = -100;
 }
 void draw(){
-  background(0);
+  background(backcol);
   noStroke();
-  fill(255, 255, 255);
+  fill(mousecol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5);
@@ -23,7 +30,10 @@ void draw(){
   
   fill(255, 255, 255);
   textFont(hneue, 64);
-  text("Bill's Portfolio", 30, 70);
+  text("Bill's Portfolio", 30, portfolio);
+  while(portfolio<=69.6){
+    portfolio += (70-portfolio)/20;
+  }
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -40,7 +50,7 @@ class traildot {
     y += ry;
     trans -= 10;
     noStroke();
-    fill(255, trans);
+    fill(mousecol, trans);
     ellipse(x, y, sz, sz);
   }
 }
