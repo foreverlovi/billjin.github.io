@@ -70,5 +70,6 @@ void keyReleased(){
   if(key=='c'){
     backcol = (backcol + 255)%510;
     mousecol = (mousecol + 255)%510;
+    document.body.style.background = backcol;
   }
 }
