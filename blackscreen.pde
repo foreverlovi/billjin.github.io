@@ -33,7 +33,7 @@ void draw(){
   text("Bill's Portfolio", 30, portfolio);
   portfolio += (70-portfolio)/50;
   
-  document.body.style.backgroundColor = backcol;
+  document.body.style.backgroundColor = color(backcol, backcol, backcol);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
