@@ -68,13 +68,11 @@ void keyReleased(){
   if(key=='c'){
     if(backcol==0){
       document.body.style.background = "#FFFFFF";    
-      backcol = (backcol + 255)%510;
-      mousecol = (mousecol + 255)%510;
     }
     if(backcol == 255){
       document.body.style.background = "#000000";
-      backcol = (backcol + 255)%510;
-      mousecol = (mousecol + 255)%510;
     }
+    backcol = (backcol + 255)%510;
+    mousecol = (mousecol + 255)%510;
   }
 }
