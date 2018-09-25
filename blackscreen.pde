@@ -9,7 +9,7 @@ void setup(){
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
-  hneue = createFont("/data/hneueLi64.ttf", 64);
+  hneue = createFont("/data/hneueLi64.ttf");
 }
 void draw(){
   background(0);
@@ -22,7 +22,7 @@ void draw(){
   drawtrail();
   
   fill(255, 255, 255);
-  textFont(hneue);
+  textFont(hneue, 64);
   text("Bill's Portfolio", 30, 70);
 }
 class traildot {
