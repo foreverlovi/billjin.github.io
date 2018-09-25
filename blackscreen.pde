@@ -32,8 +32,6 @@ void draw(){
   textFont(hneue, 64);
   text("Bill's Portfolio", 30, portfolio);
   portfolio += (70-portfolio)/50;
-  
-  document.body.style.background = color(backcol, backcol, backcol);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -68,6 +66,12 @@ void drawtrail(){
 }
 void keyReleased(){
   if(key=='c'){
+    if(backcol==0){
+      document.body.style.background = "FFFFFF";
+    }
+    if(backcol == 255){
+      document.body.style.background = "000000";
+    }
     backcol = (backcol + 255)%510;
     mousecol = (mousecol + 255)%510;
   }
