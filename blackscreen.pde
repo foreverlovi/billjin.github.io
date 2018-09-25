@@ -1,6 +1,6 @@
 /* @pjs font=/data/hneueLi64.ttf */ 
 
-color mousecol, backcol;
+int mousecol, backcol;
 PVector drag;
 PFont hneue;
 float portfolio;
@@ -28,10 +28,10 @@ void draw(){
   trail.add(new traildot());
   drawtrail();
   
-  fill(255, 255, 255);
+  fill(mousecol);
   textFont(hneue, 64);
   text("Bill's Portfolio", 30, portfolio);
-  while(portfolio<=69.6){
+  while(portfolio<=69.7){
     portfolio += (70-portfolio)/20;
   }
 }
@@ -63,6 +63,18 @@ void drawtrail(){
     traildot t = trail.get(i);
     if(t.trans<=0){
       trail.remove(i);
+    }
+  }
+}
+void keyReleased(){
+  if(key=='c'){
+    if(backcol<5){
+      backcol += (255-backcol)/14;
+      mousecol += (0-mousecol)/14;
+    }
+    if(backcol>250){
+      backcol += (0-backcol)/14;
+      mousecol += (255-mousecol)/14;
     }
   }
 }
