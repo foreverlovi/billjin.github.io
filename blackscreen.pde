@@ -1,4 +1,4 @@
-/* @pjs font="/data/hneueLi64.ttf" */ 
+/* @pjs font=/data/hneueLi64.ttf */ 
 
 PVector drag;
 PFont hneue;
@@ -9,7 +9,7 @@ void setup(){
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
-  hneue = loadFont("hneueLi64");
+  hneue = createFont("hneueLi64", 64);
 }
 void draw(){
   background(0);
