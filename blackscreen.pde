@@ -94,11 +94,11 @@ class buttons{
   }
   void update(){
     pos.y += (ypos-pos.y)/30;
-    //tint(255, abs(pos.y-(ypos+40))*(255/40));
+    tint(255, frameCount);
     imageMode(CENTER);
-    image(img, pos.x, pos.y, 256, 144);
+    image(img, pos.x, pos.y, width/4, width/4/(16/9));
     if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
-      link(linkto);
+      link(linkto, "_new");
     }
   }
 }
