@@ -5,6 +5,7 @@ PVector drag;
 PFont hneue;
 float portfolio;
 ArrayList<traildot> trail = new ArrayList<traildot>();
+ArrayList<buttons> btns = new ArrayList<buttons>();
 void setup(){
   noCursor();
   frameRate(60);
@@ -17,8 +18,9 @@ void setup(){
   backcol = 0;
   
   portfolio = -100;
+  
+  btns.add(new buttons((window.innerWidth-30)/4, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM"));
 }
-buttons thing = new buttons((window.innerWidth-30)/3, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
 void draw(){
   background(backcol);
   noStroke();
@@ -28,6 +30,8 @@ void draw(){
   textFont(hneue, 64);
   text("Bill's Portfolio", 30, portfolio);
   portfolio += (70-portfolio)/50;
+  
+  updatebuttons();
   
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
@@ -66,6 +70,12 @@ void drawtrail(){
     }
   }
 }
+void updatebuttons(){
+  for(int i = 0; i < btns.size();  i ++){
+    buttons btn = buttons.get(i);
+    btn.update();
+  }
+}
 void keyReleased(){
   if(key=='c'){
     if(backcol==0){
@@ -83,7 +93,6 @@ class buttons{
   int ypos;
   PImage img;
   String linkto;
-  boolean press;
   buttons(int x, int y, String thumbnail, String clicklink){
     pos = new PVector(0,0);
     pos.x = x;
@@ -100,12 +109,15 @@ class buttons{
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
     fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
     rect(pos.x, pos.y, width/4, width/4/(16/9));
-    if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
-      press = true;
-    }
-    if(press){
-      link(linkto, "_new");
-      press = false;
+  }
+}
+void mouseClicked(){
+  for(int i = 0; i < btns.size();  i ++){
+    buttons btn = buttons.get(i);
+    if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
+      if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/4/(16/9)){
+        link(btn.linkto, "_new");
+      }
     }
   }
 }
