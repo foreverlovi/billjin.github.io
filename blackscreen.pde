@@ -18,7 +18,7 @@ void setup(){
   
   portfolio = -100;
 }
-buttons thing = new buttons(width/5, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
+buttons thing = new buttons(width/3, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
 void draw(){
   background(backcol);
   noStroke();
@@ -89,18 +89,18 @@ class buttons{
     pos.x = x;
     pos.y = y+30;
     ypos = y;
-    /* @pjs preload=thumbnail; */
     img = loadImage(thumbnail);
     linkto = clicklink;
   }
   void update(){
     pos.y += (ypos-pos.y)/30;
-    fill(255, frameCount);
+    fill(255, ((ypos+30)-pos.y)*(255/30));
     rectMode(CENTER);
     rect(pos.x, pos.y, width/4+1, width/4/(16/9)+1);
-    tint(255, frameCount);
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
+    fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
+    rect(pos.x, pos.y, width/4, width/4/(16/9));
     if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
       link(linkto, "_new");
     }
