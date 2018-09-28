@@ -18,7 +18,7 @@ void setup(){
   
   portfolio = -100;
 }
-buttons thing = new buttons(width/2, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
+//buttons thing = new buttons(width/2, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
 void draw(){
   background(backcol);
   noStroke();
@@ -29,7 +29,7 @@ void draw(){
   trail.add(new traildot());
   drawtrail();
   
-  thing.update();
+  //thing.update();
   
   fill(mousecol);
   textFont(hneue, 64);
