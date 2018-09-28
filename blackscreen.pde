@@ -29,7 +29,7 @@ void draw(){
   trail.add(new traildot());
   drawtrail();
   
-  //thing.update();
+  thing.update();
   
   fill(mousecol);
   textFont(hneue, 64);
