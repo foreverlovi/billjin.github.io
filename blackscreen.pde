@@ -18,7 +18,7 @@ void setup(){
   
   portfolio = -100;
 }
-buttons thing = new buttons(500, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
+buttons thing = new buttons(width/5, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
 void draw(){
   background(backcol);
   noStroke();
@@ -94,6 +94,9 @@ class buttons{
   }
   void update(){
     pos.y += (ypos-pos.y)/30;
+    fill(255, frameCount);
+    rectMode(CENTER);
+    rect(pos.x, pos.y, width/4+1, width/4/(16/9)+1);
     tint(255, frameCount);
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
