@@ -18,7 +18,7 @@ void setup(){
   
   portfolio = -100;
 }
-button thing = new button(width/2, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
+buttons thing = new buttons(width/2, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM");
 void draw(){
   background(backcol);
   noStroke();
@@ -79,12 +79,12 @@ void keyReleased(){
     mousecol = (mousecol + 255)%510;
   }
 }
-class button{
+class buttons{
   PVector pos;
   int ypos;
   PImage img;
   String linkto;
-  button(int x, int y, String thumbnail, String clicklink){
+  buttons(int x, int y, String thumbnail, String clicklink){
     pos.x = x;
     ypos = y;
     pos.y = y+30;
@@ -93,7 +93,7 @@ class button{
   }
   void update(){
     pos.y += (ypos-pos.y)/20;
-    tint(255, abs(pos.y-(ypos+40))*(255/40));
+    //tint(255, abs(pos.y-(ypos+40))*(255/40));
     imageMode(CENTER);
     image(img, pos.x, pos.y, 256, 144);
     if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
