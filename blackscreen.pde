@@ -33,7 +33,7 @@ void draw(){
   
   fill(mousecol);
   textFont(hneue, 64);
-  text("Bill's Portfolio", 30, portfolio);
+  text("Bill's Portfolios", 30, portfolio);
   portfolio += (70-portfolio)/50;
 }
 class traildot {
