@@ -72,7 +72,7 @@ void drawtrail(){
 }
 void updatebuttons(){
   for(int i = 0; i < btns.size();  i ++){
-    buttons btn = buttons.get(i);
+    buttons btn = btns.get(i);
     btn.update();
   }
 }
@@ -113,7 +113,7 @@ class buttons{
 }
 void mouseClicked(){
   for(int i = 0; i < btns.size();  i ++){
-    buttons btn = buttons.get(i);
+    buttons btn = btns.get(i);
     if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
       if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/4/(16/9)){
         link(btn.linkto, "_new");
