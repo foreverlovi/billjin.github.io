@@ -33,7 +33,7 @@ void draw(){
   
   fill(mousecol);
   textFont(hneue, 64);
-  text("Bill's Portfolios", 30, portfolio);
+  text("Bill's Portfolio", 30, portfolio);
   portfolio += (70-portfolio)/50;
 }
 class traildot {
@@ -85,15 +85,14 @@ class buttons{
   PImage img;
   String linkto;
   buttons(int x, int y, String thumbnail, String clicklink){
-    pos.x = x;
+    pos = new PVector(x, y+30);
     ypos = y;
-    pos.y = y+30;
     img = loadImage(thumbnail);
     linkto = clicklink;
   }
   void update(){
     pos.y += (ypos-pos.y)/20;
-    //tint(255, abs(pos.y-(ypos+40))*(255/40));
+    tint(255, abs(pos.y-(ypos+40))*(255/40));
     imageMode(CENTER);
     image(img, pos.x, pos.y, 256, 144);
     if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
