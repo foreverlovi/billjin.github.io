@@ -85,18 +85,20 @@ class buttons{
   PImage img;
   String linkto;
   buttons(int x, int y, String thumbnail, String clicklink){
-    pos = new PVector(x, y+30);
+    pos = new PVector(0,0);
+    pos.x = x;
+    pos.y = y+30;
     ypos = y;
     img = loadImage(thumbnail);
     linkto = clicklink;
   }
   void update(){
-    pos.y += (ypos-pos.y)/20;
+    pos.y += (ypos-pos.y)/30;
     tint(255, abs(pos.y-(ypos+40))*(255/40));
     imageMode(CENTER);
     image(img, pos.x, pos.y, 256, 144);
-    if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
+    /*if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
       link(linkto);
-    }
+    }*/
   }
 }
