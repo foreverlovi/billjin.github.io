@@ -29,6 +29,8 @@ void draw(){
   trail.add(new traildot());
   drawtrail();
   
+  thing.update();
+  
   fill(mousecol);
   textFont(hneue, 64);
   text("Bill's Portfolio", 30, portfolio);
