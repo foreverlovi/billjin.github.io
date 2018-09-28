@@ -22,19 +22,18 @@ buttons thing = new buttons(width/3, 300, "https://imgur.com/4Tl9iYF.png", "http
 void draw(){
   background(backcol);
   noStroke();
-  fill(mousecol);
-  drag.x += (mouseX - drag.x)/7;
-  drag.y += (mouseY - drag.y)/7;
-  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5);
-  trail.add(new traildot());
-  drawtrail();
-  
   thing.update();
   
   fill(mousecol);
   textFont(hneue, 64);
   text("Bill's Portfolio", 30, portfolio);
   portfolio += (70-portfolio)/50;
+  
+  drag.x += (mouseX - drag.x)/7;
+  drag.y += (mouseY - drag.y)/7;
+  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5);
+  trail.add(new traildot());
+  drawtrail();
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
