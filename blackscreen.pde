@@ -89,6 +89,7 @@ class buttons{
     pos.x = x;
     pos.y = y+30;
     ypos = y;
+    /* @pjs preload=thumbnail; */
     img = loadImage(thumbnail);
     linkto = clicklink;
   }
