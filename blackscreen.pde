@@ -83,11 +83,13 @@ class buttons{
   int ypos;
   PImage img;
   String linkto;
+  boolean press;
   buttons(int x, int y, String thumbnail, String clicklink){
     pos = new PVector(0,0);
     pos.x = x;
     pos.y = y+30;
     ypos = y;
+    press = false;
     img = loadImage(thumbnail);
     linkto = clicklink;
   }
@@ -99,7 +101,11 @@ class buttons{
     fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
     rect(pos.x, pos.y, width/4, width/4/(16/9));
     if(mousePressed&&mouseX<pos.x+128&&mouseX>pos.x-128&&mouseY>pos.y-72&&mouseY<pos.y+72){
+      press = true;
+    }
+    if(press){
       link(linkto, "_new");
+      press = false;
     }
   }
 }
