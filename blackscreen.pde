@@ -21,7 +21,7 @@ void setup(){
   
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM"));
+  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", color(255)), "CO Episode 3 Part 1");
 }
 void draw(){
   background(backcol);
@@ -121,13 +121,17 @@ class buttons{
   int ypos;
   PImage img;
   String linkto;
-  buttons(int x, int y, String thumbnail, String clicklink){
+  color tc;
+  String cap;
+  buttons(int x, int y, String thumbnail, String clicklink, color textc, String caption){
     pos = new PVector(0,0);
     pos.x = x;
     pos.y = y+30;
     ypos = y;
     img = loadImage(thumbnail);
     linkto = clicklink;
+    tc = textc;
+    cap = caption;
   }
   void update(){
     rectMode(CENTER);
@@ -141,6 +145,10 @@ class buttons{
       pos.y += (ypos-pos.y)/15;
     }
     rect(pos.x, pos.y, width/4, width/4/(16/9));
+    
+    fill(tc);
+    textFont(hneue, 14);
+    text(cap, pos.x-width/8+30, pos.y+width/8/(16/9)-30);
   }
 }
 void mouseClicked(){
