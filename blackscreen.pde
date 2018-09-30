@@ -59,7 +59,11 @@ void draw(){
   
   textFont(hneue, 14);
   textAlign(CENTER);
-  fill(mousecol, opens);
+  int r = (get(drag.x, drag.y)>>24) & 0xff;
+  int g = (get(drag.x, drag.y)>>16) & 0xff;
+  int b = (get(drag.x, drag.y)>>8) & 0xff;
+  if((r+g+b)/3<185) fill(255, opens);
+  if((r+g+b)/3>=185) fill(0, opens);
   text("open?", drag.x, drag.y-open);
 }
 class traildot {
