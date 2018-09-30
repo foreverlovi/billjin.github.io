@@ -21,7 +21,7 @@ void setup(){
   
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", color(255), "CO Episode 3 Part 1"));
+  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", 255, "CO Episode 3 Part 1"));
 }
 void draw(){
   background(backcol);
@@ -121,10 +121,10 @@ class buttons{
   int ypos;
   PImage img;
   String linkto;
-  color tc;
+  int tc;
   float sz;
   String cap;
-  buttons(int x, int y, String thumbnail, String clicklink, color textc, String caption){
+  buttons(int x, int y, String thumbnail, String clicklink, int textc, String caption){
     pos = new PVector(0,0);
     pos.x = x;
     pos.y = y+30;
@@ -144,6 +144,11 @@ class buttons{
     }
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
+    if(tc == 255){
+      image("/data/gradient.png", pos.x, pos.y, width/4, width/4/(16/9));
+    } else if(tc==0){
+      image("/data/wgradient.png", pos.x, pos.y, width/4, width/4/(16/9));
+    }
     if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
       pos.y += ((ypos-30)-pos.y)/15;
       fill(mousecol, ((ypos)-pos.y)*(55/30));
