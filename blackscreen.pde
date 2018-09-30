@@ -24,7 +24,8 @@ void setup(){
   wgradi = loadImage("/data/wgradient.png");
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", 255, "CO Episode 3 Part 1"));
+  btns.add(new buttons((window.innerWidth-30)/7, 200, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", 255, "CO Episode 3 Part 1"));
+   btns.add(new buttons((window.innerWidth-30)/7*6, 200, "https://imgur.com/USD4r3D.png", "https://www.youtube.com/watch?v=9x0IXjz23DI", 0, "CO Episode 2"));
 }
 void draw(){
   background(backcol);
