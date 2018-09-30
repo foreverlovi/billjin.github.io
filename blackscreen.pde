@@ -9,7 +9,7 @@ ArrayList<traildot> trail = new ArrayList<traildot>();
 ArrayList<buttons> btns = new ArrayList<buttons>();
 ArrayList<clicks> click = new ArrayList<clicks>();
 float roundness;
-float open, open2;
+float open, opens;
 void setup(){
   noCursor();
   frameRate(60);
@@ -22,6 +22,8 @@ void setup(){
   mousecol = 255;
   backcol = 0;
   roundness = 100;
+  open = 0;
+  opens = 0;
   
   bgradi = loadImage("/data/gradient.png");
   wgradi = loadImage("/data/wgradient.png");
@@ -54,9 +56,9 @@ void draw(){
   rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   trail.add(new traildot());
   
-  textFont(hneue, 8);
-  textMode(CENTER);
-  fill(mousecol, open2);
+  textFont(hneue, 14);
+  textAlign(CENTER);
+  fill(mousecol, opens);
   text("Open?", drag.x, drag.y-open);
 }
 class traildot {
@@ -97,8 +99,15 @@ void updatebuttons(){
     if(btn.hover) hovercount += 1;
     btn.update();
   }
-  if(hovercount > 0) roundness += (0-roundness) / 8; open += (15-open) / 16; open2 += (255 - open2) / 16;
-  if(hovercount == 0) roundness += (50-roundness) / 40; open += (0 - open) / 16; open2 += (0 - open2) / 16; 
+  if(hovercount > 0){ 
+    roundness += (0-roundness) / 8; 
+    open += (30-open) / 16; 
+    opens += (255 - opens) / 16;
+  } else {
+    roundness += (50-roundness) / 40; 
+    open += (0 - open) / 16; 
+    opens += (0 - opens) / 16; 
+  }
 }
 void keyReleased(){
   if(key=='c'){
