@@ -59,7 +59,7 @@ void draw(){
   textFont(hneue, 14);
   textAlign(CENTER);
   fill(mousecol, opens);
-  text("Open?", drag.x, drag.y-open);
+  text("open?", drag.x, drag.y-open);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -101,12 +101,12 @@ void updatebuttons(){
   }
   if(hovercount > 0){ 
     roundness += (0-roundness) / 8; 
-    open += (30-open) / 16; 
-    opens += (255 - opens) / 16;
+    open += (20-open) / 10; 
+    opens += (255 - opens) / 10;
   } else {
-    roundness += (50-roundness) / 40; 
-    open += (0 - open) / 16; 
-    opens += (0 - opens) / 16; 
+    roundness += (50-roundness) / 70; 
+    open += (0 - open) / 10; 
+    opens += (0 - opens) / 10; 
   }
 }
 void keyReleased(){
@@ -169,6 +169,7 @@ class buttons{
   }
   void update(){
     rectMode(CENTER);
+    textAlign(LEFT);
     fill(mousecol);
     rect(pos.x, pos.y, sz, width/4/(16/9)+2);
     if(frameCount>60){
