@@ -56,10 +56,12 @@ void draw(){
   fill(backcol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
-  rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
+  pushMatrix();
+  translate(drag.x, drag.y);
+  rotate(radians(frameCount*2));
+  rect(0, 0, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
+  popMatrix();
   trail.add(new traildot());
-  
-  
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
