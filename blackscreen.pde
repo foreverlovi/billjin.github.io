@@ -108,12 +108,10 @@ class buttons{
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
     fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
     rect(pos.x, pos.y, width/4, width/4/(16/9));
-    if(mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
-      if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/4/(16/9)){
-        pos.y += ((ypos-30)-pos.y)/30;
-      } else {
-        pos.y += (ypos-pos.y)/30;
-      }
+    if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/4/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
+      pos.y += ((ypos-30)-pos.y)/30;
+    } else {
+      pos.y += (ypos-pos.y)/30;
     }
   }
 }
