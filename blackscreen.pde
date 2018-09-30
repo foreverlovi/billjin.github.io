@@ -43,14 +43,15 @@ void draw(){
   updatebuttons();
   drawclicks();
   
+  noStroke();
+  drawtrail();
   stroke(mousecol);
+  strokeWeight(2);
   fill(backcol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   trail.add(new traildot());
-  noStroke();
-  drawtrail();
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
