@@ -20,7 +20,7 @@ void setup(){
   
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/4, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM"));
+  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM"));
 }
 void draw(){
   background(backcol);
