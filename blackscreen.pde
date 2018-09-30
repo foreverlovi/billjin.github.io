@@ -91,8 +91,8 @@ void updatebuttons(){
     if(btn.hover) hovercount += 1;
     btn.update();
   }
-  if(hovercount > 0) roundness += (0-roundness) / 30;
-  if(hovercount == 0) roundness += (50-roundness) / 30;
+  if(hovercount > 0) roundness += (0-roundness) / 10;
+  if(hovercount == 0) roundness += (50-roundness) / 40;
 }
 void keyReleased(){
   if(key=='c'){
