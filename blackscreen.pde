@@ -106,20 +106,21 @@ class buttons{
     rectMode(CENTER);
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
-    fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
-    rect(pos.x, pos.y, width/4, width/4/(16/9));
-    if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/4/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
+    if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
       pos.y += ((ypos-30)-pos.y)/30;
+      fill((backcol+255)%510, ((ypos)-pos.y)*(55/30)*-1);
     } else {
-      pos.y += (ypos-pos.y)/30;
+      fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
+      pos.y += (ypos-pos.y)/15;
     }
+    rect(pos.x, pos.y, width/4, width/4/(16/9));
   }
 }
 void mouseClicked(){
   for(int i = 0; i < btns.size();  i ++){
     buttons btn = btns.get(i);
     if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
-      if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/4/(16/9)){
+      if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/8/(16/9)){
         link(btn.linkto, "_new");
       }
     }
