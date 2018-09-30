@@ -10,6 +10,7 @@ ArrayList<buttons> btns = new ArrayList<buttons>();
 ArrayList<clicks> click = new ArrayList<clicks>();
 float roundness;
 float open, opens;
+int hovercolour;
 void setup(){
   noCursor();
   frameRate(60);
@@ -24,6 +25,7 @@ void setup(){
   roundness = 100;
   open = 0;
   opens = 0;
+  hovercolour = 0;
   
   bgradi = loadImage("/data/gradient.png");
   wgradi = loadImage("/data/wgradient.png");
@@ -59,8 +61,7 @@ void draw(){
   
   textFont(hneue, 14);
   textAlign(CENTER);
-  if(brightness(get(drag.x,drag.y))<185) fill(255, opens);
-  if(brightness(get(drag.x,drag.y))>=185) fill(0, opens);
+  fill(hovercolour, opens);
   text("open?", drag.x, drag.y-open);
 }
 class traildot {
@@ -96,12 +97,14 @@ void drawtrail(){
 }
 void updatebuttons(){
   int hovercount = 0;
+  int hovered = 0;
   for(int i = 0; i < btns.size();  i ++){
     buttons btn = btns.get(i);
-    if(btn.hover) hovercount += 1;
+    if(btn.hover) hovercount += 1; hovered = i;
     btn.update();
   }
   if(hovercount > 0){ 
+    hovercolour = btns.get(hovered).tc;
     roundness += (0-roundness) / 8; 
     open += (20-open) / 10; 
     opens += (255 - opens) / 10;
