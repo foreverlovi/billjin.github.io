@@ -122,6 +122,7 @@ class buttons{
   PImage img;
   String linkto;
   color tc;
+  float sz;
   String cap;
   buttons(int x, int y, String thumbnail, String clicklink, color textc, String caption){
     pos = new PVector(0,0);
@@ -132,9 +133,15 @@ class buttons{
     linkto = clicklink;
     tc = textc;
     cap = caption;
+    sz = 0;
   }
   void update(){
     rectMode(CENTER);
+    fill(mousecol);
+    rect(pos.x, pos.y, sz, width/8/(16/9)+2);
+    if(frameCount>60){
+      sz += ((width/8+2)-sz) / 30;
+    }
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
     if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
@@ -147,8 +154,8 @@ class buttons{
     rect(pos.x, pos.y, width/4, width/4/(16/9));
     
     fill(tc);
-    textFont(hneue, 14);
-    text(cap, pos.x-width/8+30, pos.y+width/8/(16/9)-30);
+    textFont(hneue, 20);
+    text(cap, pos.x-width/8+10, pos.y+width/8/(16/9)-10);
   }
 }
 void mouseClicked(){
