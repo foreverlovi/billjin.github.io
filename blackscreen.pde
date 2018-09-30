@@ -6,6 +6,7 @@ PFont hneue;
 float portfolio;
 ArrayList<traildot> trail = new ArrayList<traildot>();
 ArrayList<buttons> btns = new ArrayList<buttons>();
+ArrayList<clicks> click = new ArrayList<clicks>();
 void setup(){
   noCursor();
   frameRate(60);
@@ -89,6 +90,30 @@ void keyReleased(){
     mousecol = (mousecol + 255)%510;
   }
 }
+void drawclicks(){
+  for(int i = 0; i < click.size(); i ++){
+    clicks c = click.get(i);
+    c.display();
+  }
+  for(int i = click.size()-1; i >= 0; i --){
+    clicks c = click.get(i);
+    if(frameCount-c.count>255){
+      click.remove(i);
+    }
+  }
+}
+class clicks{
+  PVector pos;
+  int count;
+  clicks(){
+    pos = new PVector(mouseX, mouseY);
+    count = frameCount;
+  }
+  void display(){
+    fill(mousecol, 255-(frameCount-count));
+    ellipse(pos.x, pos.y, (frameCount-count)/2);
+  }
+}
 class buttons{
   PVector pos;
   int ypos;
@@ -117,6 +142,7 @@ class buttons{
   }
 }
 void mouseClicked(){
+  click.add(new clicks());
   for(int i = 0; i < btns.size();  i ++){
     buttons btn = btns.get(i);
     if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
