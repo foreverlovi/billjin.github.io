@@ -87,6 +87,11 @@ void drawtrail(){
 void updatebuttons(){
   for(int i = 0; i < btns.size();  i ++){
     buttons btn = btns.get(i);
+    if(btn.hover == true){
+      roundness = (0-roundness) / 30;
+    } else {
+      roundness = (50-roundness) / 30;
+    }
     btn.update();
   }
 }
@@ -135,6 +140,7 @@ class buttons{
   int tc;
   float sz;
   String cap;
+  boolean hover;
   buttons(int x, int y, String thumbnail, String clicklink, int textc, String caption){
     pos = new PVector(0,0);
     pos.x = x;
@@ -145,6 +151,7 @@ class buttons{
     tc = textc;
     cap = caption;
     sz = 0;
+    hover = false;
   }
   void update(){
     rectMode(CENTER);
@@ -161,16 +168,13 @@ class buttons{
       image(wgradi, pos.x, pos.y, width/4, width/4/(16/9));
     }
     if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
+      hover = true;
       pos.y += ((ypos-30)-pos.y)/15;
       fill((tc+255)%510, ((ypos)-pos.y)*(55/30)*0.75);
     } else {
+      hover = false;
       fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
       pos.y += (ypos-pos.y)/15;
-    }
-    if(mouseY<pos.y-width/8/(16/9) || mouseY > pos.y+width/8/(16/9)&&mouseX<pos.x-width/8 || mouseX > pos.x+width/8){
-      roundness += (100-roundness) / 20;
-    } else {
-      roundness += (0-roundness) / (80*btns.size());
     }
     rect(pos.x, pos.y, width/4, width/4/(16/9));
     fill(tc);
