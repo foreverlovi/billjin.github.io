@@ -33,6 +33,7 @@ void draw(){
   portfolio += (70-portfolio)/50;
   
   updatebuttons();
+  drawclicks();
   
   fill(mousecol);
   drag.x += (mouseX - drag.x)/7;
