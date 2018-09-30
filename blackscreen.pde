@@ -97,7 +97,6 @@ class buttons{
     pos.x = x;
     pos.y = y+30;
     ypos = y;
-    press = false;
     img = loadImage(thumbnail);
     linkto = clicklink;
   }
