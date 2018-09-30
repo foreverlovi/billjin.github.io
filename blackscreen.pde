@@ -106,16 +106,18 @@ void drawclicks(){
 class clicks{
   PVector pos;
   float count;
+  float zcount;
   float countplus;
   clicks(){
     pos = new PVector(drag.x, drag.y);
     count = frameCount;
+    zcount = frameCount;
   }
   void display(){
-    fill(mousecol, (255/16-(frameCount-count))*12);
+    fill(mousecol, (255/16-(frameCount-zcount))*12);
     ellipse(pos.x, pos.y, (frameCount-count)*10, (frameCount-count)*10);
     count += countplus;
-    countplus += 0.02;
+    countplus += 0.07;
   }
 }
 class buttons{
