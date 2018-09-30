@@ -170,7 +170,7 @@ class buttons{
     if(mouseY<pos.y-width/8/(16/9) || mouseY > pos.y+width/8/(16/9)&&mouseX<pos.x-width/8 || mouseX > pos.x+width/8){
       roundness += (100-roundness) / 20;
     } else {
-      roundness += (0-roundness) / (20/btns.size());
+      roundness += (0-roundness) / (80*btns.size());
     }
     rect(pos.x, pos.y, width/4, width/4/(16/9));
     fill(tc);
