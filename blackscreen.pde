@@ -9,6 +9,7 @@ ArrayList<traildot> trail = new ArrayList<traildot>();
 ArrayList<buttons> btns = new ArrayList<buttons>();
 ArrayList<clicks> click = new ArrayList<clicks>();
 float roundness;
+float open, open2;
 void setup(){
   noCursor();
   frameRate(60);
@@ -52,6 +53,11 @@ void draw(){
   drag.y += (mouseY - drag.y)/7;
   rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   trail.add(new traildot());
+  
+  textFont(hneue, 8);
+  textMode(CENTER);
+  fill(mousecol, open2);
+  text("Open?", drag.x, drag.y-open);
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -91,8 +97,8 @@ void updatebuttons(){
     if(btn.hover) hovercount += 1;
     btn.update();
   }
-  if(hovercount > 0) roundness += (0-roundness) / 10;
-  if(hovercount == 0) roundness += (50-roundness) / 40;
+  if(hovercount > 0) roundness += (0-roundness) / 8; open += (15-open) / 16; open2 += (255 - open2) / 16;
+  if(hovercount == 0) roundness += (50-roundness) / 40; open += (0 - open) / 16; open2 += (0 - open2) / 16; 
 }
 void keyReleased(){
   if(key=='c'){
