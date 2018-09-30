@@ -85,15 +85,14 @@ void drawtrail(){
   }
 }
 void updatebuttons(){
+  int hovercount = 0;
   for(int i = 0; i < btns.size();  i ++){
     buttons btn = btns.get(i);
-    if(btn.hover == true){
-      roundness = (0-roundness) / 30;
-    } else {
-      roundness = (50-roundness) / 30;
-    }
+    if(btn.hover) hovercount += 1;
     btn.update();
   }
+  if(hovercount > 0) roundness += (0-roundness) / 30;
+  if(hovercount == 0) roundness += (50-roundness) / 30;
 }
 void keyReleased(){
   if(key=='c'){
