@@ -21,7 +21,7 @@ void setup(){
   
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", color(255)), "CO Episode 3 Part 1");
+  btns.add(new buttons((window.innerWidth-30)/6, 300, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", color(255), "CO Episode 3 Part 1"));
 }
 void draw(){
   background(backcol);
