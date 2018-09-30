@@ -59,10 +59,7 @@ void draw(){
   rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   trail.add(new traildot());
   
-  textFont(hneue, 14);
-  textAlign(CENTER);
-  fill(hovercolour, opens);
-  text("open?", drag.x, drag.y-open);
+  
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -97,17 +94,23 @@ void drawtrail(){
 }
 void updatebuttons(){
   int hovercount = 0;
-  int hovered = 0;
+  int hovered;
   for(int i = 0; i < btns.size();  i ++){
     buttons btn = btns.get(i);
-    if(btn.hover) hovercount += 1; hovered = i;
+    if(btn.hover){
+      hovercount += 1; 
+      hovered = i;
+    }
     btn.update();
   }
   if(hovercount > 0){ 
-    hovercolour = btns.get(hovered).tc;
+    textFont(hneue, 14);
+    textAlign(CENTER);
+    fill(btns.get(hovered).tc, opens);
     roundness += (0-roundness) / 8; 
     open += (20-open) / 10; 
     opens += (255 - opens) / 10;
+    text("open?", drag.x, drag.y-open);
   } else {
     roundness += (50-roundness) / 70; 
     open += (0 - open) / 10; 
