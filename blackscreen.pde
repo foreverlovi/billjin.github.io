@@ -107,11 +107,11 @@ class clicks{
   PVector pos;
   int count;
   clicks(){
-    pos = new PVector(mouseX, mouseY);
+    pos = new PVector(drag.x, drag.y);
     count = frameCount;
   }
   void display(){
-    fill(mousecol, (255/8-(frameCount-count)));
+    fill(mousecol, (255/16-(frameCount-count)));
     ellipse(pos.x, pos.y, (frameCount-count)*8, (frameCount-count)*8);
   }
 }
