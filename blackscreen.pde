@@ -8,6 +8,7 @@ float portfolio;
 ArrayList<traildot> trail = new ArrayList<traildot>();
 ArrayList<buttons> btns = new ArrayList<buttons>();
 ArrayList<clicks> click = new ArrayList<clicks>();
+float roundness;
 void setup(){
   noCursor();
   frameRate(60);
@@ -19,6 +20,7 @@ void setup(){
   
   mousecol = 255;
   backcol = 0;
+  roundness = 40;
   
   bgradi = loadImage("/data/gradient.png");
   wgradi = loadImage("/data/wgradient.png");
@@ -29,6 +31,7 @@ void setup(){
   btns.add(new buttons((window.innerWidth-30)/7*6, 200, "https://imgur.com/AXG7FiA.png", "https://www.youtube.com/watch?v=gUVqwHdHgVc", 0, "CO Episode 1"));
 }
 void draw(){
+  rectMode(CENTER);
   background(backcol);
   noStroke();
   
@@ -43,7 +46,7 @@ void draw(){
   fill(mousecol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
-  ellipse(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5);
+  rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   trail.add(new traildot());
   drawtrail();
 }
@@ -155,6 +158,7 @@ class buttons{
       image(wgradi, pos.x, pos.y, width/4, width/4/(16/9));
     }
     if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
+      roundness = (0-roundness)/10;
       pos.y += ((ypos-30)-pos.y)/15;
       fill((tc+255)%510, ((ypos)-pos.y)*(55/30)*0.75);
     } else {
