@@ -34,13 +34,14 @@ void setup(){
   btns.add(new buttons((window.innerWidth-30)/7*6, 200, "https://imgur.com/AXG7FiA.png", "https://www.youtube.com/watch?v=gUVqwHdHgVc", 0, "CO Episode 1"));
 }
 void draw(){
+  textAlign(LEFT);
   rectMode(CENTER);
   background(backcol);
   noStroke();
   
   fill(mousecol);
   textFont(hneue, 64);
-  text("Bill's Portfolio", 30, portfolio);
+  text("Bill's Portfolio", 20, portfolio);
   portfolio += (70-portfolio)/50;
   
   updatebuttons();
