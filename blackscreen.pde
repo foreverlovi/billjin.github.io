@@ -168,9 +168,9 @@ class buttons{
       pos.y += (ypos-pos.y)/15;
     }
     if(mouseY<pos.y-width/8/(16/9) || mouseY > pos.y+width/8/(16/9)&&mouseX<pos.x-width/8 || mouseX > pos.x+width/8){
-      roundness += (100-roundness) / 10;
+      roundness += (100-roundness) / 40;
     } else {
-      roundness += (0-roundness) / 10;
+      roundness += (0-roundness) / 40;
     }
     rect(pos.x, pos.y, width/4, width/4/(16/9));
     fill(tc);
