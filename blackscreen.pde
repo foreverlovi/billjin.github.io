@@ -9,6 +9,7 @@ ArrayList<buttons> btns = new ArrayList<buttons>();
 void setup(){
   noCursor();
   frameRate(60);
+  smooth();
   size(window.innerWidth-30, (window.innerWidth-30)*2);
   
   drag = new PVector(0, 0);
@@ -102,12 +103,18 @@ class buttons{
     linkto = clicklink;
   }
   void update(){
-    pos.y += (ypos-pos.y)/30;
     rectMode(CENTER);
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
     fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
     rect(pos.x, pos.y, width/4, width/4/(16/9));
+    if(mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
+      if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/4/(16/9)){
+        pos.y += ((ypos-30)-pos.y)/30;
+      } else {
+        pos.y += (ypos-pos.y)/30;
+      }
+    }
   }
 }
 void mouseClicked(){
