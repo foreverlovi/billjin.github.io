@@ -51,16 +51,15 @@ void draw(){
   
   noStroke();
   drawtrail();
+  fill(hovercolour, opens);
+  textFont(hneue, 14);
+  textAlign(CENTER);
+  text("open?", drag.x, drag.y-open);
   stroke(mousecol);
   strokeWeight(2);
   fill(backcol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
-  
-  fill(hovercolour, opens);
-  textFont(hneue, 14);
-  textAlign(CENTER);
-  text("open?", drag.x, drag.y-open);
   pushMatrix();
   translate(drag.x, drag.y);
   rotate(radians(frameCount*2));
