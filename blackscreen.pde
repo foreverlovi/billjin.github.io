@@ -24,7 +24,6 @@ void setup(){
 void draw(){
   background(backcol);
   noStroke();
-  thing.update();
   
   fill(mousecol);
   textFont(hneue, 64);
