@@ -56,6 +56,11 @@ void draw(){
   fill(backcol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
+  
+  fill(hovercolour, opens);
+  textFont(hneue, 14);
+  textAlign(CENTER);
+  text("open?", drag.x, drag.y-open);
   pushMatrix();
   translate(drag.x, drag.y);
   rotate(radians(frameCount*2));
@@ -106,18 +111,14 @@ void updatebuttons(){
     btn.update();
   }
   if(hovercount > 0){ 
-    textFont(hneue, 14);
-    textAlign(CENTER);
-    fill(btns.get(hovered).tc, opens);
+    hovercolour = btns.get(hovered).tc;
     roundness += (0-roundness) / 8; 
     open += (20-open) / 10; 
     opens += (255 - opens) / 10;
-    text("open?", drag.x, drag.y-open);
   } else {
     roundness += (50-roundness) / 70; 
     open += (0 - open) / 10; 
     opens += (0 - opens) / 10; 
-    text("open?", drag.x, drag.y-open);
   }
 }
 void keyReleased(){
