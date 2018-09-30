@@ -20,7 +20,7 @@ void setup(){
   
   mousecol = 255;
   backcol = 0;
-  roundness = 40;
+  roundness = 100;
   
   bgradi = loadImage("/data/gradient.png");
   wgradi = loadImage("/data/wgradient.png");
@@ -43,11 +43,13 @@ void draw(){
   updatebuttons();
   drawclicks();
   
-  fill(mousecol);
+  stroke(mousecol);
+  fill(backcol);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   rect(drag.x, drag.y, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   trail.add(new traildot());
+  noStroke();
   drawtrail();
 }
 class traildot {
@@ -157,17 +159,19 @@ class buttons{
     } else if(tc==0){
       image(wgradi, pos.x, pos.y, width/4, width/4/(16/9));
     }
-    if(mouseY<pos.y-width/8/(16/9) || mouseY > pos.y+width/8/(16/9)&&mouseX<pos.x-width/8 || mouseX > pos.x+width/8){
-      roundness += (40-roundness)/10;
-      fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
-      pos.y += (ypos-pos.y)/15;
-    } else {
-      roundness += (0-roundness)/10;
+    if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
       pos.y += ((ypos-30)-pos.y)/15;
       fill((tc+255)%510, ((ypos)-pos.y)*(55/30)*0.75);
+    } else {
+      fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
+      pos.y += (ypos-pos.y)/15;
+    }
+    if(mouseY<pos.y-width/8/(16/9) || mouseY > pos.y+width/8/(16/9)&&mouseX<pos.x-width/8 || mouseX > pos.x+width/8){
+      roundness += (40-roundness) / 10;
+    } else {
+      roundness += (0-roundness) / 10;
     }
     rect(pos.x, pos.y, width/4, width/4/(16/9));
-    
     fill(tc);
     textFont(hneue, 20);
     text(cap, pos.x-width/8+10, pos.y+width/8/(16/9)-10);
