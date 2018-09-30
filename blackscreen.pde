@@ -213,7 +213,7 @@ void mouseClicked(){
     buttons btn = btns.get(i);
     if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
       if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/8/(16/9)){
-        link(btn.linkto, "_new");
+        link(btn.linkto, "new");
       }
     }
   }
