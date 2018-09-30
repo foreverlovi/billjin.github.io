@@ -193,7 +193,7 @@ class buttons{
     if(mouseY>pos.y-width/8/(16/9) && mouseY < pos.y+width/8/(16/9)&&mouseX>pos.x-width/8 && mouseX < pos.x+width/8){
       hover = true;
       pos.y += ((ypos-30)-pos.y)/15;
-      fill((tc+255)%510, ((ypos)-pos.y)*(55/30)*0.75);
+      fill((tc+255)%510, ((ypos)-pos.y)*(155/30)*0.75);
     } else {
       hover = false;
       fill(backcol, ((ypos+30)-pos.y)*(255/30)*-1+255);
