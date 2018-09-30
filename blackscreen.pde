@@ -117,6 +117,7 @@ void updatebuttons(){
     roundness += (50-roundness) / 70; 
     open += (0 - open) / 10; 
     opens += (0 - opens) / 10; 
+    text("open?", drag.x, drag.y-open);
   }
 }
 void keyReleased(){
