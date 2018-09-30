@@ -141,9 +141,9 @@ class buttons{
   void update(){
     rectMode(CENTER);
     fill(mousecol);
-    rect(pos.x, pos.y, sz, width/4/(16/9)+1);
+    rect(pos.x, pos.y, sz, width/4/(16/9)+2);
     if(frameCount>60){
-      sz += ((width/4+1)-sz) / 15;
+      sz += ((width/4+2)-sz) / 15;
     }
     imageMode(CENTER);
     image(img, pos.x, pos.y, width/4, width/4/(16/9));
