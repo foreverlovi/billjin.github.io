@@ -112,7 +112,7 @@ class clicks{
   }
   void display(){
     fill(mousecol, (255/16-(frameCount-count))*12);
-    ellipse(pos.x, pos.y, (frameCount-count)*4, (frameCount-count)*4);
+    ellipse(pos.x, pos.y, (frameCount-count)*8, (frameCount-count)*8);
   }
 }
 class buttons{
