@@ -32,7 +32,7 @@ void setup(){
   portfolio = -100;
   
   btns.add(new buttons((window.innerWidth-30)/7*6, 250, "https://imgur.com/4Tl9iYF.png", "https://www.youtube.com/watch?v=OfsOhYVnTdM", 255, "Episode 3 Part 1"));
-  btns.add(new buttons((window.innerWidth-30)/2, 250, "https://imgur.com/USD4r3D.png", "https://www.youtube.com/watch?v=9x0IXjz23DI", 0, "pisode 2"));
+  btns.add(new buttons((window.innerWidth-30)/2, 250, "https://imgur.com/USD4r3D.png", "https://www.youtube.com/watch?v=9x0IXjz23DI", 0, "Episode 2"));
   btns.add(new buttons((window.innerWidth-30)/7, 250, "https://imgur.com/AXG7FiA.png", "https://www.youtube.com/watch?v=gUVqwHdHgVc", 0, "Episode 1"));
 }
 void draw(){
