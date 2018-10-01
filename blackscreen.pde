@@ -31,7 +31,8 @@ void setup(){
   wgradi = loadImage("/data/wgradient.png");
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics Series")); 
+  btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics Series"));
+  btns.add(new buttons((window.innerWidth-30)/2, 300, "https://imgur.com/YkVYAvp.png", "https://www.youtube.com/watch?v=D-oExz1totM", 255, "Doing Stuff With Cotton!")); 
 }
 void draw(){
   textAlign(LEFT);
