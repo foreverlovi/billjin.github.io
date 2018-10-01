@@ -32,7 +32,8 @@ void setup(){
   portfolio = -100;
   
   btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics Series"));
-  btns.add(new buttons((window.innerWidth-30)/2, 300, "https://imgur.com/YkVYAvp.png", "https://www.youtube.com/watch?v=D-oExz1totM", 255, "Doing Stuff With Cotton!")); 
+  btns.add(new buttons((window.innerWidth-30)/2, 300, "https://imgur.com/YkVYAvp.png", "https://www.youtube.com/watch?v=D-oExz1totM", 255, "Doing Stuff With Cotton!"));
+  btns.add(new buttons((window.innerWidth-30)/7*6, 300, "https://imgur.com/p239OFB.png", "https://www.youtube.com/channel/UCdu1_2dPytXh_WvIbO6oRpA", 255, "YouTube Channel"));
 }
 void draw(){
   textAlign(LEFT);
@@ -211,12 +212,14 @@ class buttons{
   }
 }
 void mouseClicked(){
-  click.add(new clicks());
-  for(int i = 0; i < btns.size();  i ++){
-    buttons btn = btns.get(i);
-    if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
-      if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/8/(16/9)){
-        link(btn.linkto, "new");
+  if(mouseButton == LEFT){
+    click.add(new clicks());
+    for(int i = 0; i < btns.size();  i ++){
+      buttons btn = btns.get(i);
+      if(mouseX>btn.pos.x-width/8 && mouseX < btn.pos.x+width/8){
+        if(mouseY>btn.pos.y-width/8/(16/9) && mouseY < btn.pos.y+width/8/(16/9)){
+          link(btn.linkto, "new");
+        }
       }
     }
   }
