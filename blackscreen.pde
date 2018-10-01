@@ -42,7 +42,7 @@ void draw(){
   fill(mousecol);
   textFont(hneue, 64);
   text("Bill's Portfolio", 20, portfolio);
-  fill(mousecol, frameCount/2);
+  fill(mousecol, frameCount*2);
   textFont(hneue, 32);
   text("Videos", 20, portfolio*2.1);
   portfolio += (70-portfolio)/50;
