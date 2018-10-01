@@ -31,7 +31,7 @@ void setup(){
   wgradi = loadImage("/data/wgradient.png");
   portfolio = -100;
   
-  btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics")); 
+  btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics Series")); 
 }
 void draw(){
   textAlign(LEFT);
