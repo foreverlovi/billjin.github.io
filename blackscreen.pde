@@ -34,6 +34,7 @@ void setup(){
   btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics Series"));
   btns.add(new buttons((window.innerWidth-30)/2, 300, "https://imgur.com/YkVYAvp.png", "https://www.youtube.com/watch?v=D-oExz1totM", 255, "Doing Stuff With Cotton!"));
   btns.add(new buttons((window.innerWidth-30)/7*6, 300, "https://imgur.com/p239OFB.png", "https://www.youtube.com/channel/UCdu1_2dPytXh_WvIbO6oRpA", 255, "YouTube Channel"));
+  btns.add(new buttons((window.innerWidth-30)/7, 600, "https://imgur.com/p239OFB.png", "https://www.youtube.com/channel/UCdu1_2dPytXh_WvIbO6oRpA", 255, "YouTube Channel"));
 }
 void draw(){
   textAlign(LEFT);
@@ -47,6 +48,7 @@ void draw(){
   fill(mousecol, frameCount*2);
   textFont(hneue, 32);
   text("Videos", 20, portfolio*2.1-(btns.get(0).ypos-btns.get(0).pos.y)/2);
+  text("Music", 20, portfolio*5.8-(btns.get(3).ypos-btns.get(3).pos.y)/2);
   portfolio += (70-portfolio)/50;
   
   updatebuttons();
