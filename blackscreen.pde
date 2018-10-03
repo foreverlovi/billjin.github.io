@@ -48,7 +48,7 @@ void draw(){
   fill(mousecol, frameCount*2);
   textFont(hneue, 32);
   text("Videos", 20, portfolio*2.1-(btns.get(0).ypos-btns.get(0).pos.y)/2);
-  text("Music", 20, portfolio*7.1-(btns.get(3).ypos-btns.get(3).pos.y)/2);
+  text("Music", 20, portfolio*6.9-(btns.get(3).ypos-btns.get(3).pos.y)/2);
   portfolio += (70-portfolio)/30;
   
   updatebuttons();
