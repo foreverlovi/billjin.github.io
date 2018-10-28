@@ -5,7 +5,7 @@ float xx, start, time, cosa;
 game newgame;
 void setup(){
   size(1280,720);
-  textFont(createFont("SurroundingBold.otf"), 10);
+  textFont(createFont("/data/SurroundingBold.otf"), 10);
   frameRate(60);
   purple = false;
   swipe = 720;
