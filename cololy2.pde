@@ -6,7 +6,6 @@ PFont surroundingfont;
 void setup(){
   size(1280,720);
   surroundingfont = createFont("/data/SurroundingBold.otf");
-  frameRate(60);
   purple = false;
   swipe = 720;
   downn = false;
@@ -213,10 +212,5 @@ void draw(){
   if(fall[1]&&fall[2]&&fall[3]&&fall[4]&&fall[5]&&fall[6]){
     delay(5000);
     setup();
-  }
-};
-void mousePressed(){
-  if (mouseButton == LEFT){
-    on = !on;
   }
 };
