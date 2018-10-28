@@ -4,7 +4,7 @@ int swipe, down, counter;
 float xx, start, time, cosa;
 PFont surroundingfont;
 void setup(){
-  size(1280,720);
+  size(960, 540);
   surroundingfont = createFont("/data/SurroundingBold.otf");
   purple = false;
   swipe = 720;
