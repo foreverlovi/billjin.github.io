@@ -214,3 +214,25 @@ void draw(){
     setup();
   }
 };
+void iffs(){
+  if(purple){
+    swipe -= 10;
+  }
+  if(swipe < 0){
+    swipe = height;
+    purple = false;
+  }
+  if(downn){
+    down += 10;
+  }
+  if(down > height){
+    down = -10;
+    downn = false;
+  }
+  if(counter%500 == 0){
+    purple = true;
+  }
+  if(counter%600 == 0){
+    downn = true;
+  }
+};
