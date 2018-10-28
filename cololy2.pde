@@ -36,7 +36,7 @@ void generateterrain(float y, float offs){
       fill(0,255,255);
     }*/
     fill(0,255,255);
-    if(int(time/49) % 2 == 0){
+    if(int(time/49) % 3 == 0){
       stroke(100);
       strokeWeight(8+(y/100));
     }
@@ -48,7 +48,7 @@ void generateterrain(float y, float offs){
   endShape();
   if(!on){
     start += 0.006;
-    if(int(time)/49 % 3 == 0){
+    if(int(time/49) % 3 == 0){
       start += 0.01;
     }
   }
