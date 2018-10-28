@@ -17,7 +17,7 @@ void setup(){
   time = 49;
   cosa = 0;
   
-  frameRate(30);
+  frameRate(50);
 };
 void generateterrain(float y, float offs){
   noFill();
