@@ -2,10 +2,10 @@
 boolean purple, on, downn;
 int swipe, down, counter;
 float xx, start, time, cosa;
-game newgame;
+PFont surroundingfont;
 void setup(){
   size(1280,720);
-  textFont(createFont("/data/SurroundingBold.otf"), 10);
+  surroundingfont = createFont("/data/SurroundingBold.otf");
   frameRate(60);
   purple = false;
   swipe = 720;
@@ -17,8 +17,6 @@ void setup(){
   start = 0;
   time = 49;
   cosa = 0;
-  
-  newgame = new game();
 };
 void generateterrain(float y, float offs){
   noFill();
@@ -176,6 +174,7 @@ class game{
     a.display(); b.display(); c.display(); d.display(); e.display(); f.display();
   }
 }
+game newgame = new game();
 void draw(){
   background(255);
   fill(255,0,100);
@@ -194,6 +193,8 @@ void draw(){
   counter++;
   fill(0);
   rect(width-200,0,200,height);
+  
+  textFont(surroundingfont);
   textAlign(CENTER,CENTER);
   textSize(20);
   fill(255,0,0);
