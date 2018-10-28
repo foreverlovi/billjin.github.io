@@ -1,4 +1,4 @@
-/* @pjs font="data/SurroundingBold.otf"; */
+/* @pjs font=/data/SurroundingBold.otf */
 boolean purple, on, downn;
 int swipe, down, counter;
 float xx, start, time, cosa;
