@@ -180,6 +180,7 @@ void draw(){
   background(255);
   fill(255,0,100);
   noStroke();
+  rect(0, swipe, width, 10);
   generateterrain(0,0.007);
   generateterrain(height/3,0.005);
   generateterrain(height/3*2,0.003);
