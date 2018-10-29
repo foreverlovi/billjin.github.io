@@ -25,7 +25,7 @@ void generateterrain(float y, float offs){
   beginShape();
   for(int i = 0; i < width; i++){
     stroke(0);
-    if(int(time/15) % 3 == 0){
+    if(int(time/7) % 3 == 0){
       stroke(0,255,255);
     }
     strokeWeight(5+(y/100));
@@ -85,7 +85,7 @@ class ball {
     velocity -= grvty;
     if(touch == color(0)){
       velocity = -velocity;
-      speed = 1;
+      speed = 0.8;
       y-=2;
     }
     if(touch == color(100)){
