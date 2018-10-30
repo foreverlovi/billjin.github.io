@@ -5,6 +5,11 @@ int reset;
 float xx, start, time, cosa;
 PFont surroundingfont;
 game newgame;
+
+float[] ballpositions;
+String[] losingchances;
+int[] times;
+boolean[] fall;
 void setup(){
   size(960, 540);
   surroundingfont = createFont("/data/SurroundingBold.otf");
@@ -22,6 +27,10 @@ void setup(){
   
   frameRate(50);
   
+  ballpositions = new float[12];
+  losingchances = new String[7];
+  times = new int[7];
+  fall = new boolean[7];
   newgame = new game();
 };
 void generateterrain(float y, float offs){
@@ -58,10 +67,6 @@ void generateterrain(float y, float offs){
     }
   }
 };
-float[] ballpositions = new float[12];
-String[] losingchances = new String[7];
-int[] times = new int[7];
-boolean[] fall = new boolean[7];
 class ball {
   color c,front,upper,touch,ballcol,mid;
   float speed;
