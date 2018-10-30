@@ -1,6 +1,7 @@
 /* @pjs font=/data/SurroundingBold.otf */
 boolean purple, on, downn;
 int swipe, down, counter;
+int reset;
 float xx, start, time, cosa;
 PFont surroundingfont;
 void setup(){
@@ -16,6 +17,7 @@ void setup(){
   start = 0;
   time = 49;
   cosa = 0;
+  reset = 0;
   
   frameRate(50);
 };
@@ -25,7 +27,7 @@ void generateterrain(float y, float offs){
   beginShape();
   for(int i = 0; i < width; i++){
     stroke(0);
-    if(int(time/5) % 3 == 0){
+    if(int(time/4.5) % 3 == 0){
       stroke(0,255,255);
     }
     strokeWeight(5+(y/100));
@@ -212,7 +214,10 @@ void draw(){
   text("PINK\n"+losingchances[6],width-100,height/12*11);
   
   if(fall[1]&&fall[2]&&fall[3]&&fall[4]&&fall[5]&&fall[6]){
-    delay(5000);
+    reset++;
+  }
+  
+  if(reset > 150){
     setup();
   }
 };
