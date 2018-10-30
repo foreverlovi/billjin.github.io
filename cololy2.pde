@@ -4,6 +4,7 @@ int swipe, down, counter;
 int reset;
 float xx, start, time, cosa;
 PFont surroundingfont;
+game newgame;
 void setup(){
   size(960, 540);
   surroundingfont = createFont("/data/SurroundingBold.otf");
@@ -20,6 +21,8 @@ void setup(){
   reset = 0;
   
   frameRate(50);
+  
+  newgame = new game();
 };
 void generateterrain(float y, float offs){
   noFill();
@@ -177,7 +180,6 @@ class game{
     a.display(); b.display(); c.display(); d.display(); e.display(); f.display();
   }
 }
-game newgame = new game();
 void draw(){
   background(255);
   fill(255,0,100);
