@@ -25,7 +25,7 @@ void generateterrain(float y, float offs){
   beginShape();
   for(int i = 0; i < width; i++){
     stroke(0);
-    if(int(time/3) % 3 == 0){
+    if(int(time/5) % 3 == 0){
       stroke(0,255,255);
     }
     strokeWeight(5+(y/100));
