@@ -35,7 +35,7 @@ void setup(){
   btns.add(new buttons((window.innerWidth-30)/2, 300, "https://imgur.com/YkVYAvp.png", "https://www.youtube.com/watch?v=D-oExz1totM", 255, "Doing Stuff With Cotton!"));
   btns.add(new buttons((window.innerWidth-30)/7*6, 300, "https://imgur.com/p239OFB.png", "https://www.youtube.com/channel/UCdu1_2dPytXh_WvIbO6oRpA", 255, "YouTube Channel"));
   btns.add(new buttons((window.innerWidth-30)/7, 650, "https://imgur.com/p239OFB.png", "https://www.soundcloud.com/coldrui", 255, "SoundCloud Profile"));
-  btns.add(new buttons((window.innerWidth-30)/7, 1000, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/c-olympics-ep2", 255, "C.O. Episode 2 Online"));
+  btns.add(new buttons((window.innerWidth-30)/7, 1000, "https://imgur.com/USD4r3D.png", "https://foreverlovi.github.io/c-olympics-ep2", 255, "C.O. Episode 2 Online"));
 }
 void draw(){
   textAlign(LEFT);
@@ -50,7 +50,7 @@ void draw(){
   textFont(hneue, 32);
   text("Videos", 20, portfolio*2.1-(btns.get(0).ypos-btns.get(0).pos.y)/2);
   text("Audio", 20, portfolio*6.9-(btns.get(3).ypos-btns.get(3).pos.y)/2);
-  text("Projects", 20, portfolio*11.7-(btns.get(4).ypos-btns.get(4).pos.y)/2);
+  text("Projects", 20, portfolio*11.9-(btns.get(4).ypos-btns.get(4).pos.y)/2);
   portfolio += (70-portfolio)/30;
   
   updatebuttons();
