@@ -34,7 +34,7 @@ void setup(){
   btns.add(new buttons((window.innerWidth-30)/7, 300, "https://imgur.com/4Tl9iYF.png", "https://foreverlovi.github.io/colour-olympics", 255, "Colour Olympics Series"));
   btns.add(new buttons((window.innerWidth-30)/2, 300, "https://imgur.com/YkVYAvp.png", "https://www.youtube.com/watch?v=D-oExz1totM", 255, "Doing Stuff With Cotton!"));
   btns.add(new buttons((window.innerWidth-30)/7*6, 300, "https://imgur.com/p239OFB.png", "https://www.youtube.com/channel/UCdu1_2dPytXh_WvIbO6oRpA", 255, "YouTube Channel"));
-  btns.add(new buttons((window.innerWidth-30)/7, 650, "https://imgur.com/p239OFB.png", "https://www.soundcloud.com/coldrui", 255, "SoundCloud Profile"));
+  btns.add(new buttons((window.innerWidth-30)/7, 650, "https://imgur.com/QbEVP1b.png", "https://www.soundcloud.com/coldrui", 255, "SoundCloud Profile"));
   btns.add(new buttons((window.innerWidth-30)/7, 1000, "https://imgur.com/USD4r3D.png", "https://foreverlovi.github.io/c-olympics-ep2", 255, "C.O. Episode 2 Online"));
 }
 void draw(){
