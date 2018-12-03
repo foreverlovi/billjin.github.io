@@ -221,11 +221,11 @@ void draw(){
   text("PINK\n"+losingchances[6],width-100,height/12*11);
   
   if(fall[1]&&fall[2]&&fall[3]&&fall[4]&&fall[5]&&fall[6]){
-    link("https://foreverlovi.github.io/c-olympics-ep2");
+    reset++;
   }
   
   if(reset > 150){
-    setup();
+    link("https://foreverlovi.github.io/c-olympics-ep2");
   }
 };
 void iffs(){
