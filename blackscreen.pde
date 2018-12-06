@@ -11,6 +11,7 @@ ArrayList<clicks> click = new ArrayList<clicks>();
 float roundness;
 float open, opens;
 int hovercolour;
+float mousefill;
 void setup(){
   noCursor();
   frameRate(60);
@@ -26,6 +27,7 @@ void setup(){
   open = 0;
   opens = 0;
   hovercolour = 0;
+  mousefill = backcol;
   
   bgradi = loadImage("/data/gradient.png");
   wgradi = loadImage("/data/wgradient.png");
@@ -64,7 +66,7 @@ void draw(){
   text("open?", drag.x, drag.y-open);
   stroke(mousecol);
   strokeWeight(2);
-  fill(backcol);
+  fill(mousefill);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   pushMatrix();
@@ -73,6 +75,7 @@ void draw(){
   rect(0, 0, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   popMatrix();
   trail.add(new traildot());
+  mousefill += (backcol-mousefill) / 10;
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
@@ -217,6 +220,8 @@ class buttons{
 }
 void mouseClicked(){
   if(mouseButton == LEFT){
+    mousefill += 255;
+    mousefill %= 510;
     click.add(new clicks());
     for(int i = 0; i < btns.size();  i ++){
       buttons btn = btns.get(i);
