@@ -66,7 +66,7 @@ void draw(){
   text("open?", drag.x, drag.y-open);
   stroke(mousecol);
   strokeWeight(2);
-  fill(mousefill);
+  fill(mousefill, 255);
   drag.x += (mouseX - drag.x)/7;
   drag.y += (mouseY - drag.y)/7;
   pushMatrix();
@@ -220,8 +220,7 @@ class buttons{
 }
 void mouseClicked(){
   if(mouseButton == LEFT){
-    mousefill += 255;
-    mousefill %= 510;
+    mousefill = (mousefill+255)%510;
     click.add(new clicks());
     for(int i = 0; i < btns.size();  i ++){
       buttons btn = btns.get(i);
