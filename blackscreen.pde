@@ -75,7 +75,7 @@ void draw(){
   rect(0, 0, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, 20-dist(mouseX, mouseY, drag.x, drag.y)/3.5, roundness);
   popMatrix();
   trail.add(new traildot());
-  mousefill += (backcol-mousefill) / 10;
+  mousefill += (backcol-mousefill) / 70;
 }
 class traildot {
   float x, y, trans, rx, ry, sz;
