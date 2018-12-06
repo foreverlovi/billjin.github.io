@@ -220,7 +220,7 @@ class buttons{
 }
 void mouseClicked(){
   if(mouseButton == LEFT){
-    mousefill = (mousefill+255)%510;
+    mousefill = (backcol+255)%510;
     click.add(new clicks());
     for(int i = 0; i < btns.size();  i ++){
       buttons btn = btns.get(i);
