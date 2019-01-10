@@ -447,6 +447,9 @@ void heart (){
   vertex(player.x + 2, player.y + 8);
   vertex(player.x, player.y + 8);
   endShape();
+  rectMode(CORNER);
+  rect(player.x - 1, player.y - 4, 2, 12);
+  rectMode(CENTER);
   beginShape();
   vertex(player.x, player.y - 4);
   vertex(player.x - 1, player.y - 4);
@@ -498,6 +501,9 @@ void botheart(){
   vertex(botpos.x + 2, botpos.y + 8);
   vertex(botpos.x, botpos.y + 8);
   endShape();
+  rectMode(CORNER);
+  rect(botpos.x - 1, botpos.y - 4, 2, 12);
+  rectMode(CENTER);
   beginShape();
   vertex(botpos.x, botpos.y - 4);
   vertex(botpos.x - 1, botpos.y - 4);
