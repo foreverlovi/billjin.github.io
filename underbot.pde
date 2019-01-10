@@ -58,8 +58,8 @@ void setup(){
   dtmmono = createFont("/data/determination.otf", 48);
   
   snowdintown = new Audio("/data/snowdintown.mp3");
-  determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
-  metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
+  determi = new Audio("/data/snowdintown.mp3");
+  metalcrusher = new Audio("/data/snowdintown.mp3");
 }
 
 void draw(){
