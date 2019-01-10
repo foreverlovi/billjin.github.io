@@ -1,5 +1,4 @@
-/* @pjs font=/data/MonsterFriendFore.otf */
-/* @pjs font=/data/determination.otf */
+/* @pjs font=/data/MonsterFriendFore.otf, /data/determination.otf */
 ArrayList<bullet> bullets = new ArrayList<bullet>();
 boolean[] keys = new boolean[101];
 PVector boxsize;
