@@ -190,10 +190,10 @@ void draw(){
       textSize(48);
       text("ready", width/2, height/2 - 50);
       
-      if(frameCount - countdown < 60) text("3", width/2, height/2 - 50);
-      if(frameCount - countdown < 120 && frameCount - countdown > 59) text("2", width/2, height/2 - 50);
-      if(frameCount - countdown < 180 && frameCount - countdown > 119) text("1", width/2, height/2 - 50);
-      if(frameCount - countdown < 240 && frameCount - countdown > 179) text("good luck!", width/2, height/2 - 50);
+      if(frameCount - countdown < 60) text("3", width/2, height/2 + 50);
+      if(frameCount - countdown < 120 && frameCount - countdown > 59) text("2", width/2, height/2 + 50);
+      if(frameCount - countdown < 180 && frameCount - countdown > 119) text("1", width/2, height/2 + 50);
+      if(frameCount - countdown < 240 && frameCount - countdown > 179) text("good luck!", width/2, height/2 + 50);
       if(frameCount - countdown == 240) screen = "game";
     break;
   }
