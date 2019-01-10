@@ -166,8 +166,6 @@ void draw(){
       text("controls: arrow keys and mouse", width/2, 225);
       
       rectMode(CENTER);
-      fill(20);
-      rect(width/2, height/2 + 28, 100, 40);
       
       fill(255);
       if(mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= height/2 - 12 && mouseY <= height/2 + 68){
@@ -187,6 +185,7 @@ void draw(){
       popMatrix();
     break;
     case "countdown":
+       background(0);
       fill(255);
       textSize(48);
       text("ready", width/2, height/2 - 50);
