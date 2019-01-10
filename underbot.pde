@@ -96,7 +96,7 @@ void draw(){
       
       stroke(255, 155);
       strokeWeight(1);
-      line(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
+      //line(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
       
       botcontrol();
       
