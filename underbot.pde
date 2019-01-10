@@ -32,6 +32,8 @@ PFont monsterfriend, dtmmono;
 
 int countdown = 0;
 
+Audio snowdintown;
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -42,8 +44,8 @@ void setup(){
   nearvel = new PVector(0, 0);
   nearbotb = new PVector(0, 0);
   nearbotv = new PVector(0,  0);
-	nearbb2 = new PVector(0, 0);
-	nearbv2 = new PVector(0, 0);
+  nearbb2 = new PVector(0, 0);
+  nearbv2 = new PVector(0, 0);
   sizechange = new PVector(0, 1000);
   control = "bot";
   
@@ -54,6 +56,8 @@ void setup(){
   
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
   dtmmono = createFont("/data/determination.otf", 48);
+  
+  snowdintown = new Audio("/data/snowdintown.mp3");
 }
 
 void draw(){
@@ -132,8 +136,8 @@ void draw(){
       text("you lost.", width/2, 150);
       
       pushMatrix();
-      translate(mouseX, mouseY);
-      rotate(radians(180));
+      translate(mouseX+8, mouseY+8);
+      rotate(radians(135));
       heartgraphic(1, 1, color(255, 0, 0));
       popMatrix();
     break;
@@ -148,12 +152,13 @@ void draw(){
       text("you won.", width/2, 150);
       
       pushMatrix();
-      translate(mouseX, mouseY);
-      rotate(radians(180));
+      translate(mouseX+8, mouseY+8);
+      rotate(radians(135));
       heartgraphic(1, 1, color(255, 0, 0));
       popMatrix();
     break;
     case "menu":
+      snowdintown.play();
       noCursor();
       background(0);
       fill(255);
