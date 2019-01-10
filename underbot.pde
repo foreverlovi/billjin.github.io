@@ -1,5 +1,5 @@
 /* @pjs font=/data/MonsterFriendFore.otf */
-/* @pjs font=/data/DTM-Mono.otf */
+/* @pjs font=/data/determination.otf */
 ArrayList<bullet> bullets = new ArrayList<bullet>();
 boolean[] keys = new boolean[101];
 PVector boxsize;
@@ -50,7 +50,7 @@ void setup(){
   bullets.add(new bullet(width/3*2+112, 400+112, "bot", true));
   
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
-  dtmmono = createFont("/data/DTM-Mono.otf", 48);
+  dtmmono = createFont("/data/determination.otf", 48);
 }
 
 void draw(){
