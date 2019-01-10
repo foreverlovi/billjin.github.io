@@ -152,6 +152,7 @@ void draw(){
     case "menu":
       noCursor();
       background(0);
+      fill(255);
       textFont(monsterfriend);
       textSize(48);
       textAlign(CENTER);
