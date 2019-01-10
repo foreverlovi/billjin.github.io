@@ -144,7 +144,7 @@ void draw(){
       textSize(24);
       text("play against an AI", width/2, 185);
       textSize(16);
-      text("controls: arrow keys and mouse", width/2, 215);
+      text("controls: arrow keys and mouse", width/2, 225);
     break;
   }
 }
