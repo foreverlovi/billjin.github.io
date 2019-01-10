@@ -1,3 +1,5 @@
+/* @pjs font=/data/MonsterFriendFore.otf */
+/* @pjs font=/data/DTM-Mono.otf */
 ArrayList<bullet> bullets = new ArrayList<bullet>();
 boolean[] keys = new boolean[101];
 PVector boxsize;
@@ -15,7 +17,7 @@ PVector sizechange;
 
 boolean guide = false;
 
-String screen = "game";
+String screen = "menu";
 
 int tooclose;
 
@@ -26,6 +28,8 @@ int lburstcnt = 0;
 int currfc;
 
 boolean cntstr = false;
+
+PFont monsterfriend, dtmmono;
 
 void setup(){
   size(800, 600);
@@ -44,6 +48,9 @@ void setup(){
   bullets.add(new bullet(width/3*2-112, 400+112, "bot", true));
   bullets.add(new bullet(width/3*2+112, 400-112, "bot", true));
   bullets.add(new bullet(width/3*2+112, 400+112, "bot", true));
+  
+  monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
+  dtmmono = createFont("/data/DTM-Mono.otf", 48);
 }
 
 void draw(){
@@ -111,18 +118,29 @@ void draw(){
       if(bhp == 0 && hp > 0) screen = "playerwins";
     break;
     case "botwins":
+      textAlign(CENTER);
+      textFont(dtmmono);
       background(0);
       botheart();
       fill(155);
       textSize(30);
-      text("you lost.", 50, 50);
+      text("you lost.", width/2, 150);
     break;
     case "playerwins":
+      textAlign(CENTER);
+      textFont(dtmmono);
       background(0);
       heart();
       fill(255, 0, 0);
       textSize(30);
-      text("you won.", 50, 50);
+      text("you won.", width/2, 150);
+    break;
+    case "menu":
+      background(0);
+      textFont(monsterfriend);
+      textSize(48);
+      textAlign(CENTER);
+      text("underbot", width/2, 135);
     break;
   }
 }
