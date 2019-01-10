@@ -165,7 +165,7 @@ void draw(){
       
       textSize(36);
       text("PLAY", width/2, height/2 + 40);
-      text("INSTRUCTIONS", width/2, height * 0.8);
+      text("INSTRUCTIONS", width/2, height * 0.65);
       
       pushMatrix();
       translate(mouseX+8, mouseY+8);
