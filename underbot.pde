@@ -143,9 +143,9 @@ void draw(){
       text("underbot", width/2, 135);
       textFont(dtmmono);
       textSize(24);
-      text("play against an AI", width/2, 165);
+      text("play against an AI", width/2, 185);
       textSize(16);
-      text("controls: arrow keys and mouse", width/2, 165);
+      text("controls: arrow keys and mouse", width/2, 235);
     break;
   }
 }
