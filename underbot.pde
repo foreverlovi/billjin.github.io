@@ -165,7 +165,7 @@ void draw(){
       
       rectMode(CENTER);
       fill(20);
-      rect(width/2, height/2 + 10, 100, 40);
+      rect(width/2, height/2 + 25, 100, 40);
       
       fill(255);
       textSize(36);
