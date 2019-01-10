@@ -163,9 +163,15 @@ void draw(){
       textSize(16);
       text("controls: arrow keys and mouse", width/2, 225);
       
+      rectMode(CENTER);
+      fill(20);
+      rect(width/2, height/2 + 40, 90, 30);
+      
+      fill(255);
       textSize(36);
       text("PLAY", width/2, height/2 + 40);
-      text("INSTRUCTIONS", width/2, height * 0.65);
+      textSize(14);
+      text("click to spawn bullets, aimed at the grey heart,\nmove the red heart with the arrow keys.\nthe buttons on top spawn bullet patterns.", width/2, height * 0.72);
       
       pushMatrix();
       translate(mouseX+8, mouseY+8);
