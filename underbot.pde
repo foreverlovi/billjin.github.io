@@ -55,6 +55,7 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
+      cursor();
       background(0);
       noFill();
       stroke(255);
@@ -117,6 +118,7 @@ void draw(){
       if(bhp == 0 && hp > 0) screen = "playerwins";
     break;
     case "botwins":
+      noCursor();
       textAlign(CENTER);
       textFont(dtmmono);
       background(0);
@@ -124,8 +126,15 @@ void draw(){
       fill(155);
       textSize(30);
       text("you lost.", width/2, 150);
+      
+      pushMatrix();
+      translate(mouseX, mouseY);
+      rotate(radians(180));
+      heartgraphic(1, 1, color(255, 0, 0));
+      popMatrix();
     break;
     case "playerwins":
+      noCursor();
       textAlign(CENTER);
       textFont(dtmmono);
       background(0);
@@ -133,8 +142,15 @@ void draw(){
       fill(255, 0, 0);
       textSize(30);
       text("you won.", width/2, 150);
+      
+      pushMatrix();
+      translate(mouseX, mouseY);
+      rotate(radians(180));
+      heartgraphic(1, 1, color(255, 0, 0));
+      popMatrix();
     break;
     case "menu":
+      noCursor();
       background(0);
       textFont(monsterfriend);
       textSize(48);
@@ -145,6 +161,12 @@ void draw(){
       text("play against an AI", width/2, 185);
       textSize(16);
       text("controls: arrow keys and mouse", width/2, 225);
+      
+      pushMatrix();
+      translate(mouseX, mouseY);
+      rotate(radians(180));
+      heartgraphic(1, 1, color(255, 0, 0));
+      popMatrix();
     break;
   }
 }
@@ -550,6 +572,61 @@ void botheart(){
   endShape();
   
   botcol *= 0.9;
+}
+
+void heartgraphic (float x, float y, color col){
+  pushMatrix();
+  translate(-x, -y);
+  noStroke();
+  fill(col);
+  beginShape();
+  vertex(x, y - 4);
+  vertex(x + 1, y - 4);
+  vertex(x + 1, y - 6);
+  vertex(x + 2, y - 6);
+  vertex(x + 2, y - 7);
+  vertex(x + 4, y - 7);
+  vertex(x + 4, y - 8);
+  vertex(x + 6, y - 8);
+  vertex(x + 6, y - 7);
+  vertex(x + 7, y - 7);
+  vertex(x + 7, y - 6);
+  vertex(x + 8, y - 6);
+  vertex(x + 8, y + 2);
+  vertex(x + 6, y + 2);
+  vertex(x + 6, y + 4);
+  vertex(x + 4, y + 4);
+  vertex(x + 4, y + 6);
+  vertex(x + 2, y + 6);
+  vertex(x + 2, y + 8);
+  vertex(x, y + 8);
+  endShape();
+  rectMode(CORNER);
+  rect(x - 1, y - 4, 2, 12);
+  rectMode(CENTER);
+  beginShape();
+  vertex(x, y - 4);
+  vertex(x - 1, y - 4);
+  vertex(x - 1, y - 6);
+  vertex(x - 2, y - 6);
+  vertex(x - 2, y - 7);
+  vertex(x - 4, y - 7);
+  vertex(x - 4, y - 8);
+  vertex(x - 6, y - 8);
+  vertex(x - 6, y - 7);
+  vertex(x - 7, y - 7);
+  vertex(x - 7, y - 6);
+  vertex(x - 8, y - 6);
+  vertex(x - 8, y + 2);
+  vertex(x - 6, y + 2);
+  vertex(x - 6, y + 4);
+  vertex(x - 4, y + 4);
+  vertex(x - 4, y + 6);
+  vertex(x - 2, y + 6);
+  vertex(x - 2, y + 8);
+  vertex(x, y + 8);
+  endShape();
+  popMatrix();
 }
 
 void closelines(){
