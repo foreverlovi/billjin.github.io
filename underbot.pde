@@ -164,8 +164,8 @@ void draw(){
       text("controls: arrow keys and mouse", width/2, 225);
       
       pushMatrix();
-      translate(mouseX, mouseY);
-      rotate(radians(180));
+      translate(mouseX+4, mouseY+4);
+      rotate(radians(135));
       heartgraphic(1, 1, color(255, 0, 0));
       popMatrix();
     break;
