@@ -30,6 +30,8 @@ boolean cntstr = false;
 
 PFont monsterfriend, dtmmono;
 
+int countdown = 0;
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -165,9 +167,13 @@ void draw(){
       
       rectMode(CENTER);
       fill(20);
-      rect(width/2, height/2 + 25, 100, 40);
+      rect(width/2, height/2 + 28, 100, 40);
       
       fill(255);
+      if(mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= height/2 - 12 && mouseY <= height/2 + 68){
+        fill(255, 255, 0);
+        if(mousePressed) screen = "countdown"; countdown = frameCount;
+      }
       textSize(36);
       text("PLAY", width/2, height/2 + 40);
       fill(155);
@@ -179,6 +185,17 @@ void draw(){
       rotate(radians(135));
       heartgraphic(1, 1, color(255, 0, 0));
       popMatrix();
+    break;
+    case "countdown":
+      fill(255);
+      textSize(48);
+      text("ready", width/2, height/2 - 50);
+      
+      if(frameCount - countdown < 60) text("3", width/2, height/2 - 50);
+      if(frameCount - countdown < 120 && frameCount - countdown > 59) text("2", width/2, height/2 - 50);
+      if(frameCount - countdown < 180 && frameCount - countdown > 119) text("1", width/2, height/2 - 50);
+      if(frameCount - countdown < 240 && frameCount - countdown > 179) text("good luck!", width/2, height/2 - 50);
+      if(frameCount - countdown == 240) screen = "game";
     break;
   }
 }
