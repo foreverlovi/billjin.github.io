@@ -141,6 +141,11 @@ void draw(){
       textSize(48);
       textAlign(CENTER);
       text("underbot", width/2, 135);
+      textFont(dtmmono);
+      textSize(24);
+      text("play against an AI", width/2, 165);
+      textSize(16);
+      text("controls: arrow keys and mouse", width/2, 165);
     break;
   }
 }
