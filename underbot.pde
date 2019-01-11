@@ -199,6 +199,7 @@ void draw(){
     break;
     case "countdown":
       snowdintown.pause();
+      metalcrusher.play();
       background(0);
       fill(255);
       textSize(48);
