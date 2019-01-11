@@ -63,6 +63,8 @@ void setup(){
   determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
   metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
   
+  metalcrusher.defaultPlaybackRate = 1.05;
+  
   snowdintown.loop = true;
   determi.loop = true;
   metalcrusher.loop = true;
