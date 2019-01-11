@@ -51,10 +51,22 @@ void setup(){
   sizechange = new PVector(0, 1000);
   control = "bot";
   
-  bullets.add(new bullet(width/3*2-109, 400-109, "bot", true));
-  bullets.add(new bullet(width/3*2-109, 400+109, "bot", true));
-  bullets.add(new bullet(width/3*2+109, 400-109, "bot", true));
-  bullets.add(new bullet(width/3*2+109, 400+109, "bot", true));
+  bullets.add(new bullet(width/3*2-111, 400-111, "bot", false));
+  bullets.add(new bullet(width/3*2-111, 400+111, "bot", false));
+  bullets.add(new bullet(width/3*2+111, 400-111, "bot", false));
+  bullets.add(new bullet(width/3*2+111, 400+111, "bot", false));
+  
+  bullets.add(new bullet(width/3*2-101, 400-111, "bot", false));
+  bullets.add(new bullet(width/3*2-111, 400-101, "bot", false));
+  
+  bullets.add(new bullet(width/3*2+111, 400-101, "bot", false));
+  bullets.add(new bullet(width/3*2+101, 400-111, "bot", false));
+  
+  bullets.add(new bullet(width/3*2+101, 400+111, "bot", false));
+  bullets.add(new bullet(width/3*2+111, 400+101, "bot", false));
+  
+  bullets.add(new bullet(width/3*2-111, 400+101, "bot", false));
+  bullets.add(new bullet(width/3*2-101, 400+111, "bot", false));
   
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
   dtmmono = createFont("/data/determination.otf", 48);
