@@ -34,6 +34,8 @@ int countdown = 0;
 
 Audio snowdintown, determi, metalcrusher;
 
+boolean mc = false;
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -60,6 +62,8 @@ void setup(){
   snowdintown = new Audio("/data/snowdintown.mp3");
   determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
   metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
+  
+  metalcrusher.loop();
 }
 
 void draw(){
@@ -177,7 +181,9 @@ void draw(){
       rectMode(CENTER);
       
       fill(255);
+      mc = false;
       if(mouseX >= width/2 - 100 && mouseX <= width/2 + 100 && mouseY >= height/2 - 12 && mouseY <= height/2 + 68){
+        mc = true;
         fill(255, 255, 0);
         if(mousePressed) screen = "countdown"; countdown = frameCount;
       }
@@ -200,13 +206,13 @@ void draw(){
       textSize(48);
       text("ready", width/2, height/2 - 50);
       
-      metalcrusher.play();
-      metalcrusher.loop();
       if(frameCount - countdown < 60) text("3", width/2, height/2 + 50);
       if(frameCount - countdown < 120 && frameCount - countdown > 59) text("2", width/2, height/2 + 50);
       if(frameCount - countdown < 180 && frameCount - countdown > 119) text("1", width/2, height/2 + 50);
       if(frameCount - countdown < 240 && frameCount - countdown > 179) text("good luck!", width/2, height/2 + 50);
       if(frameCount - countdown == 240) screen = "game";
+      
+      metalcrusher.play();
     break;
   }
 }
@@ -219,6 +225,9 @@ void keyReleased(){
 }
 
 void mousePressed(){
+  if(mc){
+    metalcrusher.play();
+  }
   if(!countbul){
     if(dist(mouseX, mouseY, botpos.x, botpos.y) > 20 && dist(mouseX, mouseY, player.x, player.y) > 20){
       bullets.add(new bullet(mouseX, mouseY, "bot", false));
