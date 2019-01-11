@@ -62,8 +62,6 @@ void setup(){
   snowdintown = new Audio("/data/snowdintown.mp3");
   determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
   metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
-  
-  metalcrusher.loop();
 }
 
 void draw(){
@@ -211,8 +209,6 @@ void draw(){
       if(frameCount - countdown < 180 && frameCount - countdown > 119) text("1", width/2, height/2 + 50);
       if(frameCount - countdown < 240 && frameCount - countdown > 179) text("good luck!", width/2, height/2 + 50);
       if(frameCount - countdown == 240) screen = "game";
-      
-      metalcrusher.play();
     break;
   }
 }
@@ -225,9 +221,6 @@ void keyReleased(){
 }
 
 void mousePressed(){
-  if(mc){
-    metalcrusher.play();
-  }
   if(!countbul){
     if(dist(mouseX, mouseY, botpos.x, botpos.y) > 20 && dist(mouseX, mouseY, player.x, player.y) > 20){
       bullets.add(new bullet(mouseX, mouseY, "bot", false));
@@ -324,7 +317,7 @@ void runbullets(){
   int nearindex = 0;
   float nearnessb = 999;
   int nearindb = 0;
-	int nearindb2 = 0;
+  int nearindb2 = 0;
   for(int i = 0; i < bullets.size(); i++){
     bullet b = bullets.get(i);
     b.run();
@@ -371,7 +364,7 @@ void runbullets(){
     nearbotv.y = bullets.get(nearindb).vel.y;
   }
 	
-	if(bullets.size() > 0 && nearindb2 < bullets.size()){
+  if(bullets.size() > 0 && nearindb2 < bullets.size()){
     nearbb2.x = bullets.get(nearindb2).pos.x;
     nearbb2.y = bullets.get(nearindb2).pos.y;
     
