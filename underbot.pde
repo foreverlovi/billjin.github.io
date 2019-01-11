@@ -59,6 +59,7 @@ void setup(){
   
   snowdintown = new Audio("/data/snowdintown.mp3");
   determi = new Audio("/data/Undertale OST 011 - Determination");
+  metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher");
 }
 
 void draw(){
@@ -193,7 +194,10 @@ void draw(){
       popMatrix();
     break;
     case "countdown":
-       background(0);
+      snowdintown.pause();
+      metalcrusher.play();
+      metalcrusher.loop();
+      background(0);
       fill(255);
       textSize(48);
       text("ready", width/2, height/2 - 50);
