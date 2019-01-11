@@ -159,7 +159,6 @@ void draw(){
     break;
     case "menu":
       snowdintown.play();
-      snowdintown.loop();
       noCursor();
       background(0);
       fill(255);
@@ -193,7 +192,7 @@ void draw(){
       popMatrix();
     break;
     case "countdown":
-      background(0);
+       background(0);
       fill(255);
       textSize(48);
       text("ready", width/2, height/2 - 50);
@@ -227,41 +226,41 @@ void mousePressed(){
 
 void botcontrol(){
   float distance = dist(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
-  float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
+	float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
-  if(nearbb2.x * nearbotb.x < 0 && nearbb2.y * nearbotb.y < 0 && distance < 34){
-    if(nearbotb.x < botpos.x){
-      botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-      if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-      if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-    }
-    if(nearbotb.x > botpos.x){
-      botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-      if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-      if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-    }
-  } else {
-    if(distance < 50){
-      if(veldiff > 1.05){
-        if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-        if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-        if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-        if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-      } else {
-        if(distance < 19){
-          if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-          if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-          if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-          if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-        } else {
-          if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-          if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-          if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-          if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-        }
-      }
-    }
-  }
+	if(nearbb2.x * nearbotb.x < 0 && nearbb2.y * nearbotb.y < 0 && distance < 34){
+		 if(nearbotb.x < botpos.x){
+			 botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+			 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+		 }
+		if(nearbotb.x > botpos.x){
+			 botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+			 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+		 }
+	} else {
+		if(distance < 50){
+			if(veldiff > 1.05){
+				if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+				if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+				if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+				if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+			} else {
+				if(distance < 19){
+					if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+					if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+					if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+					if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+				} else {
+					if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+					if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+					if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+					if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+				}
+			}
+		}
+	}
 }
 
 class bullet {
