@@ -51,10 +51,10 @@ void setup(){
   sizechange = new PVector(0, 1000);
   control = "bot";
   
-  bullets.add(new bullet(width/3*2-112, 400-112, "bot", true));
-  bullets.add(new bullet(width/3*2-112, 400+112, "bot", true));
-  bullets.add(new bullet(width/3*2+112, 400-112, "bot", true));
-  bullets.add(new bullet(width/3*2+112, 400+112, "bot", true));
+  bullets.add(new bullet(width/3*2-109, 400-109, "bot", true));
+  bullets.add(new bullet(width/3*2-109, 400+109, "bot", true));
+  bullets.add(new bullet(width/3*2+109, 400-109, "bot", true));
+  bullets.add(new bullet(width/3*2+109, 400+109, "bot", true));
   
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
   dtmmono = createFont("/data/determination.otf", 48);
