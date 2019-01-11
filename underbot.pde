@@ -32,7 +32,7 @@ PFont monsterfriend, dtmmono;
 
 int countdown = 0;
 
-Audio snowdintown, determi, metalcrusher;
+Audio snowdintown;
 
 void setup(){
   size(800, 600);
@@ -58,8 +58,6 @@ void setup(){
   dtmmono = createFont("/data/determination.otf", 48);
   
   snowdintown = new Audio("/data/snowdintown.mp3");
-  determi = new Audio("/data/snowdintown.mp3");
-  metalcrusher = new Audio("/data/snowdintown.mp3");
 }
 
 void draw(){
@@ -129,8 +127,6 @@ void draw(){
       if(bhp == 0 && hp > 0) screen = "playerwins";
     break;
     case "botwins":
-      metalcrusher.pause();
-      determi.play();
       noCursor();
       textAlign(CENTER);
       textFont(dtmmono);
@@ -147,7 +143,6 @@ void draw(){
       popMatrix();
     break;
     case "playerwins":
-      metalcrusher.pause();
       snowdintown.play();
       snowdintown.loop();
       noCursor();
@@ -201,8 +196,6 @@ void draw(){
       popMatrix();
     break;
     case "countdown":
-      metalcrusher.play();
-      metalcrusher.loop();
       background(0);
       fill(255);
       textSize(48);
