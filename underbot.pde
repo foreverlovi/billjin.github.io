@@ -62,6 +62,10 @@ void setup(){
   snowdintown = new Audio("/data/snowdintown.mp3");
   determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
   metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
+  
+  snowdintown.loop = true;
+  determi.loop = true;
+  metalcrusher.loop = true;
 }
 
 void draw(){
@@ -130,6 +134,8 @@ void draw(){
       if(bhp == 0 && hp > 0) screen = "playerwins";
     break;
     case "botwins":
+      metalcrusher.pause();
+      determi.play();
       noCursor();
       textAlign(CENTER);
       textFont(dtmmono);
@@ -146,6 +152,8 @@ void draw(){
       popMatrix();
     break;
     case "playerwins":
+      metalcrusher.pause();
+      snowdintown.play();
       noCursor();
       textAlign(CENTER);
       textFont(dtmmono);
@@ -199,7 +207,7 @@ void draw(){
     break;
     case "countdown":
       snowdintown.pause();
-      metalcrusher.play();
+      if(frameCount - countdown > 1) metalcrusher.play();
       background(0);
       fill(255);
       textSize(48);
