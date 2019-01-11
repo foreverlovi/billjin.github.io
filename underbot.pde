@@ -32,7 +32,7 @@ PFont monsterfriend, dtmmono;
 
 int countdown = 0;
 
-Audio snowdintown;
+Audio snowdintown, determi, metalcrusher;
 
 void setup(){
   size(800, 600);
@@ -58,6 +58,7 @@ void setup(){
   dtmmono = createFont("/data/determination.otf", 48);
   
   snowdintown = new Audio("/data/snowdintown.mp3");
+  determi = new Audio("/data/Undertale OST 011 - Determination");
 }
 
 void draw(){
