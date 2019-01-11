@@ -246,7 +246,7 @@ void keyReleased(){
 
 void mousePressed(){
   if(!countbul){
-    if(dist(mouseX, mouseY, botpos.x, botpos.y) > 20 && dist(mouseX, mouseY, player.x, player.y) > 20){
+    if(dist(mouseX, mouseY, botpos.x, botpos.y) > 35 && dist(mouseX, mouseY, player.x, player.y) > 35){
       bullets.add(new bullet(mouseX, mouseY, "bot", false));
       countbul = true;
     } else {
@@ -738,8 +738,8 @@ void closelines(){
   noFill();
   stroke(255, tooclose);
   strokeWeight(2);
-  ellipse(player.x-1, player.y-1, 40, 40);
-  ellipse(botpos.x-1, botpos.y-1, 40, 40);
+  ellipse(player.x-1, player.y-1, 70, 70);
+  ellipse(botpos.x-1, botpos.y-1, 70, 70);
   
   tooclose *= 0.94;
 }
