@@ -183,6 +183,7 @@ void draw(){
       text("play against an AI", width/2, 185);
       textSize(16);
       text("controls: arrow keys and mouse", width/2, 225);
+      text("foreverlovi.github.io", width/2, 85);
       
       rectMode(CENTER);
       
