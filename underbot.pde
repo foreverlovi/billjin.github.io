@@ -195,13 +195,13 @@ void draw(){
     break;
     case "countdown":
       snowdintown.pause();
-      metalcrusher.play();
-      metalcrusher.loop();
       background(0);
       fill(255);
       textSize(48);
       text("ready", width/2, height/2 - 50);
       
+      metalcrusher.play();
+      metalcrusher.loop();
       if(frameCount - countdown < 60) text("3", width/2, height/2 + 50);
       if(frameCount - countdown < 120 && frameCount - countdown > 59) text("2", width/2, height/2 + 50);
       if(frameCount - countdown < 180 && frameCount - countdown > 119) text("1", width/2, height/2 + 50);
