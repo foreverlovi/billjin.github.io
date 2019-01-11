@@ -521,6 +521,11 @@ void buttons(){
   if(frameCount - currfc > 31){
     cntstr = false;
   }
+  ellipse(width/2-75, 75, 4, 4);
+  ellipse(width/2-85, 75, 4, 4);
+  ellipse(width/2-95, 75, 4, 4);
+  ellipse(width/2-65, 75, 4, 4);
+  ellipse(width/2-55, 75, 4, 4);
   
   ellipse(width/2-75, 75, 60, 60);
   
@@ -532,6 +537,11 @@ void buttons(){
       bigburst(width/3, "bot");
     }
   }
+  ellipse(width/2 + 20, 75 - 20, 4, 4);
+  ellipse(width/2 - 20, 75 - 20, 4, 4);
+  ellipse(width/2 - 20, 75 + 20, 4, 4);
+  ellipse(width/2 + 20, 75 + 20, 4, 4);
+  
   ellipse(width/2, 75, 60, 60);
   
   stroke(255, 100);
@@ -542,6 +552,11 @@ void buttons(){
       littleburst(width/3, "bot");
     }
   }
+  ellipse(width/2 + 95, 75, 4, 4);
+  ellipse(width/2 + 55, 75, 4, 4);
+  ellipse(width/2 + 75, 75 - 20, 4, 4);
+  ellipse(width/2 + 75, 75 + 20, 4, 4);
+  
   ellipse(width/2 + 75, 75, 60, 60);
   
   rectMode(CORNER);
