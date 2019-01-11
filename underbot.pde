@@ -138,7 +138,7 @@ void draw(){
       
       if(countbul){
         bulcount++;
-        if(bulcount>18){
+        if(bulcount>20){
           bulcount = 0;
           countbul = false;
         }
