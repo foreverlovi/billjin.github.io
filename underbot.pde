@@ -41,6 +41,8 @@ bulletcircle circle = new bulletcircle("cenp", 1200, 8);
 
 bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 
+bulletcircle b = new bulletcircle("cenb", width/3, 8);
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -90,6 +92,7 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
+      b.run();
       cursor();
       background(0);
       noFill();
