@@ -90,8 +90,6 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
-      circp.run();
-      circ.run();
       cursor();
       background(0);
       noFill();
@@ -427,9 +425,11 @@ void spawnbullets(){
   streamcnt = constrain(streamcnt+1, 0, 900);
   bburstcnt = constrain(bburstcnt+1, 0, 1200);
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
-  circcnt = constrain(circcnt+1, 0, 2000);
+  circcnt = constrain(circcnt+1, 0, 1600);
   
   if(frameCount % 4200 == 1) circ = new bulletcircle("cenp", 0, 8);
+  circ.run();
+  circp.run();
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -619,7 +619,7 @@ void buttons(){
   stroke(255, 100);
   if(dist(mouseX, mouseY, width/2, 175) < 30){ 
     stroke(255);
-    if(mousePressed && circcnt == 2000){
+    if(mousePressed && circcnt == 1600){
       circcnt = 0;
       circp = new bulletcircle("cenb", 267, 8);
     }
@@ -633,7 +633,7 @@ void buttons(){
   
   rectMode(CORNER);
   noStroke();
-  fill(255, 127);
+  fill(255, 155);
   rect(width/2 - 100, 15, 50, 20);
   rect(width/2 - 25, 15, 50, 20);
   rect(width/2 + 50, 15, 50, 20);
@@ -642,7 +642,7 @@ void buttons(){
   rect(width/2 - 100, 15, streamcnt / 18, 20);
   rect(width/2 - 25, 15, bburstcnt / 24, 20);
   rect(width/2 + 50, 15, lburstcnt / 24, 20);
-  rect(width/2 - 25, 115, circcnt / 40, 20);
+  rect(width/2 - 25, 115, circcnt / 32, 20);
 }
 
 void heart (){
