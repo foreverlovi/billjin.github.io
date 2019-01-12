@@ -41,6 +41,8 @@ bulletcircle circle = new bulletcircle("cenp", 1, 8);
 
 bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 
+int circleCount = 0;
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -426,9 +428,10 @@ void spawnbullets(){
   bburstcnt = constrain(bburstcnt+1, 0, 1200);
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
   circcnt = constrain(circcnt+1, 0, 1600);
-  
-  circle.shoot();
   circp.shoot();
+  
+  if(frameCount % 4000 == 0) circleCount = frameCount;
+  if(frameCount % 4000 < 250 && frameCount % 4000 > 0) playercircle("cenb", 0, circleCount, 8);
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -461,7 +464,7 @@ void streambullets(String place, int interval, int displace, int shift, String d
 }
 
 class bulletcircle {
-  int cnt;
+  int cnt = frameCount;
   String dir;
   int shift;
   int spd;
@@ -497,6 +500,33 @@ class bulletcircle {
 	if(frameCount - cnt == spd*22) bullets.add(new bullet(width/3-83+shift, 400 - 151, dir, false));
 	if(frameCount - cnt == spd*23) bullets.add(new bullet(width/3-40+shift, 400 - 170, dir, false));
   }
+}
+
+void playercircle(String dir, int shift, int cnt, int spd){
+  if(frameCount - cnt < 2) bullets.add(new bullet(width/3+shift, 400 - 175, dir, false));
+  if(frameCount - cnt == spd) bullets.add(new bullet(width/3+40+shift, 400 - 170, dir, false));
+  if(frameCount - cnt == spd*2) bullets.add(new bullet(width/3+83+shift, 400 - 151, dir, false));
+  if(frameCount - cnt == spd*3) bullets.add(new bullet(width/3+122+shift, 400 - 122, dir, false));
+  if(frameCount - cnt == spd*4) bullets.add(new bullet(width/3+151+shift, 400 - 83, dir, false));
+  if(frameCount - cnt == spd*5) bullets.add(new bullet(width/3+170+shift, 400 - 40, dir, false));
+  if(frameCount - cnt == spd*6) bullets.add(new bullet(width/3+175+shift, 400, dir, false));
+  if(frameCount - cnt == spd*7) bullets.add(new bullet(width/3+170+shift, 400 + 40, dir, false));
+  if(frameCount - cnt == spd*8) bullets.add(new bullet(width/3+151+shift, 400 + 83, dir, false));
+  if(frameCount - cnt == spd*9) bullets.add(new bullet(width/3+122+shift, 400 + 122, dir, false));
+  if(frameCount - cnt == spd*10) bullets.add(new bullet(width/3+83+shift, 400 + 151, dir, false));
+  if(frameCount - cnt == spd*11) bullets.add(new bullet(width/3+40+shift, 400 + 170, dir, false));
+  if(frameCount - cnt == spd*12) bullets.add(new bullet(width/3+shift, 400 + 175, dir, false));
+  if(frameCount - cnt == spd*13) bullets.add(new bullet(width/3-40+shift, 400 + 170, dir, false));
+  if(frameCount - cnt == spd*14) bullets.add(new bullet(width/3-83+shift, 400 + 151, dir, false));
+  if(frameCount - cnt == spd*15) bullets.add(new bullet(width/3-122+shift, 400 + 122, dir, false));
+  if(frameCount - cnt == spd*16) bullets.add(new bullet(width/3-151+shift, 400 + 83, dir, false));
+  if(frameCount - cnt == spd*17) bullets.add(new bullet(width/3-170+shift, 400 + 40, dir, false));
+  if(frameCount - cnt == spd*18) bullets.add(new bullet(width/3-175+shift, 400, dir, false));
+  if(frameCount - cnt == spd*19) bullets.add(new bullet(width/3-170+shift, 400 - 40, dir, false));
+  if(frameCount - cnt == spd*20) bullets.add(new bullet(width/3-151+shift, 400 - 83, dir, false));
+  if(frameCount - cnt == spd*21) bullets.add(new bullet(width/3-122+shift, 400 - 122, dir, false));
+  if(frameCount - cnt == spd*22) bullets.add(new bullet(width/3-83+shift, 400 - 151, dir, false)); 
+  if(frameCount - cnt == spd*23) bullets.add(new bullet(width/3-40+shift, 400 - 170, dir, false));
 }
 
 void streambulletsbot(String place, int shift, String direct, int cnt){
