@@ -417,8 +417,11 @@ void runbullets(){
 }
 
 void spawnbullets(){
-  if(frameCount % 16 == 0){
+  if(frameCount % 32 == 0){
     bullets.add(new bullet(width/3-600+1200*noise(botshoot.x), -200+1200*noise(botshoot.y), "player", false));
+  }
+  if(frameCount % 32 == 16){
+    bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
   }
   
   streambullets("bottom", 3200, 200, 0, "player");
@@ -436,7 +439,7 @@ void spawnbullets(){
   
   playercircle();
   
-  aimvisual();
+  //aimvisual();
   botshoot.x += 0.003;
   botshoot.y += 0.003;
 }
@@ -474,11 +477,11 @@ void aimvisual(){
   noFill();
   stroke(255, 75);
   strokeWeight(2);
-  //ellipse(width/3-600+1200*noise(botshoot.x), -200+1040*noise(botshoot.y), 15, 15);
-  ellipse(aimdisplay.x, aimdisplay.y, 20, 20);
+  ellipse(width/3-600+1200*noise(botshoot.x), -200+1040*noise(botshoot.y), 15, 15);
+  //ellipse(aimdisplay.x, aimdisplay.y, 20, 20);
   
-  aimdisplay.x += (bullets.get(bullets.size()-1).pos.x - aimdisplay.x) / 15;
-  aimdisplay.y += (bullets.get(bullets.size()-1).pos.y - aimdisplay.y) / 15;
+  //aimdisplay.x += (bullets.get(bullets.size()-1).pos.x - aimdisplay.x) / 15;
+  //aimdisplay.y += (bullets.get(bullets.size()-1).pos.y - aimdisplay.y) / 15;
 }
 
 class bulletcircle {
