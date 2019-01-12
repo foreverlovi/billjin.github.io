@@ -41,7 +41,7 @@ bulletcircle circle = new bulletcircle("cenp", 1200, 8);
 
 bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 
-bulletcircle b = new bulletcircle("cenb", width/3, 8);
+bulletcircle c = new bulletcircle("cenp", 0, 8);
 
 void setup(){
   size(800, 600);
@@ -151,7 +151,7 @@ void draw(){
         }
       }
       
-      b.run();
+      c.run();
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
