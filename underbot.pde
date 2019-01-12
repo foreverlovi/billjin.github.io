@@ -429,7 +429,6 @@ void spawnbullets(){
   
   circle.shoot();
   circp.shoot();
-  if(frameCount % 4200 == 1) circle = new bulletcircle("cenp", 1, 8);
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -623,6 +622,7 @@ void buttons(){
     if(mousePressed && circcnt == 1600){
       circcnt = 0;
       circp = new bulletcircle("cenb", 267, 8);
+      circle = new bulletcircle("cenp", 0, 8);
     }
   }
   ellipse(width/2 + 8, 175, 4, 4);
