@@ -92,7 +92,6 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
-      b.run();
       cursor();
       background(0);
       noFill();
@@ -151,6 +150,8 @@ void draw(){
           countbul = false;
         }
       }
+      
+      b.run();
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
