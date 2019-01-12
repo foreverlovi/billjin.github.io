@@ -416,7 +416,7 @@ void runbullets(){
 
 void spawnbullets(){
   if(frameCount % 16 == 0){
-    bullets.add(new bullet(width/3-170+340*noise(botshoot.x), 400-170+340*noise(botshoot.y), "player", false));
+    bullets.add(new bullet(width/3-240+480*noise(botshoot.x), 400-240+480*noise(botshoot.y), "player", false));
   }
   
   streambullets("bottom", 3200, 200, 0, "player");
@@ -472,7 +472,7 @@ void aimvisual(){
   noFill();
   stroke(255, 105);
   strokeWeight(2);
-  ellipse(width/3-170+340*noise(botshoot.x), 400-170+340*noise(botshoot.y), 8, 8);
+  ellipse(width/3-240+480*noise(botshoot.x), 400-240+480*noise(botshoot.y), 8, 8);
 }
 
 class bulletcircle {
