@@ -37,11 +37,9 @@ Audio snowdintown, determi, metalcrusher;
 
 boolean mc = false;
 
-bulletcircle circle = new bulletcircle("cenp", 1200, 8);
+bulletcircle circle = new bulletcircle("cenp", 1, 8);
 
 bulletcircle circp = new bulletcircle("cenb", 1200, 8);
-
-bulletcircle c;
 
 void setup(){
   size(800, 600);
@@ -87,8 +85,6 @@ void setup(){
   snowdintown.loop = true;
   determi.loop = true;
   metalcrusher.loop = true;
-  
-  c = new bulletcircle("cenp", 0, 8);
 }
 
 void draw(){
@@ -152,8 +148,6 @@ void draw(){
           countbul = false;
         }
       }
-      
-      if(frameCount > 100) c.run();
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
@@ -433,9 +427,9 @@ void spawnbullets(){
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
   circcnt = constrain(circcnt+1, 0, 1600);
   
-  if(frameCount % 4200 == 1) circle = new bulletcircle("cenp", 0, 8);
-  circle.run();
-  circp.run();
+  circle.shoot();
+  circp.shoot();
+  if(frameCount % 4200 == 1) circle = new bulletcircle("cenp", 1, 8);
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -468,16 +462,17 @@ void streambullets(String place, int interval, int displace, int shift, String d
 }
 
 class bulletcircle {
-  int cnt = frameCount;
+  int cnt;
   String dir;
   int shift;
   int spd;
   bulletcircle(String direct, int shiftright, int speed){
+          cnt = frameCount;
 	  dir = direct;
 	  shift = shiftright;
 	  spd = speed;
   }
-  void run(){
+  void shoot(){
 	if(frameCount - cnt < 2) bullets.add(new bullet(width/3+shift, 400 - 175, dir, false));
 	if(frameCount - cnt == spd) bullets.add(new bullet(width/3+40+shift, 400 - 170, dir, false));
 	if(frameCount - cnt == spd*2) bullets.add(new bullet(width/3+83+shift, 400 - 151, dir, false));
