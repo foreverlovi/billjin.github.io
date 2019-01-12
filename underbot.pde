@@ -413,7 +413,7 @@ void runbullets(){
 }
 
 void spawnbullets(){
-  if(frameCount % 18 == 0){
+  if(frameCount % 16 == 0){
     bullets.add(new bullet(random(width/3-150, width/3+150), random(250, 550), "player", false));
   }
   
