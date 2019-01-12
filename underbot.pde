@@ -431,7 +431,7 @@ void spawnbullets(){
   circp.shoot();
   
   if(frameCount % 4000 == 0) circleCount = frameCount;
-  if(frameCount % 300 < 250 && frameCount % 300 > 0) playercircle("cenp", 0, circleCount, 8);
+  if(frameCount % 300 < 250 && frameCount % 300 > 0) playercircle("cenb", 0, circleCount, 8);
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
