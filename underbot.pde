@@ -31,6 +31,8 @@ boolean cntstr = false;
 
 PFont monsterfriend, dtmmono;
 
+PVector botshoot = new PVector(0, 1000);
+
 int countdown = 0;
 
 Audio snowdintown, determi, metalcrusher;
@@ -414,7 +416,7 @@ void runbullets(){
 
 void spawnbullets(){
   if(frameCount % 16 == 0){
-    bullets.add(new bullet(random(width/3-150, width/3+150), random(250, 550), "player", false));
+    bullets.add(new bullet(width/3-170+340*noise(botshoot.x), 400-170+340*noise(botshoot.y), "player", false));
   }
   
   streambullets("bottom", 3200, 200, 0, "player");
@@ -431,6 +433,10 @@ void spawnbullets(){
   circp.shoot();
   
   playercircle();
+  
+  aimvisual();
+  botshoot.x += 0.01;
+  botshoot.y += 0.01;
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -460,6 +466,13 @@ void streambullets(String place, int interval, int displace, int shift, String d
     if(frameCount % interval == 27 + displace) bullets.add(new bullet(width/3+shift+80, 400-120, direct, false));
     if(frameCount % interval == 30 + displace) bullets.add(new bullet(width/3+shift+100, 400-120, direct, false));
   }
+}
+
+void aimvisual(){
+  noFill();
+  stroke(255, 105);
+  strokeWeight(2);
+  ellipse(width/3-170+340*noise(botshoot.x), 400-170+340*noise(botshoot.y), 8, 8);
 }
 
 class bulletcircle {
