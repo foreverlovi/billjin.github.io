@@ -427,7 +427,7 @@ void spawnbullets(){
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
   circcnt = constrain(circcnt+1, 0, 1600);
   
-  if(frameCount % 4200 == 1) circ = new bulletcircle("cenp", 0, 8);
+  //if(frameCount % 4200 == 1) circ = new bulletcircle("cenp", 0, 8);
   circ.run();
   circp.run();
 }
