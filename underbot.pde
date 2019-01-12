@@ -23,6 +23,7 @@ int tooclose;
 int streamcnt = 0;
 int bburstcnt = 0;
 int lburstcnt = 0;
+int circcnt = 0;
 
 int currfc;
 
@@ -35,6 +36,10 @@ int countdown = 0;
 Audio snowdintown, determi, metalcrusher;
 
 boolean mc = false;
+
+bulletcircle circ = new bulletcircle("cenp", 0, 8);
+
+bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 
 void setup(){
   size(800, 600);
@@ -85,6 +90,8 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
+      circp.run();
+      circ.run();
       cursor();
       background(0);
       noFill();
@@ -318,6 +325,14 @@ class bullet {
         if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) / 3);
         if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) / 3);
       break;
+      case "cenb":
+	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3*2));
+	vel.mult(3);
+      break;
+      case "cenp":
+	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3));
+	vel.mult(3);
+      break;
     }
     if(sti) vel = new PVector(0, 0);
   }
@@ -404,6 +419,7 @@ void spawnbullets(){
   
   streambullets("bottom", 3200, 200, 0, "player");
   streambullets("top", 3200, 1000, 0, "player");
+  streambullets("top", 9600, 200, 0, "player");
   
   if(frameCount % 3200 == 2300) bigburst(0, "player");
   if(frameCount % 3200 == 2360) littleburst(0, "player");
@@ -411,6 +427,9 @@ void spawnbullets(){
   streamcnt = constrain(streamcnt+1, 0, 900);
   bburstcnt = constrain(bburstcnt+1, 0, 1200);
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
+  circcnt = constrain(circcnt+1, 0, 2000);
+  
+  if(frameCount % 4200 == 1) circ = new bulletcircle("cenp", 0, 8);
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -439,6 +458,44 @@ void streambullets(String place, int interval, int displace, int shift, String d
     if(frameCount % interval == 24 + displace) bullets.add(new bullet(width/3+shift+60, 400-120, direct, false));
     if(frameCount % interval == 27 + displace) bullets.add(new bullet(width/3+shift+80, 400-120, direct, false));
     if(frameCount % interval == 30 + displace) bullets.add(new bullet(width/3+shift+100, 400-120, direct, false));
+  }
+}
+
+class bulletcircle {
+  int cnt = frameCount;
+  String dir;
+  int shift;
+  int spd;
+  bulletcircle(String direct, int shiftright, int speed){
+	  dir = direct;
+	  shift = shiftright;
+	  spd = speed;
+  }
+  void run(){
+	if(frameCount - cnt < 2) bullets.add(new bullet(width/3+shift, 400 - 175, dir, false));
+	if(frameCount - cnt == spd) bullets.add(new bullet(width/3+40+shift, 400 - 170, dir, false));
+	if(frameCount - cnt == spd*2) bullets.add(new bullet(width/3+83+shift, 400 - 151, dir, false));
+	if(frameCount - cnt == spd*3) bullets.add(new bullet(width/3+122+shift, 400 - 122, dir, false));
+	if(frameCount - cnt == spd*4) bullets.add(new bullet(width/3+151+shift, 400 - 83, dir, false));
+	if(frameCount - cnt == spd*5) bullets.add(new bullet(width/3+170+shift, 400 - 40, dir, false));
+	if(frameCount - cnt == spd*6) bullets.add(new bullet(width/3+175+shift, 400, dir, false));
+	if(frameCount - cnt == spd*7) bullets.add(new bullet(width/3+170+shift, 400 + 40, dir, false));
+	if(frameCount - cnt == spd*8) bullets.add(new bullet(width/3+151+shift, 400 + 83, dir, false));
+	if(frameCount - cnt == spd*9) bullets.add(new bullet(width/3+122+shift, 400 + 122, dir, false));
+	if(frameCount - cnt == spd*10) bullets.add(new bullet(width/3+83+shift, 400 + 151, dir, false));
+	if(frameCount - cnt == spd*11) bullets.add(new bullet(width/3+40+shift, 400 + 170, dir, false));
+	if(frameCount - cnt == spd*12) bullets.add(new bullet(width/3+shift, 400 + 175, dir, false));
+	if(frameCount - cnt == spd*13) bullets.add(new bullet(width/3-40+shift, 400 + 170, dir, false));
+	if(frameCount - cnt == spd*14) bullets.add(new bullet(width/3-83+shift, 400 + 151, dir, false));
+	if(frameCount - cnt == spd*15) bullets.add(new bullet(width/3-122+shift, 400 + 122, dir, false));
+	if(frameCount - cnt == spd*16) bullets.add(new bullet(width/3-151+shift, 400 + 83, dir, false));
+	if(frameCount - cnt == spd*17) bullets.add(new bullet(width/3-170+shift, 400 + 40, dir, false));
+	if(frameCount - cnt == spd*18) bullets.add(new bullet(width/3-175+shift, 400, dir, false));
+	if(frameCount - cnt == spd*19) bullets.add(new bullet(width/3-170+shift, 400 - 40, dir, false));
+	if(frameCount - cnt == spd*20) bullets.add(new bullet(width/3-151+shift, 400 - 83, dir, false));
+	if(frameCount - cnt == spd*21) bullets.add(new bullet(width/3-122+shift, 400 - 122, dir, false));
+	if(frameCount - cnt == spd*22) bullets.add(new bullet(width/3-83+shift, 400 - 151, dir, false));
+	if(frameCount - cnt == spd*23) bullets.add(new bullet(width/3-40+shift, 400 - 170, dir, false));
   }
 }
 
@@ -559,16 +616,33 @@ void buttons(){
   
   ellipse(width/2 + 75, 75, 60, 60);
   
+  stroke(255, 100);
+  if(dist(mouseX, mouseY, width/2, 175) < 30){ 
+    stroke(255);
+    if(mousePressed && circcnt == 2000){
+      circcnt = 0;
+      circp = new bulletcircle("cenb", 267, 8);
+    }
+  }
+  ellipse(width/2 + 8, 175, 4, 4);
+  ellipse(width/2 - 8, 175, 4, 4);
+  ellipse(width/2, 175 - 8, 4, 4);
+  ellipse(width/2, 175 + 8, 4, 4);
+  
+  ellipse(width/2, 175, 60, 60);
+  
   rectMode(CORNER);
   noStroke();
   fill(255, 127);
   rect(width/2 - 100, 15, 50, 20);
   rect(width/2 - 25, 15, 50, 20);
   rect(width/2 + 50, 15, 50, 20);
+  rect(width/2 - 25, 115, 50, 20);
   
   rect(width/2 - 100, 15, streamcnt / 18, 20);
   rect(width/2 - 25, 15, bburstcnt / 24, 20);
   rect(width/2 + 50, 15, lburstcnt / 24, 20);
+  rect(width/2 - 25, 115, circcnt / 40, 20);
 }
 
 void heart (){
