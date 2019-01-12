@@ -41,7 +41,7 @@ bulletcircle circle = new bulletcircle("cenp", 1200, 8);
 
 bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 
-bulletcircle c = new bulletcircle("cenp", 0, 8);
+bulletcircle c;
 
 void setup(){
   size(800, 600);
@@ -87,6 +87,8 @@ void setup(){
   snowdintown.loop = true;
   determi.loop = true;
   metalcrusher.loop = true;
+  
+  c = new bulletcircle("cenp", 0, 8);
 }
 
 void draw(){
@@ -151,7 +153,7 @@ void draw(){
         }
       }
       
-      c.run();
+      if(frameCount > 100) c.run();
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
