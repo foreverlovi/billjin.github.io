@@ -524,30 +524,30 @@ class bulletcircle {
 }
 
 void playercircle(){
-  if(frameCount % 1900 == 8) bullets.add(new bullet(width/3, 400 - 175, "cenp", false));
-  if(frameCount % 1900 == 16 && frameCount % 2300 > 7) bullets.add(new bullet(width/3+40, 400 - 170, "cenp", false));
-  if(frameCount % 1900 == 24 && frameCount % 2300 > 15) bullets.add(new bullet(width/3+83, 400 - 151, "cenp", false));
-  if(frameCount % 1900 == 30 && frameCount % 2300 > 23) bullets.add(new bullet(width/3+122, 400 - 122, "cenp", false));
-  if(frameCount % 1900 == 36 && frameCount % 2300 > 29) bullets.add(new bullet(width/3+151, 400 - 83, "cenp", false));
-  if(frameCount % 1900 == 42 && frameCount % 2300 > 35) bullets.add(new bullet(width/3+170, 400 - 40, "cenp", false));
-  if(frameCount % 1900 == 48 && frameCount % 2300 > 41) bullets.add(new bullet(width/3+175, 400, "cenp", false));
-  if(frameCount % 1900 == 54 && frameCount % 2300 > 47) bullets.add(new bullet(width/3+170, 400 + 40, "cenp", false));
-  if(frameCount % 1900 == 60 && frameCount % 2300 > 53) bullets.add(new bullet(width/3+151, 400 + 83, "cenp", false));
-  if(frameCount % 1900 == 66 && frameCount % 2300 > 59) bullets.add(new bullet(width/3+122, 400 + 122, "cenp", false));
-  if(frameCount % 1900 == 72 && frameCount % 2300 > 65) bullets.add(new bullet(width/3+83, 400 + 151, "cenp", false));
-  if(frameCount % 1900 == 78 && frameCount % 2300 > 71) bullets.add(new bullet(width/3+40, 400 + 170, "cenp", false));
-  if(frameCount % 1900 == 84 && frameCount % 2300 > 77) bullets.add(new bullet(width/3, 400 + 175, "cenp", false));
-  if(frameCount % 1900 == 90 && frameCount % 2300 > 83) bullets.add(new bullet(width/3-40, 400 + 170, "cenp", false));
-  if(frameCount % 1900 == 96 && frameCount % 2300 > 89) bullets.add(new bullet(width/3-83, 400 + 151, "cenp", false));
-  if(frameCount % 1900 == 102 && frameCount % 2300 > 95) bullets.add(new bullet(width/3-122, 400 + 122, "cenp", false));
-  if(frameCount % 1900 == 108 && frameCount % 2300 > 101) bullets.add(new bullet(width/3-151, 400 + 83, "cenp", false));
-  if(frameCount % 1900 == 114 && frameCount % 2300 > 107) bullets.add(new bullet(width/3-170, 400 + 40, "cenp", false));
-  if(frameCount % 1900 == 120 && frameCount % 2300 > 113) bullets.add(new bullet(width/3-175, 400, "cenp", false));
-  if(frameCount % 1900 == 126 && frameCount % 2300 > 119) bullets.add(new bullet(width/3-170, 400 - 40, "cenp", false));
-  if(frameCount % 1900 == 132 && frameCount % 2300 > 125) bullets.add(new bullet(width/3-151, 400 - 83, "cenp", false));
-  if(frameCount % 1900 == 138 && frameCount % 2300 > 131) bullets.add(new bullet(width/3-122, 400 - 122, "cenp", false));
-  if(frameCount % 1900 == 144 && frameCount % 2300 > 137) bullets.add(new bullet(width/3-83, 400 - 151, "cenp", false)); 
-  if(frameCount % 1900 == 150 && frameCount % 2300 > 143) bullets.add(new bullet(width/3-40, 400 - 170, "cenp", false));
+  if(frameCount % 1900 == 10) bullets.add(new bullet(width/3, 400 - 175, "cenp", false));
+  if(frameCount % 1900 == 16) bullets.add(new bullet(width/3+40, 400 - 170, "cenp", false));
+  if(frameCount % 1900 == 24) bullets.add(new bullet(width/3+83, 400 - 151, "cenp", false));
+  if(frameCount % 1900 == 30) bullets.add(new bullet(width/3+122, 400 - 122, "cenp", false));
+  if(frameCount % 1900 == 36) bullets.add(new bullet(width/3+151, 400 - 83, "cenp", false));
+  if(frameCount % 1900 == 42) bullets.add(new bullet(width/3+170, 400 - 40, "cenp", false));
+  if(frameCount % 1900 == 48) bullets.add(new bullet(width/3+175, 400, "cenp", false));
+  if(frameCount % 1900 == 54) bullets.add(new bullet(width/3+170, 400 + 40, "cenp", false));
+  if(frameCount % 1900 == 60) bullets.add(new bullet(width/3+151, 400 + 83, "cenp", false));
+  if(frameCount % 1900 == 66) bullets.add(new bullet(width/3+122, 400 + 122, "cenp", false));
+  if(frameCount % 1900 == 72) bullets.add(new bullet(width/3+83, 400 + 151, "cenp", false));
+  if(frameCount % 1900 == 78) bullets.add(new bullet(width/3+40, 400 + 170, "cenp", false));
+  if(frameCount % 1900 == 84) bullets.add(new bullet(width/3, 400 + 175, "cenp", false));
+  if(frameCount % 1900 == 90) bullets.add(new bullet(width/3-40, 400 + 170, "cenp", false));
+  if(frameCount % 1900 == 96) bullets.add(new bullet(width/3-83, 400 + 151, "cenp", false));
+  if(frameCount % 1900 == 102) bullets.add(new bullet(width/3-122, 400 + 122, "cenp", false));
+  if(frameCount % 1900 == 108) bullets.add(new bullet(width/3-151, 400 + 83, "cenp", false));
+  if(frameCount % 1900 == 114) bullets.add(new bullet(width/3-170, 400 + 40, "cenp", false));
+  if(frameCount % 1900 == 120) bullets.add(new bullet(width/3-175, 400, "cenp", false));
+  if(frameCount % 1900 == 126) bullets.add(new bullet(width/3-170, 400 - 40, "cenp", false));
+  if(frameCount % 1900 == 132) bullets.add(new bullet(width/3-151, 400 - 83, "cenp", false));
+  if(frameCount % 1900 == 138) bullets.add(new bullet(width/3-122, 400 - 122, "cenp", false));
+  if(frameCount % 1900 == 144) bullets.add(new bullet(width/3-83, 400 - 151, "cenp", false)); 
+  if(frameCount % 1900 == 150) bullets.add(new bullet(width/3-40, 400 - 170, "cenp", false));
   
   if(frameCount % 1900 == 156) bullets.add(new bullet(width/3, 400 - 175, "cenp", false));
   if(frameCount % 1900 == 162) bullets.add(new bullet(width/3+40, 400 - 170, "cenp", false));
