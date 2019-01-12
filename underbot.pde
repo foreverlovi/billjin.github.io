@@ -416,7 +416,7 @@ void runbullets(){
 
 void spawnbullets(){
   if(frameCount % 16 == 0){
-    bullets.add(new bullet(width/3-240+480*noise(botshoot.x), 400-240+480*noise(botshoot.y), "player", false));
+    bullets.add(new bullet(width/3-400+800*noise(botshoot.x), 800*noise(botshoot.y), "player", false));
   }
   
   streambullets("bottom", 3200, 200, 0, "player");
@@ -435,8 +435,8 @@ void spawnbullets(){
   playercircle();
   
   aimvisual();
-  botshoot.x += 0.01;
-  botshoot.y += 0.01;
+  botshoot.x += 0.006;
+  botshoot.y += 0.006;
 }
 
 void streambullets(String place, int interval, int displace, int shift, String direct){
@@ -472,7 +472,7 @@ void aimvisual(){
   noFill();
   stroke(255, 105);
   strokeWeight(2);
-  ellipse(width/3-240+480*noise(botshoot.x), 400-240+480*noise(botshoot.y), 8, 8);
+  ellipse(width/3-400+800*noise(botshoot.x), 800*noise(botshoot.y), 8, 8);
 }
 
 class bulletcircle {
