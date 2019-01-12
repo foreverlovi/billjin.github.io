@@ -37,7 +37,7 @@ Audio snowdintown, determi, metalcrusher;
 
 boolean mc = false;
 
-bulletcircle circ = new bulletcircle("cenp", 0, 8);
+bulletcircle circle = new bulletcircle("cenp", 1200, 8);
 
 bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 
@@ -427,8 +427,8 @@ void spawnbullets(){
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
   circcnt = constrain(circcnt+1, 0, 1600);
   
-  //if(frameCount % 4200 == 1) circ = new bulletcircle("cenp", 0, 8);
-  circ.run();
+  if(frameCount % 4200 == 1) circle = new bulletcircle("cenp", 0, 8);
+  circle.run();
   circp.run();
 }
 
