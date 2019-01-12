@@ -25,6 +25,8 @@ int bburstcnt = 0;
 int lburstcnt = 0;
 int circcnt = 0;
 
+PVector aimdisplay = new PVector(width/3, 400);
+
 int currfc;
 
 boolean cntstr = false;
@@ -473,7 +475,10 @@ void aimvisual(){
   stroke(255, 75);
   strokeWeight(2);
   //ellipse(width/3-600+1200*noise(botshoot.x), -200+1040*noise(botshoot.y), 15, 15);
-  ellipse(bullets.get(bullets.size()-1).pos.x, bullets.get(bullets.size()-1).pos.y, 15, 15);
+  ellipse(aimdisplay.x, aimdisplay.y, 20, 20);
+  
+  aimdisplay.x += (bullets.get(bullets.size()-1).pos.x - aimdisplay.x) / 15;
+  aimdisplay.y += (bullets.get(bullets.size()-1).pos.y - aimdisplay.y) / 15;
 }
 
 class bulletcircle {
