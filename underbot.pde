@@ -756,7 +756,7 @@ void buttons(){
   ellipse(width/2 + 75, 75, 60, 60);
   
   stroke(255, 100);
-  if(dist(mouseX, mouseY, width/2, 175) < 30){ 
+  if(dist(mouseX, mouseY, width/2 + 150, 75) < 30){ 
     stroke(255);
     if(mousePressed && circcnt == 1600){
       circcnt = 0;
@@ -771,7 +771,7 @@ void buttons(){
   
   ellipse(width/2 + 150, 75, 60, 60);
   
-  if(dist(mouseX, mouseY, width/2, 175) < 30){ 
+  if(dist(mouseX, mouseY, width/2 - 150, 75) < 30){ 
     stroke(255);
     if(mousePressed && protcnt == 1400){
       protcnt = 0;
@@ -779,7 +779,7 @@ void buttons(){
     }
   }
   
-  ellipse(width/2 - 75, 75, 60, 60);
+  ellipse(width/2 - 150, 75, 60, 60);
   
   rectMode(CORNER);
   noStroke();
