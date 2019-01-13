@@ -480,7 +480,7 @@ void protection(){
     bullet b = bullets.get(i);
     float angbet = atan2(b.pos.y - player.y, b.pos.x - player.x);
     PVector pushback = PVector.fromAngle(angbet + PI);
-    pushback.mult(10);
+    pushback.mult(7.5);
     b.vel.add(pushback);
   }
 }
