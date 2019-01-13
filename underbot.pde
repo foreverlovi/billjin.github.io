@@ -480,7 +480,7 @@ void protection(){
     bullet b = bullets.get(i);
     float angbet = atan2(b.pos.y - player.y, b.pos.x - player.x);
     PVector pushback = PVector.fromAngle(angbet + PI);
-    pushback.mult(4);
+    pushback.mult(10);
     b.vel.add(pushback);
   }
 }
@@ -771,6 +771,7 @@ void buttons(){
   
   ellipse(width/2 + 150, 75, 60, 60);
   
+  stroke(255, 100);
   if(dist(mouseX, mouseY, width/2 - 150, 75) < 30){ 
     stroke(255);
     if(mousePressed && protcnt == 1400){
@@ -793,8 +794,8 @@ void buttons(){
   rect(width/2 - 100, 15, streamcnt / 18, 20);
   rect(width/2 - 25, 15, bburstcnt / 24, 20);
   rect(width/2 + 50, 15, lburstcnt / 24, 20);
-  rect(width/2 - 175, 15, circcnt / 32, 20);
-  rect(width/2 + 125, 15, circcnt / 28, 20);
+  rect(width/2 - 175, 15, protcnt / 28, 20);
+  rect(width/2 + 125, 15, circcnt / 32, 20);
 }
 
 void heart (){
