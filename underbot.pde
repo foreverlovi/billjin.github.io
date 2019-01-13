@@ -224,7 +224,7 @@ void draw(){
       text("foreverlovi.github.io", width/2, 85);
       
       textSize(12);
-      text("v1.1", width/5*3.88, 143);
+      text("v1.1", width/5*3.66, 137);
       
       rectMode(CENTER);
       
