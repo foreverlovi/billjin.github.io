@@ -435,7 +435,7 @@ void spawnbullets(){
   streamcnt = constrain(streamcnt+1, 0, 900);
   bburstcnt = constrain(bburstcnt+1, 0, 1200);
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
-  protcnt = constrain(lburstcnt+1, 0, 1400);
+  protcnt = constrain(protcnt+1, 0, 1400);
   circcnt = constrain(circcnt+1, 0, 1600);
   circp.shoot();
   shifts();
