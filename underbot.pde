@@ -24,6 +24,7 @@ int streamcnt = 0;
 int bburstcnt = 0;
 int lburstcnt = 0;
 int circcnt = 0;
+int protcnt = 0;
 
 PVector aimdisplay = new PVector(width/3, 400);
 
@@ -96,7 +97,6 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
-      snowdintown.play();
       cursor();
       background(0);
       noFill();
@@ -435,6 +435,7 @@ void spawnbullets(){
   streamcnt = constrain(streamcnt+1, 0, 900);
   bburstcnt = constrain(bburstcnt+1, 0, 1200);
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
+  protcnt = constrain(lburstcnt+1, 0, 1400);
   circcnt = constrain(circcnt+1, 0, 1600);
   circp.shoot();
   shifts();
@@ -471,6 +472,16 @@ void streambullets(String place, int interval, int displace, int shift, String d
     if(frameCount % interval == 24 + displace) bullets.add(new bullet(width/3+shift+60, 400-120, direct, false));
     if(frameCount % interval == 27 + displace) bullets.add(new bullet(width/3+shift+80, 400-120, direct, false));
     if(frameCount % interval == 30 + displace) bullets.add(new bullet(width/3+shift+100, 400-120, direct, false));
+  }
+}
+
+void protection(){
+  for(int i = 0; i < bullets.size(); i ++){
+    bullet b = bullets.get(i);
+    float angbet = atan2(b.pos.y - player.y, b.pos.x - player.x);
+    PVector pushback = PVector.fromAngle(angbet + PI);
+    pushback.mult(4);
+    b.vel.add(pushback);
   }
 }
 
@@ -753,12 +764,22 @@ void buttons(){
       circle = new bulletcircle("cenp", 0, 8);
     }
   }
-  ellipse(width/2 + 8, 175, 4, 4);
-  ellipse(width/2 - 8, 175, 4, 4);
-  ellipse(width/2, 175 - 8, 4, 4);
-  ellipse(width/2, 175 + 8, 4, 4);
+  ellipse(width/2 + 8 + 150, 75, 4, 4);
+  ellipse(width/2 - 8 + 150, 75, 4, 4);
+  ellipse(width/2 + 150, 75 - 8, 4, 4);
+  ellipse(width/2 + 150, 75 + 8, 4, 4);
   
-  ellipse(width/2, 175, 60, 60);
+  ellipse(width/2 + 150, 75, 60, 60);
+  
+  if(dist(mouseX, mouseY, width/2, 175) < 30){ 
+    stroke(255);
+    if(mousePressed && protcnt == 1400){
+      protcnt = 0;
+      protection();
+    }
+  }
+  
+  ellipse(width/2 - 75, 75, 60, 60);
   
   rectMode(CORNER);
   noStroke();
@@ -766,12 +787,14 @@ void buttons(){
   rect(width/2 - 100, 15, 50, 20);
   rect(width/2 - 25, 15, 50, 20);
   rect(width/2 + 50, 15, 50, 20);
-  rect(width/2 - 25, 115, 50, 20);
+  rect(width/2 - 175, 15, 50, 20);
+  rect(width/2 + 125, 15, 50, 20);
   
   rect(width/2 - 100, 15, streamcnt / 18, 20);
   rect(width/2 - 25, 15, bburstcnt / 24, 20);
   rect(width/2 + 50, 15, lburstcnt / 24, 20);
-  rect(width/2 - 25, 115, circcnt / 32, 20);
+  rect(width/2 - 175, 15, circcnt / 32, 20);
+  rect(width/2 + 125, 15, circcnt / 28, 20);
 }
 
 void heart (){
