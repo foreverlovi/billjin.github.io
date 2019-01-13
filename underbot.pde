@@ -68,7 +68,7 @@ void setup(){
   bullets.add(new bullet(width/3*2+101, 400-101, "bot", true));
   bullets.add(new bullet(width/3*2+101, 400+101, "bot", true));
   
-  bullets.add(new bullet(width/3*2-91, 400-111, "bot", true));
+  bullets.add(new bullet(width/3*2-91, 400-111, "bot", false));
   bullets.add(new bullet(width/3*2-111, 400-91, "bot", true));
   
   bullets.add(new bullet(width/3*2+111, 400-91, "bot", true));
