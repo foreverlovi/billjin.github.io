@@ -223,6 +223,9 @@ void draw(){
       text("controls: arrow keys and mouse", width/2, 225);
       text("foreverlovi.github.io", width/2, 85);
       
+      textSize(12);
+      text("v1.1", width/5*4, 153);
+      
       rectMode(CENTER);
       
       fill(255);
