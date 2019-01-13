@@ -335,7 +335,7 @@ class bullet {
       break;
       case "cenp":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3));
-	vel.mult(3);
+	vel.mult(5);
       break;
     }
     if(sti) vel = new PVector(0, 0);
@@ -417,10 +417,10 @@ void runbullets(){
 }
 
 void spawnbullets(){
-  if(frameCount % 32 == 0){
+  if(frameCount % 26 == 0){
     bullets.add(new bullet(width/3-600+1200*noise(botshoot.x), -200+1200*noise(botshoot.y), "player", false));
   }
-  if(frameCount % 32 == 16){
+  if(frameCount % 26 == 13){
     bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
   }
   
