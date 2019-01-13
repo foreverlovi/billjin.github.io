@@ -331,7 +331,7 @@ class bullet {
       break;
       case "cenb":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3*2));
-	vel.mult(5);
+	vel.mult(6);
       break;
       case "cenp":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3));
@@ -436,7 +436,7 @@ void spawnbullets(){
   lburstcnt = constrain(lburstcnt+1, 0, 1200);
   circcnt = constrain(circcnt+1, 0, 1600);
   circp.shoot();
-  
+  shifts();
   playercircle();
   
   //aimvisual();
@@ -482,6 +482,57 @@ void aimvisual(){
   
   //aimdisplay.x += (bullets.get(bullets.size()-1).pos.x - aimdisplay.x) / 15;
   //aimdisplay.y += (bullets.get(bullets.size()-1).pos.y - aimdisplay.y) / 15;
+}
+
+void shifts(){
+  if(frameCount % 3900 == 0){
+    bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
+    bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
+    bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
+    bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
+  }
+  if(frameCount % 3900 == 20){
+    bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
+  }
+  if(frameCount % 3900 == 40){
+    bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
+    bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
+    bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
+    bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
+  }
+  if(frameCount % 3900 == 60){
+    bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
+  }
+  if(frameCount % 3900 == 80){
+    bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
+    bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
+    bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
+    bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
+  }
+  if(frameCount % 3900 == 100){
+    bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
+  }
+  if(frameCount % 3900 == 120){
+    bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
+    bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
+    bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
+    bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
+  }
+  if(frameCount % 3900 == 140){
+    bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
+    bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
+  }
 }
 
 class bulletcircle {
