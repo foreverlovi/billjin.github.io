@@ -331,11 +331,11 @@ class bullet {
       break;
       case "cenb":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3*2));
-	vel.mult(6);
+	vel.mult(5);
       break;
       case "cenp":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3));
-	vel.mult(7);
+	vel.mult(5.5);
       break;
     }
     if(sti) vel = new PVector(0, 0);
@@ -485,49 +485,49 @@ void aimvisual(){
 }
 
 void shifts(){
-  if(frameCount % 3900 == 0){
+  if(frameCount % 6100 == 0){
     bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
     bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
     bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
     bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
   }
-  if(frameCount % 3900 == 20){
+  if(frameCount % 6100 == 20){
     bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
   }
-  if(frameCount % 3900 == 40){
+  if(frameCount % 6100 == 40){
     bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
     bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
     bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
     bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
   }
-  if(frameCount % 3900 == 60){
+  if(frameCount % 6100 == 60){
     bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
   }
-  if(frameCount % 3900 == 80){
+  if(frameCount % 6100 == 80){
     bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
     bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
     bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
     bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
   }
-  if(frameCount % 3900 == 100){
+  if(frameCount % 6100 == 100){
     bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 + 113, "cenp", false));
   }
-  if(frameCount % 3900 == 120){
+  if(frameCount % 6100 == 120){
     bullets.add(new bullet(width/3, 400 - 160, "cenp", false));
     bullets.add(new bullet(width/3, 400 + 160, "cenp", false));
     bullets.add(new bullet(width/3 - 160, 400, "cenp", false));
     bullets.add(new bullet(width/3 + 160, 400, "cenp", false));
   }
-  if(frameCount % 3900 == 140){
+  if(frameCount % 6100 == 140){
     bullets.add(new bullet(width/3-113, 400 - 113, "cenp", false));
     bullets.add(new bullet(width/3-113, 400 + 113, "cenp", false));
     bullets.add(new bullet(width/3 + 113, 400 - 113, "cenp", false));
