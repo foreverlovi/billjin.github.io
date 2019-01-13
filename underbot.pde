@@ -96,6 +96,7 @@ void setup(){
 void draw(){
   switch(screen){
     case "game":
+      snowdintown.play();
       cursor();
       background(0);
       noFill();
