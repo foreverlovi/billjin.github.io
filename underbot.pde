@@ -80,6 +80,18 @@ void setup(){
   bullets.add(new bullet(width/3*2-111, 400+76, "bot", true));
   bullets.add(new bullet(width/3*2-76, 400+111, "bot", true));
   
+  bullets.add(new bullet(width/3*2-91, 400-111, "bot", true));
+  bullets.add(new bullet(width/3*2-111, 400-91, "bot", true));
+  
+  bullets.add(new bullet(width/3*2+111, 400-91, "bot", true));
+  bullets.add(new bullet(width/3*2+91, 400-111, "bot", true));
+  
+  bullets.add(new bullet(width/3*2+91, 400+111, "bot", true));
+  bullets.add(new bullet(width/3*2+111, 400+91, "bot", true));
+  
+  bullets.add(new bullet(width/3*2-111, 400+91, "bot", true));
+  bullets.add(new bullet(width/3*2-91, 400+111, "bot", true));
+  
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
   dtmmono = createFont("/data/determination.otf", 48);
   
