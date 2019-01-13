@@ -331,11 +331,11 @@ class bullet {
       break;
       case "cenb":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3*2));
-	vel.mult(3);
+	vel.mult(5);
       break;
       case "cenp":
 	vel = PVector.fromAngle(atan2(pos.y - 400, pos.x - width/3));
-	vel.mult(5);
+	vel.mult(7);
       break;
     }
     if(sti) vel = new PVector(0, 0);
