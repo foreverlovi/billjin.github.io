@@ -295,15 +295,15 @@ void botcontrol(){
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
   if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
   	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+	//botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
   	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+	//botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
-  	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+  	//botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
-  	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+  	//botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else {
 	if(nearbb2.x * nearbotb.x < 0 && nearbb2.y * nearbotb.y < 0 && distance < 34){
