@@ -9,7 +9,7 @@ int heartcolour = 0, botcol = -155;
 
 int bulcount = 0;
 boolean countbul = false;
-PVector nearbullet, nearvel, nearbotb, nearbotv, nearbb2, nearbv2;
+PVector nearbullet, nearvel, nearbotb, nearbotv, nearbb2, nearbv2, prevmouse;
 String control;
 
 PVector sizechange;
@@ -62,6 +62,7 @@ void setup(){
   nearbv2 = new PVector(0, 0);
   sizechange = new PVector(0, 1000);
   control = "bot";
+  prevmouse = new PVector(mouseX, mouseY);
   
   setupbullets();
   
@@ -108,43 +109,6 @@ void setupbullets(){
   
   bullets.add(new bullet(width/3*2-111, 400+91, "bot", true));
   bullets.add(new bullet(width/3*2-91, 400+111, "bot", true));
-  
-  bullets.add(new bullet(width/3*2-96, 400-111, "bot", true));
-  bullets.add(new bullet(width/3*2-111, 400-96, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+111, 400-96, "bot", true));
-  bullets.add(new bullet(width/3*2+96, 400-111, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+96, 400+111, "bot", true));
-  bullets.add(new bullet(width/3*2+111, 400+96, "bot", true));
-  
-  bullets.add(new bullet(width/3*2-111, 400+96, "bot", true));
-  bullets.add(new bullet(width/3*2-96, 400+111, "bot", true));
-  
-  bullets.add(new bullet(width/3*2-83, 400-107, "bot", true));
-  bullets.add(new bullet(width/3*2-107, 400-83, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+107, 400-83, "bot", true));
-  bullets.add(new bullet(width/3*2+83, 400-107, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+83, 400+107, "bot", true));
-  bullets.add(new bullet(width/3*2+107, 400+83, "bot", true));
-  
-  bullets.add(new bullet(width/3*2-107, 400+83, "bot", true));
-  bullets.add(new bullet(width/3*2-83, 400+107, "bot", true));
-  
-  
-  /*bullets.add(new bullet(width/3*2-106, 400-25, "bot", true));
-  bullets.add(new bullet(width/3*2-106, 400+25, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+106, 400-25, "bot", true));
-  bullets.add(new bullet(width/3*2+106, 400+25, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+25, 400+106, "bot", true));
-  bullets.add(new bullet(width/3*2-25, 400+106, "bot", true));
-  
-  bullets.add(new bullet(width/3*2+25, 400-106, "bot", true));
-  bullets.add(new bullet(width/3*2-25, 400-106, "bot", true));*/
 }
 
 void draw(){
@@ -208,6 +172,8 @@ void draw(){
           countbul = false;
         }
       }
+      
+      if(frameCount % 100 == 0) prevmouse = new PVector(mouseX, mouseY);
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
@@ -325,8 +291,21 @@ void mousePressed(){
 
 void botcontrol(){
   float distance = dist(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
-	float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
+  float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
+  if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+  } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+  } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+  } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+  } else {
 	if(nearbb2.x * nearbotb.x < 0 && nearbb2.y * nearbotb.y < 0 && distance < 34){
 		 if(nearbotb.x < botpos.x){
 			 botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
@@ -360,6 +339,7 @@ void botcontrol(){
 			}
 		}
 	}
+  }
 }
 
 class bullet {
