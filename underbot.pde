@@ -63,6 +63,23 @@ void setup(){
   sizechange = new PVector(0, 1000);
   control = "bot";
   
+  setupbullets();
+  
+  monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
+  dtmmono = createFont("/data/determination.otf", 48);
+  
+  snowdintown = new Audio("/data/snowdintown.mp3");
+  determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
+  metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
+  
+  metalcrusher.playbackRate = 1.05;
+  
+  snowdintown.loop = true;
+  determi.loop = true;
+  metalcrusher.loop = true;
+}
+
+void setupbullets(){
   bullets.add(new bullet(width/3*2-101, 400-101, "bot", true));
   bullets.add(new bullet(width/3*2-101, 400+101, "bot", true));
   bullets.add(new bullet(width/3*2+101, 400-101, "bot", true));
@@ -92,18 +109,30 @@ void setup(){
   bullets.add(new bullet(width/3*2-111, 400+91, "bot", true));
   bullets.add(new bullet(width/3*2-91, 400+111, "bot", true));
   
-  monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
-  dtmmono = createFont("/data/determination.otf", 48);
+  bullets.add(new bullet(width/3*2-96, 400-111, "bot", true));
+  bullets.add(new bullet(width/3*2-111, 400-96, "bot", true));
   
-  snowdintown = new Audio("/data/snowdintown.mp3");
-  determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
-  metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
+  bullets.add(new bullet(width/3*2+111, 400-96, "bot", true));
+  bullets.add(new bullet(width/3*2+96, 400-111, "bot", true));
   
-  metalcrusher.playbackRate = 1.05;
+  bullets.add(new bullet(width/3*2+96, 400+111, "bot", true));
+  bullets.add(new bullet(width/3*2+111, 400+96, "bot", true));
   
-  snowdintown.loop = true;
-  determi.loop = true;
-  metalcrusher.loop = true;
+  bullets.add(new bullet(width/3*2-111, 400+96, "bot", true));
+  bullets.add(new bullet(width/3*2-96, 400+111, "bot", true));
+  
+  
+  bullets.add(new bullet(width/3*2-106, 400-25, "bot", true));
+  bullets.add(new bullet(width/3*2-106, 400+25, "bot", true));
+  
+  bullets.add(new bullet(width/3*2+106, 400-25, "bot", true));
+  bullets.add(new bullet(width/3*2+106, 400+25, "bot", true));
+  
+  bullets.add(new bullet(width/3*2+25, 400+106, "bot", true));
+  bullets.add(new bullet(width/3*2-25, 400+106, "bot", true));
+  
+  bullets.add(new bullet(width/3*2+25, 400-106, "bot", true));
+  bullets.add(new bullet(width/3*2-25, 400-106, "bot", true));
 }
 
 void draw(){
