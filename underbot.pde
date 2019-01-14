@@ -64,7 +64,7 @@ void setup(){
   control = "bot";
   prevmouse = new PVector(mouseX, mouseY);
   
-  setupbullets();
+  //setupbullets();
   
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
   dtmmono = createFont("/data/determination.otf", 48);
