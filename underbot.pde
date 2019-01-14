@@ -121,8 +121,20 @@ void setupbullets(){
   bullets.add(new bullet(width/3*2-111, 400+96, "bot", true));
   bullets.add(new bullet(width/3*2-96, 400+111, "bot", true));
   
+  bullets.add(new bullet(width/3*2-83, 400-107, "bot", true));
+  bullets.add(new bullet(width/3*2-107, 400-83, "bot", true));
   
-  bullets.add(new bullet(width/3*2-106, 400-25, "bot", true));
+  bullets.add(new bullet(width/3*2+107, 400-83, "bot", true));
+  bullets.add(new bullet(width/3*2+83, 400-107, "bot", true));
+  
+  bullets.add(new bullet(width/3*2+83, 400+107, "bot", true));
+  bullets.add(new bullet(width/3*2+107, 400+83, "bot", true));
+  
+  bullets.add(new bullet(width/3*2-107, 400+83, "bot", true));
+  bullets.add(new bullet(width/3*2-83, 400+107, "bot", true));
+  
+  
+  /*bullets.add(new bullet(width/3*2-106, 400-25, "bot", true));
   bullets.add(new bullet(width/3*2-106, 400+25, "bot", true));
   
   bullets.add(new bullet(width/3*2+106, 400-25, "bot", true));
@@ -132,7 +144,7 @@ void setupbullets(){
   bullets.add(new bullet(width/3*2-25, 400+106, "bot", true));
   
   bullets.add(new bullet(width/3*2+25, 400-106, "bot", true));
-  bullets.add(new bullet(width/3*2-25, 400-106, "bot", true));
+  bullets.add(new bullet(width/3*2-25, 400-106, "bot", true));*/
 }
 
 void draw(){
