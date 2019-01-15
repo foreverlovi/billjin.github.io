@@ -38,6 +38,7 @@ void setup(){
   btns.add(new buttons((window.innerWidth-30)/7*6, 300, "https://imgur.com/p239OFB.png", "https://www.youtube.com/channel/UCdu1_2dPytXh_WvIbO6oRpA", 255, "YouTube Channel"));
   btns.add(new buttons((window.innerWidth-30)/7, 650, "https://imgur.com/O4YvEVp.png", "https://www.soundcloud.com/coldrui", 255, "SoundCloud Profile"));
   btns.add(new buttons((window.innerWidth-30)/7, 1000, "https://imgur.com/USD4r3D.png", "https://foreverlovi.github.io/c-olympics-ep2", 255, "CO Episode 2 Online"));
+  btns.add(new buttons((window.innerWidth-30)/2, 1000, "https://imgur.com/4udxEK9.png", "https://foreverlovi.github.io/underbot", 255, "underbot: play against an AI"));
 }
 void draw(){
   textAlign(LEFT);
