@@ -173,7 +173,7 @@ void draw(){
         }
       }
       
-      if(frameCount % 50 == 0) prevmouse = new PVector(mouseX, mouseY);
+      if(frameCount % 35 == 0) prevmouse = new PVector(mouseX, mouseY);
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
