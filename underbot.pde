@@ -64,7 +64,7 @@ void setup(){
   control = "bot";
   prevmouse = new PVector(mouseX, mouseY);
   
-  //setupbullets();
+  setupbullets();
   
   monsterfriend = createFont("/data/MonsterFriendFore.otf", 48);
   dtmmono = createFont("/data/determination.otf", 48);
@@ -86,7 +86,7 @@ void setupbullets(){
   bullets.add(new bullet(width/3*2+101, 400-101, "bot", true));
   bullets.add(new bullet(width/3*2+101, 400+101, "bot", true));
   
-  bullets.add(new bullet(width/3*2-76, 400-111, "bot", true));
+  /*bullets.add(new bullet(width/3*2-76, 400-111, "bot", true));
   bullets.add(new bullet(width/3*2-111, 400-76, "bot", true));
   
   bullets.add(new bullet(width/3*2+111, 400-76, "bot", true));
@@ -108,7 +108,7 @@ void setupbullets(){
   bullets.add(new bullet(width/3*2+111, 400+91, "bot", true));
   
   bullets.add(new bullet(width/3*2-111, 400+91, "bot", true));
-  bullets.add(new bullet(width/3*2-91, 400+111, "bot", true));
+  bullets.add(new bullet(width/3*2-91, 400+111, "bot", true));*/
 }
 
 void draw(){
@@ -293,16 +293,16 @@ void botcontrol(){
   float distance = dist(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
   float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
-  if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
   	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	//botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
   	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	//botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
   	//botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 40 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
   	//botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else {
