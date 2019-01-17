@@ -86,7 +86,7 @@ void setupbullets(){
   bullets.add(new bullet(width/3*2+101, 400-101, "bot", true));
   bullets.add(new bullet(width/3*2+101, 400+101, "bot", true));*/
   
-  for(int i = -105; i <= 105; i += 21){
+  /*for(int i = -105; i <= 105; i += 21){
     bullets.add(new bullet(width/3*2-i, 400-105, "bot", true));
   }
   for(int i = -105; i <= 105; i += 21){
@@ -97,7 +97,7 @@ void setupbullets(){
   }
   for(int i = -105; i <= 105; i += 21){
     bullets.add(new bullet(width/3*2+105, 400-1, "bot", true));
-  }
+  }*/
   
   /*bullets.add(new bullet(width/3*2-76, 400-111, "bot", true));
   bullets.add(new bullet(width/3*2-111, 400-76, "bot", true));
@@ -306,53 +306,35 @@ void botcontrol(){
   float distance = dist(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
   float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
-  if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 10){
-  	botcol = 100;
-  	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	//botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 10){
-        botcol = 100;
-  	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	//botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 10){
- 	botcol = 100;
-  	//botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 10){
-  	botcol = 100;
-  	//botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+  if(nearbb2.x * nearbotb.x < 0 && nearbb2.y * nearbotb.y < 0 && distance < 34){
+	 if(nearbotb.x < botpos.x){
+		 botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+		 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+		 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+	 }
+	 if(nearbotb.x > botpos.x){
+		 botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+		 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+		 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+	 }
   } else {
-	if(nearbb2.x * nearbotb.x < 0 && nearbb2.y * nearbotb.y < 0 && distance < 34){
-		 if(nearbotb.x < botpos.x){
-			 botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-			 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-		 }
-		if(nearbotb.x > botpos.x){
-			 botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-			 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-		 }
-	} else {
-		if(distance < 50){
-			if(veldiff > 1.05){
-				if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-				if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+	 if(distance < 50){
+		if(veldiff > 1.05){
+			if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+			if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+			if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+			if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+		} else {
+			if(distance < 19){
+				if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+				if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 				if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 				if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 			} else {
-				if(distance < 19){
-					if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-					if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-				} else {
-					if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-					if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-				}
+				if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+				if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
+				if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
+				if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 			}
 		}
 	}
@@ -392,7 +374,6 @@ class bullet {
 	vel.mult(5.5);
       break;
     }
-    if(sti) vel = new PVector(0, 0);
   }
   void run(){
     noStroke();
@@ -430,14 +411,14 @@ void runbullets(){
     }
     
     if(dist(b.pos.x, b.pos.y, botpos.x, botpos.y) < 10){
-      bhp -= 1;
+      if(!b.sti) bhp -= 1;
       bhp = constrain(bhp, 0, 126);
-      bullets.remove(i);
-      botcol = -155;
+      if(!b.sti) bullets.remove(i);
+      if(!b.sti)botcol = -155;
     }
     if(dist(b.pos.x, b.pos.y, botpos.x, botpos.y) < nearnessb){
       nearnessb = dist(b.pos.x, b.pos.y, botpos.x, botpos.y);
-			nearindb2 = nearindex;
+      nearindb2 = nearindex;
       nearindb = i;
     }
     
@@ -476,6 +457,12 @@ void spawnbullets(){
   }
   if(frameCount % 26 == 13){
     bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
+  }
+  if(frameCount % 40 == 0){
+    bullets.add(new bullet(width/3*2-105, 400+105, "bot", true));
+    bullets.add(new bullet(width/3*2+105, 400+105, "bot", true));
+    bullets.add(new bullet(width/3*2-105, 400-105, "bot", true));
+    bullets.add(new bullet(width/3*2+105, 400-105, "bot", true));
   }
   
   streambullets("bottom", 3200, 200, 0, "player");
