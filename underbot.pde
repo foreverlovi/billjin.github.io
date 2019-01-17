@@ -49,7 +49,6 @@ bulletcircle circp = new bulletcircle("cenb", 1200, 8);
 int circleCount = 0;
 
 healbullet healer = new healbullet(5000, 5000, "bot");
-healbullet healer2 = new healbullet(-5000, 5000, "player");
 
 void setup(){
   size(800, 600);
@@ -539,7 +538,6 @@ void spawnbullets(){
   if(dist(healer.x, healer.y, player.x, player.y) < 35 && frameCount % 7 == 0) hp ++;
   
   healer.run();
-  healer2.run();
   
   streambullets("bottom", 3200, 200, 0, "player");
   streambullets("top", 3200, 1000, 0, "player");
