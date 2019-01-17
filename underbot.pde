@@ -38,7 +38,7 @@ PVector botshoot = new PVector(0, 1000);
 
 int countdown = 0;
 
-Audio snowdintown, determi, metalcrusher;
+Audio snowdintown, determi, metalcrusher, hipshop;
 
 boolean mc = false;
 
@@ -72,12 +72,14 @@ void setup(){
   snowdintown = new Audio("/data/snowdintown.mp3");
   determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
   metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
+  hipshop = new Audio("/data/hipshop.mp3");
   
   metalcrusher.playbackRate = 1.05;
   
   snowdintown.loop = true;
   determi.loop = true;
   metalcrusher.loop = true;
+  hipshop.loop = true;
 }
 
 void setupbullets(){
@@ -458,11 +460,17 @@ void spawnbullets(){
   if(frameCount % 26 == 13){
     bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
   }
-  if(frameCount % 90 == 0){
-    bullets.add(new bullet(width/3*2-105, 400+105, "bot", true));
-    bullets.add(new bullet(width/3*2+105, 400+105, "bot", true));
-    bullets.add(new bullet(width/3*2-105, 400-105, "bot", true));
-    bullets.add(new bullet(width/3*2+105, 400-105, "bot", true));
+  if(frameCount % 80 == 0){
+    bullets.add(new bullet(width/3*2-105+random(-3, 3), 400+105+random(-3, 3), "bot", true));
+    bullets.add(new bullet(width/3*2+105+random(-3, 3), 400+105+random(-3, 3), "bot", true));
+    bullets.add(new bullet(width/3*2-105+random(-3, 3), 400-105+random(-3, 3), "bot", true));
+    bullets.add(new bullet(width/3*2+105+random(-3, 3), 400-105+random(-3, 3), "bot", true));
+  }
+  if(frameCount % 80 == 20){
+    bullets.add(new bullet(width/3*2-105+random(-7, 7), 400+105+random(-7, 7), "bot", true));
+    bullets.add(new bullet(width/3*2+105+random(-7, 7), 400+105+random(-7, 7), "bot", true));
+    bullets.add(new bullet(width/3*2-105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
+    bullets.add(new bullet(width/3*2+105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
   }
   
   streambullets("bottom", 3200, 200, 0, "player");
