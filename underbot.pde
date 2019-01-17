@@ -293,16 +293,20 @@ void botcontrol(){
   float distance = dist(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
   float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
-  if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  if(dist(width/3*2+100, 400-100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  	botcol = 100;
   	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	//botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  } else if(dist(width/3*2-100, 400+100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+        botcol = 100;
   	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	//botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  } else if(dist(width/3*2+100, 400+100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+ 	botcol = 100;
   	//botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 50 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  } else if(dist(width/3*2-100, 400-100, botpos.x, botpos.y) < 35 && dist(mouseX, mouseY, prevmouse.x, prevmouse.y) < 20){
+  	botcol = 100;
   	//botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else {
