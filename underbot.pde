@@ -413,7 +413,7 @@ void runbullets(){
     if(dist(b.pos.x, b.pos.y, botpos.x, botpos.y) < 10){
       if(!b.sti) bhp -= 1;
       bhp = constrain(bhp, 0, 126);
-      if(!b.sti) bullets.remove(i);
+      bullets.remove(i);
       if(!b.sti)botcol = -155;
     }
     if(dist(b.pos.x, b.pos.y, botpos.x, botpos.y) < nearnessb){
@@ -458,7 +458,7 @@ void spawnbullets(){
   if(frameCount % 26 == 13){
     bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
   }
-  if(frameCount % 40 == 0){
+  if(frameCount % 90 == 0){
     bullets.add(new bullet(width/3*2-105, 400+105, "bot", true));
     bullets.add(new bullet(width/3*2+105, 400+105, "bot", true));
     bullets.add(new bullet(width/3*2-105, 400-105, "bot", true));
