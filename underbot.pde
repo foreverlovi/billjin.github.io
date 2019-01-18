@@ -50,6 +50,8 @@ int circleCount = 0;
 
 healbullet healer;
 
+Audio attackhit, damage, healing, bothealing;
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -75,6 +77,10 @@ void setup(){
   determi = new Audio("/data/Undertale OST 011 - Determination.mp3");
   metalcrusher = new Audio("/data/Undertale OST 050 - Metal Crusher.mp3");
   hipshop = new Audio("/data/hipshop.mp3");
+  attackhit = new Audio("/data/attackhit.mp3");
+  damage = new Audio("/data/damage.mp3");
+  healing = new Audio("/data/heal.mp3");
+  bothealing = new Audio("/data/botheal.mp3");
   
   metalcrusher.playbackRate = 1.05;
   
@@ -417,6 +423,8 @@ void runbullets(){
     bullet b = bullets.get(i);
     b.run();
     if(dist(b.pos.x, b.pos.y, player.x, player.y) < 10){
+      damage.load();
+      damage.play();
       hp -= 1;
       hp = constrain(hp, 0, 84);
       bullets.remove(i);
@@ -428,7 +436,11 @@ void runbullets(){
     }
     
     if(dist(b.pos.x, b.pos.y, botpos.x, botpos.y) < 10){
-      if(!b.sti) bhp -= 1;
+      if(!b.sti){
+        attackhit.load();
+        attackhit.play();
+      	bhp -= 1;
+      }
       bhp = constrain(bhp, 0, 126);
       bullets.remove(i);
       if(!b.sti)botcol = -155;
@@ -495,8 +507,16 @@ void spawnbullets(){
   if(frameCount % 2000 == 0){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
-  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 13 == 0) bhp = constrain(bhp+1, 0, 126);
-  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 15 == 0) hp = constrain(hp+1, 0, 84);
+  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 14 == 0){ 
+    bothealing.load();
+    bothealing.play();
+    bhp = constrain(bhp+1, 0, 126);
+  }
+  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 15 == 0){ 
+    healing.load();
+    healing.play();
+    hp = constrain(hp+1, 0, 84);
+  }
   
   healer.run();
   
