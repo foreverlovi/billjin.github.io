@@ -313,11 +313,11 @@ void botcontrol(){
   float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
   float healdist = dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y);
-  if(healdist < 60 && healer.pos.x < botpos.x && distance > 23){
+  if(healdist < 65 && healer.pos.x < botpos.x && distance > 14){
   	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(healdist < 60 && healer.pos.x > botpos.x && distance > 23){
+  } else if(healdist < 65 && healer.pos.x > botpos.x && distance > 14){
   	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
@@ -495,8 +495,8 @@ void spawnbullets(){
   if(frameCount % 2000 == 0){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
-  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 5 == 0) bhp = constrain(bhp+1, 0, 126);
-  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 13 == 0) hp = constrain(hp+1, 0, 84);
+  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 7 == 0) bhp = constrain(bhp+1, 0, 126);
+  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 10 == 0) hp = constrain(hp+1, 0, 84);
   
   healer.run();
   
