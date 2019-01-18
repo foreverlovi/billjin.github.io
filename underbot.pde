@@ -512,12 +512,12 @@ void spawnbullets(){
   if(frameCount % 2000 == 0){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
-  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 12 == 0){ 
+  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 11 == 0){ 
     bothealing.load();
     bothealing.play();
     bhp = constrain(bhp+1, 0, 126);
   }
-  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 15 == 0){ 
+  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 13 == 0){ 
     healing.load();
     healing.play();
     hp = constrain(hp+1, 0, 84);
