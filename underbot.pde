@@ -489,10 +489,10 @@ void spawnbullets(){
     bullets.add(new bullet(width/3*2+105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
   }
   
-  if(frameCount % 2000 == 0){
+  if(frameCount % 2000 == 1000){
     healer = new healbullet(random(width/2, width), random(200, 600), "bot");
   }
-  if(frameCount % 2000 == 1000){
+  if(frameCount % 2000 == 0){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
   if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 5 == 0) bhp = constrain(bhp+1, 0, 126);
