@@ -392,6 +392,46 @@ class bullet {
   }
 }
 
+class healblt {
+  PVector pos;
+  PVector vel = new PVector(0, 0);
+  String dir = "";
+  int fc = frameCount;
+  bullet(float x, float y, String directed){
+    dir = directed;
+    pos = new PVector(x, y);
+    setvelocity();
+  }
+  void setvelocity(){
+    switch(dir){
+      case "player":
+        vel = new PVector(pos.x - player.x, pos.y - player.y);
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 2);
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 2);
+      break;
+      case "bot":
+        vel = new PVector(pos.x - botpos.x, pos.y - botpos.y);
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 2.3);
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 2.3);
+      break;
+    }
+  }
+  void run(){
+    noStroke();
+    fill(0, 255, 0);
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rotate((frameCount % 365) / 4);
+    ellipse(0, 0, 10, 6);
+    fill(0, 255, 0, 95);
+    ellipse(0, 0, 35, 35);
+    popMatrix();
+    
+    if(frameCount - fc > 45) pos.sub(vel);
+    if(frameCount - fc == 30) setvelocity();
+  }
+}
+
 void runbullets(){
   float nearness = 999;
   int nearindex = 0;
