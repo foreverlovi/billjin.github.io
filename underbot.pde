@@ -82,6 +82,11 @@ void setup(){
   healing = new Audio("/data/heal.mp3");
   bothealing = new Audio("/data/botheal.mp3");
   
+  attackhit.volume = 0.5;
+  damage.volume = 0.5;
+  healing.volume = 0.5;
+  bothealing.volume = 0.5;
+  
   metalcrusher.playbackRate = 1.05;
   
   snowdintown.loop = true;
