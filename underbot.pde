@@ -496,7 +496,7 @@ void spawnbullets(){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
   if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 5 == 0) bhp = constrain(bhp+1, 0, 126);
-  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 7 == 0) hp = constrain(hp+1, 0, 84);
+  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 13 == 0) hp = constrain(hp+1, 0, 84);
   
   healer.run();
   
