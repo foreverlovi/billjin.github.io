@@ -489,14 +489,14 @@ void spawnbullets(){
     bullets.add(new bullet(width/3*2+105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
   }
   
-  if(frameCount % 1600 == 0){
+  if(frameCount % 2000 == 0){
     healer = new healbullet(random(width/2, width), random(200, 600), "bot");
   }
-  if(frameCount % 1600 == 800){
+  if(frameCount % 2000 == 1000){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
   if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 5 == 0) bhp = constrain(bhp+1, 0, 126);
-  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 7 == 0) hp = constrain(hp+1, 0, 126);
+  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 7 == 0) hp = constrain(hp+1, 0, 84);
   
   healer.run();
   
@@ -756,13 +756,13 @@ class healbullet {
     switch(dir){
       case "player":
         vel = new PVector(pos.x - player.x, pos.y - player.y);
-        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y));
-        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x));
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 0.8);
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 0.8);
       break;
       case "bot":
         vel = new PVector(pos.x - botpos.x, pos.y - botpos.y);
-        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 1.3);
-        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 1.3);
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y));
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x));
       break;
     }
   }
