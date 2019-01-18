@@ -495,8 +495,8 @@ void spawnbullets(){
   if(frameCount % 1600 == 800){
     healer = new healbullet(random(0, width/2), random(200, 600), "player");
   }
-  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 35 && frameCount % 5 == 0) bhp ++;
-  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 35 && frameCount % 7 == 0) hp ++;
+  if(dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y) < 40 && frameCount % 5 == 0) bhp = constrain(bhp+1, 0, 126);
+  if(dist(healer.pos.x, healer.pos.y, player.x, player.y) < 40 && frameCount % 7 == 0) hp = constrain(hp+1, 0, 126);
   
   healer.run();
   
@@ -756,13 +756,13 @@ class healbullet {
     switch(dir){
       case "player":
         vel = new PVector(pos.x - player.x, pos.y - player.y);
-        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 2);
-        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 2);
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y));
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x));
       break;
       case "bot":
         vel = new PVector(pos.x - botpos.x, pos.y - botpos.y);
-        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 2.3);
-        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 2.3);
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 1.3);
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 1.3);
       break;
     }
   }
@@ -773,7 +773,7 @@ class healbullet {
     translate(pos.x, pos.y);
     rotate((frameCount % 365) / 20);
     ellipse(0, 0, 10, 6);
-    fill(0, 255, 0, 35);
+    fill(0, 255, 0, 25);
     ellipse(0, 0, 70, 70);
     popMatrix();
     
