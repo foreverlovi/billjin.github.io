@@ -460,13 +460,13 @@ void spawnbullets(){
   if(frameCount % 26 == 13){
     bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
   }
-  if(frameCount % 80 == 0){
+  if(frameCount % 120 == 0){
     bullets.add(new bullet(width/3*2-105+random(-3, 3), 400+105+random(-3, 3), "bot", true));
     bullets.add(new bullet(width/3*2+105+random(-3, 3), 400+105+random(-3, 3), "bot", true));
     bullets.add(new bullet(width/3*2-105+random(-3, 3), 400-105+random(-3, 3), "bot", true));
     bullets.add(new bullet(width/3*2+105+random(-3, 3), 400-105+random(-3, 3), "bot", true));
   }
-  if(frameCount % 80 == 20){
+  if(frameCount % 120 == 50){
     bullets.add(new bullet(width/3*2-105+random(-7, 7), 400+105+random(-7, 7), "bot", true));
     bullets.add(new bullet(width/3*2+105+random(-7, 7), 400+105+random(-7, 7), "bot", true));
     bullets.add(new bullet(width/3*2-105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
