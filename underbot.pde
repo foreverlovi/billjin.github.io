@@ -313,11 +313,11 @@ void botcontrol(){
   float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
   float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
   float healdist = dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y);
-  if(healdist < 65 && healer.pos.x < botpos.x && distance > 14){
+  if(healdist < 65 && healer.pos.x < botpos.x && distance > 17 && bhp < 120){
   	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(healdist < 65 && healer.pos.x > botpos.x && distance > 14){
+  } else if(healdist < 65 && healer.pos.x > botpos.x && distance > 17 && bhp < 120){
   	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
@@ -756,8 +756,8 @@ class healbullet {
     switch(dir){
       case "player":
         vel = new PVector(pos.x - player.x, pos.y - player.y);
-        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y) * 0.8);
-        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x) * 0.8);
+        if(abs(vel.y) > abs(vel.x)) vel.div(abs(vel.y));
+        if(abs(vel.x) > abs(vel.y)) vel.div(abs(vel.x));
       break;
       case "bot":
         vel = new PVector(pos.x - botpos.x, pos.y - botpos.y);
