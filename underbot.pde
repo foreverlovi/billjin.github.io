@@ -527,7 +527,7 @@ void spawnbullets(){
   
   streambullets("bottom", 3200, 200, 0, "player");
   streambullets("top", 3200, 1000, 0, "player");
-  streambullets("top", 9600, 200, 0, "player");
+  streambullets("top", 9600, 200, 0, "cenp");
   
   if(frameCount % 3200 == 2300) bigburst(0, "player");
   if(frameCount % 3200 == 2360) littleburst(0, "player");
@@ -538,7 +538,7 @@ void spawnbullets(){
   protcnt = constrain(protcnt+1, 0, 1400);
   circcnt = constrain(circcnt+1, 0, 1600);
   circp.shoot();
-  shifts();
+  //shifts();
   playercircle();
   
   //aimvisual();
