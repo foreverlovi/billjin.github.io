@@ -50,6 +50,8 @@ int circleCount = 0;
 
 healbullet healer;
 
+int fpsvariable = 60;
+
 Audio attackhit, damage, healing, bothealing;
 
 void setup(){
@@ -144,6 +146,7 @@ void setupbullets(){
 void draw(){
   switch(screen){
     case "game":
+      if(frameCount % 30 == 0) frameRate(fpsvariable);
       cursor();
       background(0);
       noFill();
@@ -316,6 +319,9 @@ void mousePressed(){
     } else {
       tooclose = 1055;
     }
+  }
+  if(mouseButton == RIGHT){
+    fpsvariable = 5;
   }
 }
 
