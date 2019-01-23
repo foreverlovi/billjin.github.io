@@ -146,7 +146,7 @@ void setupbullets(){
 void draw(){
   switch(screen){
     case "game":
-      if(frameCount % 30 == 0) frameRate(fpsvariable);
+      if(frameCount % 15 == 0) frameRate(fpsvariable);
       cursor();
       background(0);
       noFill();
@@ -206,10 +206,16 @@ void draw(){
         }
       }
       
+      fpsvariable += (60 - fpsvariable) / 20;
+      
       if(frameCount % 35 == 0) prevmouse = new PVector(mouseX, mouseY);
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
+      
+      noStroke();
+      fill(255, 255 - (fpsvariable * 4.25));
+      rect(width/2, height/2, width, height);
     break;
     case "botwins":
       metalcrusher.pause();
@@ -321,7 +327,7 @@ void mousePressed(){
     }
   }
   if(mouseButton == RIGHT){
-    fpsvariable = 5;
+    fpsvariable = 30;
   }
 }
 
