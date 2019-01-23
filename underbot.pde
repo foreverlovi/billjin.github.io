@@ -208,7 +208,7 @@ void draw(){
         }
       }
       
-      fpscharge = constrain(fpscharge, 0, 2200);
+      fpscharge = constrain(fpscharge + 1, 0, 2200);
       
       fpsvariable += (60 - fpsvariable) / 75;
       
