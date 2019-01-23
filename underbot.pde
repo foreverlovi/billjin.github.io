@@ -50,11 +50,7 @@ int circleCount = 0;
 
 healbullet healer;
 
-int fpsvariable = 60;
-
 Audio attackhit, damage, healing, bothealing;
-
-int fpscharge = 0;
 
 void setup(){
   size(800, 600);
@@ -148,7 +144,6 @@ void setupbullets(){
 void draw(){
   switch(screen){
     case "game":
-      if(frameCount % 15 == 0) frameRate(fpsvariable);
       cursor();
       background(0);
       noFill();
@@ -208,26 +203,10 @@ void draw(){
         }
       }
       
-      fpscharge = constrain(fpscharge + 1, 0, 2200);
-      
-      fpsvariable += (60 - fpsvariable) / 75;
-      
       if(frameCount % 35 == 0) prevmouse = new PVector(mouseX, mouseY);
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
-      
-      noStroke();
-      fill(255, 255 - (fpsvariable * 4.25));
-      rect(0, 0, width, height);
-      
-      if(fpscharge == 2200){
-        textAlign(LEFT);
-      	textFont(dtmmono);
-	fill(255);
-	textSize(16);
-	text("right click to slow time", 20, height - 40);
-      }
     break;
     case "botwins":
       metalcrusher.pause();
@@ -337,9 +316,6 @@ void mousePressed(){
     } else {
       tooclose = 1055;
     }
-  }
-  if(mouseButton == RIGHT && fpscharge == 2200){
-    fpsvariable = 25;
   }
 }
 
