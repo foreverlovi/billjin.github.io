@@ -333,7 +333,7 @@ void botcontrol(){
 	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
 	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
   } else {
-	  if(nearbv2.x * nearbotv.x < 0 && nearbv2.y * nearbotv.y < 0 && distance < 17){
+	  if(nearbv2.x * nearbotv.x < 0 && nearbv2.y * nearbotv.y < 0 && distance < 24){
 		 if(nearbotb.x < botpos.x){
 			 botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
 			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
