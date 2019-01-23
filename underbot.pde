@@ -54,6 +54,8 @@ int fpsvariable = 60;
 
 Audio attackhit, damage, healing, bothealing;
 
+int fpscharge = 0;
+
 void setup(){
   size(800, 600);
   boxsize = new PVector(200, 200);
@@ -206,7 +208,9 @@ void draw(){
         }
       }
       
-      fpsvariable += (60 - fpsvariable) / 20;
+      fpscharge = constrain(fpscharge, 0, 2200);
+      
+      fpsvariable += (60 - fpsvariable) / 75;
       
       if(frameCount % 35 == 0) prevmouse = new PVector(mouseX, mouseY);
       
@@ -215,7 +219,15 @@ void draw(){
       
       noStroke();
       fill(255, 255 - (fpsvariable * 4.25));
-      rect(width/2, height/2, width, height);
+      rect(0, 0, width, height);
+      
+      if(fpscharge == 2200){
+        textAlign(LEFT);
+      	textFont(dtmmono);
+	fill(255);
+	textSize(16);
+	text("right click to slow time", 20, height - 40);
+      }
     break;
     case "botwins":
       metalcrusher.pause();
@@ -326,8 +338,8 @@ void mousePressed(){
       tooclose = 1055;
     }
   }
-  if(mouseButton == RIGHT){
-    fpsvariable = 30;
+  if(mouseButton == RIGHT && fpscharge == 2200){
+    fpsvariable = 25;
   }
 }
 
