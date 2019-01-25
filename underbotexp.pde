@@ -373,56 +373,6 @@ void botcontrol(){
   }
 }
 
-void botcontrol(){
-  float distance = dist(nearbotb.x, nearbotb.y, botpos.x, botpos.y);
-  float dist2 = dist(nearbb2.x, nearbb2.y, botpos.x, botpos.y);
-  float veldiff = abs(abs(nearbotv.x) - abs(nearbotv.y));
-  float healdist = dist(healer.pos.x, healer.pos.y, botpos.x, botpos.y);
-  if(healdist < 65 && healer.pos.x < botpos.x && distance > 17 && bhp < 120){
-  	botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else if(healdist < 65 && healer.pos.x > botpos.x && distance > 17 && bhp < 120){
-  	botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-	if(healer.pos.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-	if(healer.pos.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-  } else {
-	  if(nearbv2.x * nearbotv.x < 0 && nearbv2.y * nearbotv.y < 0 && distance < 24){
-		 if(nearbotb.x < botpos.x){
-			 botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-			 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-		 }
-		 if(nearbotb.x > botpos.x){
-			 botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-			 if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-			 if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-		 }
-	  } else {
-		 if(distance < 50){
-			if(veldiff > 1.05){
-				if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-				if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-				if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-				if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-			} else {
-				if(distance < 16){
-					if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-					if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-				} else {
-					if(nearbotb.x > botpos.x) botpos.x = constrain(botpos.x - 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.x < botpos.x) botpos.x = constrain(botpos.x + 2, width/3*2 - boxsize.x / 2 + bwid + 6, width/3*2 + boxsize.x / 2 - bwid - 5);
-					if(nearbotb.y > botpos.y) botpos.y = constrain(botpos.y + 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-					if(nearbotb.y < botpos.y) botpos.y = constrain(botpos.y - 2, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
-				}
-			}
-		}
-	  }
-    }
-}
-
 class bullet {
   PVector pos;
   PVector vel = new PVector(0, 0);
@@ -547,7 +497,7 @@ void spawnbullets(){
   if(frameCount % 26 == 13){
     bullets.add(new bullet(width/3-150+random(300), 400-150+random(300), "player", false));
   }
-  /*if(frameCount % 80 == 0){
+  if(frameCount % 80 == 0){
     bullets.add(new bullet(width/3*2-105+random(-3, 3), 400+105+random(-3, 3), "bot", true));
     bullets.add(new bullet(width/3*2+105+random(-3, 3), 400+105+random(-3, 3), "bot", true));
     bullets.add(new bullet(width/3*2-105+random(-3, 3), 400-105+random(-3, 3), "bot", true));
@@ -558,7 +508,7 @@ void spawnbullets(){
     bullets.add(new bullet(width/3*2+105+random(-7, 7), 400+105+random(-7, 7), "bot", true));
     bullets.add(new bullet(width/3*2-105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
     bullets.add(new bullet(width/3*2+105+random(-7, 7), 400-105+random(-7, 7), "bot", true));
-  }*/
+  }
   
   if(frameCount % 2000 == 1000){
     healer = new healbullet(random(width/2, width), random(200, 600), "bot");
