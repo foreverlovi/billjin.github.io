@@ -170,10 +170,10 @@ void draw(){
       fill(255, 255, 0);
       rect(width / 3 * 2 - 63, 535, bhp, 30);
       
-      if(keys[UP]) player.y -= 2;
-      if(keys[LEFT]) player.x -= 2;
-      if(keys[DOWN]) player.y += 2;
-      if(keys[RIGHT]) player.x += 2;
+      if(keys[UP] || keys[87]) player.y -= 2;
+      if(keys[LEFT] || keys[65]) player.x -= 2;
+      if(keys[DOWN] || keys[83]) player.y += 2;
+      if(keys[RIGHT] || keys[68]) player.x += 2;
       
       player.x = constrain(player.x, width/3 - boxsize.x / 2 + bwid + 6, width/3 + boxsize.x / 2 - bwid - 5);
       player.y = constrain(player.y, 400 - boxsize.y/2 + bwid + 6, 400 + boxsize.y/2 - bwid - 5);
