@@ -349,8 +349,8 @@ void botcontrol(){
       bullet b = bullets.get(i);
       buls.add(new fakebullet(b.pos.x + b.vel.x * 1.6, b.pos.y + b.vel.y * 1.6));
     }
-    for(int x = -2; x < 3; x += 1){
-      for(int y = -2; y < 3; y += 1){
+    for(float x = -2; x < 3; x += 0.5){
+      for(float y = -2; y < 3; y += 0.5){
         if(checkin(botpos.x + x, botpos.y + y)){
           float total = 0;
           for(int i = 0; i < buls.size() - 1; i ++){
