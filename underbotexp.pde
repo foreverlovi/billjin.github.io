@@ -208,7 +208,7 @@ void draw(){
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
       
-      if(frameCount % 20 == 0){
+      if(frameCount % 31 == 0){
 	      if(dist(player.x+width/3, player.y, botpos.x, botpos.y) > 35){
 		    bullets.add(new bullet(player.x+width/3, player.y, "bot", false));
 		  } else {
