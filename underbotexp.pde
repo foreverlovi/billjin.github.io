@@ -208,7 +208,7 @@ void draw(){
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
       
-      if(frameCount == 20){
+      if(frameCount % 20 == 0){
 	      if(dist(player.x+width/3, player.y, botpos.x, botpos.y) > 35){
 		    bullets.add(new bullet(player.x+width/3, player.y, "bot", false));
 		  } else {
@@ -542,7 +542,7 @@ void spawnbullets(){
   //shifts();
   playercircle();
   
-  //aimvisual();
+  aimvisual();
   botshoot.x += 0.003;
   botshoot.y += 0.003;
 }
@@ -590,11 +590,7 @@ void aimvisual(){
   noFill();
   stroke(255, 75);
   strokeWeight(2);
-  ellipse(width/3-600+1200*noise(botshoot.x), -200+1040*noise(botshoot.y), 15, 15);
-  //ellipse(aimdisplay.x, aimdisplay.y, 20, 20);
-  
-  //aimdisplay.x += (bullets.get(bullets.size()-1).pos.x - aimdisplay.x) / 15;
-  //aimdisplay.y += (bullets.get(bullets.size()-1).pos.y - aimdisplay.y) / 15;
+  ellipse(player.x+width/3, player.y, 15, 15);
 }
 
 void shifts(){
