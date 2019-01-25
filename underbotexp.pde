@@ -207,6 +207,14 @@ void draw(){
       
       if(hp == 0 && bhp > 0) screen = "botwins";
       if(bhp == 0 && hp > 0) screen = "playerwins";
+      
+      if(frameCount == 20){
+	      if(dist(player.x+width/3, player.y, botpos.x, botpos.y) > 35){
+		    bullets.add(new bullet(player.x+width/3, player.y, "bot", false));
+		  } else {
+		   tooclose = 1055;
+	      }
+      }
     break;
     case "botwins":
       metalcrusher.pause();
@@ -308,17 +316,6 @@ void keyReleased(){
   keys[keyCode] = false;
 }
 
-void mousePressed(){
-  if(!countbul){
-    if(dist(mouseX, mouseY, botpos.x, botpos.y) > 35 && dist(mouseX, mouseY, player.x, player.y) > 35){
-      bullets.add(new bullet(mouseX, mouseY, "bot", false));
-      countbul = true;
-    } else {
-      tooclose = 1055;
-    }
-  }
-}
-
 void checkin(int x, int y){
 	if(x > width/3*2 - boxsize.x / 2 + bwid + 6 && x < width/3*2 + boxsize.x / 2 - bwid - 5 && y > 400 - boxsize.y/2 + bwid + 6 && y < 400 + boxsize.y/2 - bwid - 5){
 		return true;
@@ -350,15 +347,15 @@ void botcontrol(){
     ArrayList<fakebullet> buls = new ArrayList<fakebullet>();
     for(int i = 0; i < bullets.size() - 1; i ++){
       bullet b = bullets.get(i);
-      buls.add(new fakebullet(b.pos.x + b.vel.x * 2, b.pos.y + b.vel.y * 2));
+      buls.add(new fakebullet(b.pos.x + b.vel.x * 1.6, b.pos.y + b.vel.y * 1.6));
     }
-    for(int x = -2; x < 3; x += 2){
-      for(int y = -2; y < 3; y += 2){
+    for(int x = -2; x < 3; x += 1){
+      for(int y = -2; y < 3; y += 1){
         if(checkin(botpos.x + x, botpos.y + y)){
           float total = 0;
           for(int i = 0; i < buls.size() - 1; i ++){
             if(dist(buls.get(i).pos.x, buls.get(i).pos.y, botpos.x + x, botpos.y + y) < 65) total += dist(buls.get(i).pos.x, buls.get(i).pos.y, botpos.x + x, botpos.y + y);
-            if(dist(buls.get(i).pos.x, buls.get(i).pos.y, botpos.x + x, botpos.y + y) < 20) total = 0;
+            if(dist(buls.get(i).pos.x, buls.get(i).pos.y, botpos.x + x, botpos.y + y) < 17) total = 0;
           }
           if(total > bestdistance){
             bestdistance = total;
