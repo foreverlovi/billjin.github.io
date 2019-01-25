@@ -347,7 +347,7 @@ void botcontrol(){
     ArrayList<fakebullet> buls = new ArrayList<fakebullet>();
     for(int i = 0; i < bullets.size() - 1; i ++){
       bullet b = bullets.get(i);
-      buls.add(new fakebullet(b.pos.x + b.vel.x * 1.6, b.pos.y + b.vel.y * 1.6));
+      buls.add(new fakebullet(b.pos.x + b.vel.x * 1.35, b.pos.y + b.vel.y * 1.35));
     }
     for(float x = -2; x < 3; x += 0.5){
       for(float y = -2; y < 3; y += 0.5){
